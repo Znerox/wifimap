@@ -1,0 +1,167 @@
+<?php
+
+require("dbinfo.php");
+
+// Opens a connection to a MySQL server
+$mysqli = new mysqli("localhost", $username, $password, $database);
+
+// Change character set to utf8
+mysqli_set_charset($mysqli,"utf8");
+
+//set hidden network ssid
+$mysqli->query("UPDATE network SET ssid='[Hidden network]' WHERE ssid = ''");
+
+//set channel for 2.4ghz band
+$mysqli->query("UPDATE network SET channel='1' WHERE frequency LIKE '2412'");
+$mysqli->query("UPDATE network SET channel='2' WHERE frequency LIKE '2417'");
+$mysqli->query("UPDATE network SET channel='3' WHERE frequency LIKE '2422'");
+$mysqli->query("UPDATE network SET channel='4' WHERE frequency LIKE '2427'");
+$mysqli->query("UPDATE network SET channel='5' WHERE frequency LIKE '2432'");
+$mysqli->query("UPDATE network SET channel='6' WHERE frequency LIKE '2437'");
+$mysqli->query("UPDATE network SET channel='7' WHERE frequency LIKE '2442'");
+$mysqli->query("UPDATE network SET channel='8' WHERE frequency LIKE '2447'");
+$mysqli->query("UPDATE network SET channel='9' WHERE frequency LIKE '2452'");
+$mysqli->query("UPDATE network SET channel='10' WHERE frequency LIKE '2457'");
+$mysqli->query("UPDATE network SET channel='11' WHERE frequency LIKE '2462'");
+$mysqli->query("UPDATE network SET channel='12' WHERE frequency LIKE '2467'");
+$mysqli->query("UPDATE network SET channel='13' WHERE frequency LIKE '2472'");
+$mysqli->query("UPDATE network SET channel='14' WHERE frequency LIKE '2484'");
+
+//set channel for 5ghz band
+$mysqli->query("UPDATE network SET channel='36' WHERE frequency LIKE '5180'");
+$mysqli->query("UPDATE network SET channel='40' WHERE frequency LIKE '5200'");
+$mysqli->query("UPDATE network SET channel='44' WHERE frequency LIKE '5220'");
+$mysqli->query("UPDATE network SET channel='48' WHERE frequency LIKE '5240'");
+$mysqli->query("UPDATE network SET channel='52' WHERE frequency LIKE '5260'");
+$mysqli->query("UPDATE network SET channel='56' WHERE frequency LIKE '5280'");
+$mysqli->query("UPDATE network SET channel='60' WHERE frequency LIKE '5300'");
+$mysqli->query("UPDATE network SET channel='64' WHERE frequency LIKE '5320'");
+$mysqli->query("UPDATE network SET channel='100' WHERE frequency LIKE '5500'");
+$mysqli->query("UPDATE network SET channel='104' WHERE frequency LIKE '5520'");
+$mysqli->query("UPDATE network SET channel='108' WHERE frequency LIKE '5540'");
+$mysqli->query("UPDATE network SET channel='112' WHERE frequency LIKE '5560'");
+$mysqli->query("UPDATE network SET channel='116' WHERE frequency LIKE '5580'");
+$mysqli->query("UPDATE network SET channel='120' WHERE frequency LIKE '5600'");
+$mysqli->query("UPDATE network SET channel='124' WHERE frequency LIKE '5620'");
+$mysqli->query("UPDATE network SET channel='128' WHERE frequency LIKE '5640'");
+$mysqli->query("UPDATE network SET channel='132' WHERE frequency LIKE '5660'");
+$mysqli->query("UPDATE network SET channel='136' WHERE frequency LIKE '5680'");
+$mysqli->query("UPDATE network SET channel='140' WHERE frequency LIKE '5700'");
+
+//set band
+$mysqli->query("UPDATE network SET band='2.4ghz' WHERE frequency BETWEEN '2412' AND '2484'");
+$mysqli->query("UPDATE network SET band='5ghz' WHERE frequency BETWEEN '5180' AND '5700'");
+$mysqli->query("UPDATE network SET band='INVALID' WHERE band LIKE ''");
+
+//set lastseen
+
+//2013 GMT
+$mysqli->query("UPDATE network SET lastseen='January 2013' WHERE lasttime > '1356998400000' AND lasttime < '1359676799000'");
+$mysqli->query("UPDATE network SET lastseen='February 2013' WHERE lasttime > '1359676800000' AND lasttime < '1362095999000'");
+$mysqli->query("UPDATE network SET lastseen='March 2013' WHERE lasttime > '1362096000000' AND lasttime < '1364774399000'");
+$mysqli->query("UPDATE network SET lastseen='April 2013' WHERE lasttime > '1364774400000' AND lasttime < '1367366399000'");
+$mysqli->query("UPDATE network SET lastseen='May 2013'WHERE lasttime > '1367366400000' AND lasttime < '1370044799000'");
+$mysqli->query("UPDATE network SET lastseen='June 2013' WHERE lasttime > '1370044800000' AND lasttime < '1372636799000'");
+$mysqli->query("UPDATE network SET lastseen='July 2013' WHERE lasttime > '1372636800000' AND lasttime < '1377993599000'");
+$mysqli->query("UPDATE network SET lastseen='August 2013' WHERE lasttime > '1375315200000' AND lasttime < '1377986399000'");
+$mysqli->query("UPDATE network SET lastseen='September 2013' WHERE lasttime > '1377993600000' AND lasttime < '1380585599000'");
+$mysqli->query("UPDATE network SET lastseen='October 2013' WHERE lasttime > '1380585600000' AND lasttime < '1383263999000'");
+$mysqli->query("UPDATE network SET lastseen='November 2013' WHERE lasttime > '1383264000000' AND lasttime < '1385855999000");
+$mysqli->query("UPDATE network SET lastseen='December 2013' WHERE lasttime > '1385856000000' AND lasttime < '1388534399000'");
+
+//2014 GMT
+$mysqli->query("UPDATE network SET lastseen='January 2014' WHERE lasttime > '1388534400000' AND lasttime < '1391212799000'");
+$mysqli->query("UPDATE network SET lastseen='February 2014' WHERE lasttime > '1391212800000' AND lasttime < '1393631999000'");
+$mysqli->query("UPDATE network SET lastseen='March 2014' WHERE lasttime > '1393632000000' AND lasttime < '1396310399000'");
+$mysqli->query("UPDATE network SET lastseen='April 2014' WHERE lasttime > '1396310400000' AND lasttime < '1398902399000'");
+$mysqli->query("UPDATE network SET lastseen='May 2014' WHERE lasttime > '1398902400000' AND lasttime < '1401580799000'");
+$mysqli->query("UPDATE network SET lastseen='June 2014' WHERE lasttime > '1401580800000' AND lasttime < '1404172799000'");
+$mysqli->query("UPDATE network SET lastseen='July 2014' WHERE lasttime > '1404172800000' AND lasttime < '1406851199000'");
+$mysqli->query("UPDATE network SET lastseen='August 2014' WHERE lasttime > '1406851200000' AND lasttime < '1409529599000'");
+$mysqli->query("UPDATE network SET lastseen='September 2014' WHERE lasttime > '1409529600000' AND lasttime < '1412121599000'");
+$mysqli->query("UPDATE network SET lastseen='October 2014' WHERE lasttime > '1412121600000' AND lasttime < '1414799999000'");
+$mysqli->query("UPDATE network SET lastseen='November 2014' WHERE lasttime > '1414800000000' AND lasttime < '1417391999000'");
+$mysqli->query("UPDATE network SET lastseen='December 2014' WHERE lasttime > '1417392000000' AND lasttime < '1420070399000'");
+
+//2015 GMT
+$mysqli->query("UPDATE network SET lastseen='January 2015' WHERE lasttime > '1420070400000' AND lasttime < '1422748799000'");
+$mysqli->query("UPDATE network SET lastseen='February 2015' WHERE lasttime > '1422748800000' AND lasttime < '1425167999000'");
+$mysqli->query("UPDATE network SET lastseen='Mars 2015' WHERE lasttime > '1425168000000' AND lasttime < '1427846399000'");
+$mysqli->query("UPDATE network SET lastseen='April 2015' WHERE lasttime > '1427846400000' AND lasttime < '1430438399000'");
+$mysqli->query("UPDATE network SET lastseen='May 2015' WHERE lasttime > '1430438400000' AND lasttime < '1433116799000'");
+$mysqli->query("UPDATE network SET lastseen='June 2015' WHERE lasttime > '1433116800000' AND lasttime < '1435708799000'");
+$mysqli->query("UPDATE network SET lastseen='July 2015' WHERE lasttime > '1435708800000' AND lasttime < '1438387199000'");
+$mysqli->query("UPDATE network SET lastseen='August 2015' WHERE lasttime > '1438387200000' AND lasttime < '1441065599000'");
+$mysqli->query("UPDATE network SET lastseen='September 2015' WHERE lasttime > '1441065600000' AND lasttime < '1443657599000'");
+$mysqli->query("UPDATE network SET lastseen='October 2015' WHERE lasttime > '1443657600000' AND lasttime < '1446335999000'");
+$mysqli->query("UPDATE network SET lastseen='November 2015' WHERE lasttime > '1446336000000' AND lasttime < '1448927999000'");
+$mysqli->query("UPDATE network SET lastseen='December 2015' WHERE lasttime > '1448928000000' AND lasttime < '1451606399000'");
+
+//2016 GMT
+$mysqli->query("UPDATE network SET lastseen='January 2016' WHERE lasttime > '1451606400000' AND lasttime < '1454284799000'");
+$mysqli->query("UPDATE network SET lastseen='February 2016' WHERE lasttime > '1454284800000' AND lasttime < '1456790399000'");
+$mysqli->query("UPDATE network SET lastseen='March 2016' WHERE lasttime > '1456790400000' AND lasttime < '1459468799000'");
+$mysqli->query("UPDATE network SET lastseen='April 2016' WHERE lasttime > '1459468800000' AND lasttime < '1462060799000'");
+$mysqli->query("UPDATE network SET lastseen='May 2016' WHERE lasttime > '1462060800000' AND lasttime < '1464739199000'");
+$mysqli->query("UPDATE network SET lastseen='June 2016' WHERE lasttime > '1464739200000' AND lasttime < '1467331199000'");
+$mysqli->query("UPDATE network SET lastseen='July 2016' WHERE lasttime > '1467331200000' AND lasttime < '1470009599000'");
+$mysqli->query("UPDATE network SET lastseen='August 2016' WHERE lasttime > '1470009600000' AND lasttime < '1472687999000'");
+$mysqli->query("UPDATE network SET lastseen='September 2016' WHERE lasttime > '1472688000000' AND lasttime < '1475279999000'");
+$mysqli->query("UPDATE network SET lastseen='October 2016' WHERE lasttime > '1475280000000' AND lasttime < '1477958399000'");
+$mysqli->query("UPDATE network SET lastseen='November 2016' WHERE lasttime > '1477958400000' AND lasttime < '1480550399000'");
+$mysqli->query("UPDATE network SET lastseen='December 2016' WHERE lasttime > '1480550400000' AND lasttime < '1483228799000'");
+
+//if date is not set, update field to let user know. use epochconverter.com to find timestamp (in milliseconds) to update this list
+$mysqli->query("UPDATE network SET lastseen='UNKNOWN' WHERE lastseen LIKE ''");
+
+//set icon
+$mysqli->query("UPDATE network SET icon='http://www.google.com/mapfiles/ms/micons/blue.png' WHERE CAPABILITIES NOT LIKE '%WEP%' AND CAPABILITIES NOT LIKE '%WPA%'");
+$mysqli->query("UPDATE network SET icon='http://www.google.com/mapfiles/ms/micons/red.png' WHERE CAPABILITIES LIKE '%WEP%'");
+$mysqli->query("UPDATE network SET icon='http://www.google.com/mapfiles/ms/micons/yellow.png' WHERE CAPABILITIES NOT LIKE '%WEP%' AND CAPABILITIES LIKE '%WPA%' AND CAPABILITIES LIKE '%WPS%'");
+$mysqli->query("UPDATE network SET icon='http://www.google.com/mapfiles/ms/micons/green.png' WHERE CAPABILITIES NOT LIKE '%WEP%' AND CAPABILITIES NOT LIKE '%WPS%' AND CAPABILITIES LIKE '%WPA%'");
+
+//set bestlat/bestlon for networks from old version of app, with no "best" position
+$mysqli->query("UPDATE network SET bestlat=lastlat WHERE bestlat LIKE '0.000000000000'");
+$mysqli->query("UPDATE network SET bestlon=lastlon WHERE bestlon LIKE '0.000000000000'");
+
+//temporary solution to bug. delete networks which were not imported correctly.
+$mysqli->query("DELETE FROM `network` WHERE frequency LIKE ''");
+$mysqli->query("DELETE FROM `network` WHERE capabilities LIKE '2412'
+OR capabilities LIKE '2417'
+OR capabilities LIKE '2422'
+OR capabilities LIKE '2427'
+OR capabilities LIKE '2432'
+OR capabilities LIKE '2437'
+OR capabilities LIKE '2442'
+OR capabilities LIKE '2447'
+OR capabilities LIKE '2452'
+OR capabilities LIKE '2457'
+OR capabilities LIKE '2462'
+OR capabilities LIKE '2467'
+OR capabilities LIKE '2472'
+OR capabilities LIKE '2484'
+OR capabilities LIKE '5180'
+OR capabilities LIKE '5200'
+OR capabilities LIKE '5220'
+OR capabilities LIKE '5240'
+OR capabilities LIKE '5260'
+OR capabilities LIKE '5280'
+OR capabilities LIKE '5300'
+OR capabilities LIKE '5320'
+OR capabilities LIKE '5500'
+OR capabilities LIKE '5520'
+OR capabilities LIKE '5540'
+OR capabilities LIKE '5560'
+OR capabilities LIKE '5580'
+OR capabilities LIKE '5600'
+OR capabilities LIKE '5620'
+OR capabilities LIKE '5640'
+OR capabilities LIKE '5660'
+OR capabilities LIKE '5680'
+OR capabilities LIKE '5700'
+");
+
+//let user know script is completed
+echo "script completed";
+
+?> 

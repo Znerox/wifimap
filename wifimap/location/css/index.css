@@ -1,0 +1,117 @@
+html {
+	width:100%;
+	height:100%;
+    margin:0;
+	box-sizing:border-box;
+}
+
+body {
+	width:100%;
+	height:100%;
+    margin:0;
+	box-sizing:border-box;
+}
+
+#pagecontent {
+	width:100%;
+	height:100%;
+	box-sizing:border-box;
+}
+
+#map {
+	#width: calc( 100% - 285px );
+    width: 100%;
+	height:100%;
+	box-sizing:border-box;
+	display:block;
+	float:left;
+}
+
+#sidetab {
+	width:290px;
+	box-sizing:border-box;
+	padding:8px;
+	text-align:center;
+	display:block;
+	float:right;
+    position:absolute;
+    top:25px;
+    right:10px;
+}
+
+.sidegroup {
+    margin: 16px 0px 0px 0px;
+    border-radius: 32px;
+    background: #0095cd;
+    background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+}
+
+.sideelement {
+    padding:8px 0px 0px 0px;
+    opacity:1;
+}
+
+p {
+	font-family: cursive;
+	font-size: 1em;
+}
+
+
+.textinput {
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		border:1px solid #0076a3; border-right:0px;
+		border-top-left-radius: 5px 5px;
+		border-bottom-left-radius: 5px 5px;
+}
+
+.searchbutton {
+		padding: 4px 15px;
+}
+
+
+
+
+#sidetext {
+	padding:12px 0px 8px 0px;
+    margin: 0px 8px;
+}
+
+
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    cursor: pointer;
+}
+
+input[type="select"] {
+    cursor: pointer;
+}
+
+label {
+    cursor: pointer;
+}
+
+a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+       cursor: pointer;
+}
+
+
+.signal_info_icon {
+    display: inline-block;
+}
+
+.signal_info_text {
+    display: inline-block;
+}
+
+.signal_info_text p {
+    margin: 0px;
+    padding: 0px;
+}

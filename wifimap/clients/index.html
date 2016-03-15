@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+	<title>WiFi Map - Clients</title>
+      
+	<link type="text/css" rel="stylesheet" href="css/index.css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../js/settings.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+    
+</head>
+
+
+<body onload="setVariables()">
+    <div id="pagecontent">
+        <div id="map"></div>
+        <div id="sidetab">
+            
+            <div id="searchbubble" class="sidegroup">
+                
+                <!-- This is searchfield/checkboxes -->
+                <div id="searchinputarea" class="sideelement">
+                    
+                    <span><input type="text" class="textinput" id="searchinput" size="16" maxlength="25" placeholder="Client MAC" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="searchbutton" onclick="deleteMarkers();" value="Search" class="searchbutton"></span>
+                    <br>
+                    <label><input type="checkbox" id="show_connected" checked>Show connected</label>
+                    <label><input type="checkbox" id="show_probing" checked>Show probed</label>
+                    <br>
+                    <label><input type="checkbox" id="dont_show_probe_matching_connected" checked>Don't show unlikely probes</label>
+
+                    
+                    
+            </div> <!-- END searchinputarea -->
+            
+            </div> <!-- END searchbubble -->
+            
+            <div id="sidetextbubble" class="sidegroup">
+                
+                <!-- This is the area under search-->
+                <div id="sidetext" class="sideelement">
+                    <h3>Client mac:</h3><p id="mac_field"></p><br>
+                    <h3>Vendor:</h3><p id="vendor_field"></p><br>
+                    <h3>Connected:</h3><p id="connected_field"></p><br>
+                    <h3>Probing:</h3><p id="probing_field"></p><br>
+                        
+                </div> <!-- END sidetext -->
+            </div> <!-- END sidetextbubble -->
+
+		</div> <!-- END sidetab -->
+        <div id="sidetab-background"></div> <!-- background for sidetab, to make opacity work -->
+	</div> <!-- END pagecontent -->
+  </body>
+
+</html>

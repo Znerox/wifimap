@@ -1,0 +1,76 @@
+html {
+	width: 100%;
+	height: 100%;
+    margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+    margin: 0;
+	box-sizing: border-box;
+}
+
+#pagecontent {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+    text-align: center;
+    #font-family: cursive;
+}
+
+.main {
+    #margin: 10px;
+    text-align: center;
+    padding: 10px;
+    #border: 2px solid black;
+    margin: 8px;
+  
+}
+
+.specific {
+    height: 175px;
+    width: 400px;
+    margin: 10px;
+    padding-top: 10px;
+    display: inline-block;
+    #border: 2px solid red;
+    margin: 4px;
+    text-align: center;
+    background-color:#E6E6E6;
+    border-radius: 32px;
+}
+
+#import {
+    
+    #border: 2px solid blue;
+}
+
+#update_sql {
+    
+    #border: 2px solid blue;
+}
+
+
+p {
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    margin: 0px;
+    #margin: 8px 5px auto 5px;
+}
+
+h1 {
+    font-family: cursive;  
+}
+
+h3 {
+    margin: 5px;
+    font-family: cursive;  
+}
+
+form {
+    padding: 10px;    
+}
