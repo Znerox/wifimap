@@ -4,8 +4,6 @@
 //------------------------------------------------
   function setVariables() {
     bssid = window.opener.bssid;
-    from_time = "1356994800000";
-    to_time = "1427839199000";
     bestLevel = "-100";
     bestLat = "69.665";
     bestLon = "18.955";
