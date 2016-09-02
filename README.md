@@ -24,8 +24,15 @@ php5-curl (or higher, untested)
 
 ###Setting up server/installing
 
-Database:
-If you are using phpmyadmin you can run everything in "dbsetup.readme" to create the database.
+######File structure and permissions:
+Place the "wifimap" folder on your webserver, and make it available for the users of the map (e.g. make it public if you want public access to the map).
+Place the "tools" folder on your webserver, and set up webserver permissions so only those who will upload data to the database can access it.
+The "tools" folder include various tools that are used to import data and update the database as needed.
+Once  that is done, make sure "../tools/php/uploads" have permission "777" (full access for every user on the system). That is necessary for the importing of data. Note that currently all files uploaded (imported) are being stored forever, or until overwritten by another file with the same name.
+
+
+######Database:
+If you are using phpmyadmin you can run everything in "dbsetup" to create the database.
 You might have to log out and log in again to see the new database.
 It's recommended to create a new user with only access to the "wifimap" database info.
 
@@ -102,14 +109,10 @@ session.gc_maxlifetime = 21600
 
 
 
-Copy the files over to your webserver, it is STRONGLY recommended that you do NOT put the "tools" folder inside the "wifimap" folder.
-The "wifimap" folder is the root of the actual map site, and could for example be set as the root of wifimap.yourdomain.net
-The "tools" folder include various tools that are used to import data and update the database as needed.
-
-
-Once that is done, you are ready to import data from wigle.
+Once that is done, you should be ready to import data from wigle.
 One option is to run "backup database" in the wigle app, which will backup the entire local db from the device to a file called "backup-xxxxxxxxxxxxx.sqlite".
 Move that over to your pc (you might have to move it to another folder on the phone to be able to access it over usb from pc). Open the .sqlite file and export each table to a seperate .csv file. On windows "DB Browser for SQLite" (https://github.com/sqlitebrowser/sqlitebrowser) is a great tool.
+In "DB Browser for SQLite", choose "File, Export, Table(s) as CSV file". Select "location" and "network". You can keep "Column names in the first line" checked, keep "Field separator" at the default ",", and keep "Quote character" at the default ". Under "New line characters", select "Unix: LF (\n)".
 Once you have a "network.csv" and a "location.csv" file, those can be imported with the "Upload network file" and "Upload location file" options on the "tools" page.
 
 

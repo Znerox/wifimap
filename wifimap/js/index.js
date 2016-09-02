@@ -1,13 +1,3 @@
-// javascript
-
-      var script = '<script type="text/javascript" src="https://google-maps-utility-library-v3.googlecode.com/svn-history/r451/trunk/markerclusterer/src/markerclusterer';
-      if (document.location.search.indexOf('compiled') !== -1) {
-        script += '_compiled';
-      }
-      script += '.js"><' + '/script>';
-      document.write(script);
-
-
 function help_click(div, txt) {
     if (div.innerHTML == "") div.innerHTML = "<br/>   " + txt; else div.innerHTML = "";
 }
@@ -218,7 +208,7 @@ function deleteMarkers() {
     else if (from_month == "december" & from_year == "2013")
     {from_time = "1385856000000";}
     
-    else {from_time = "1356994800000"};
+    else {from_time = "1356998400000"};
     
     
     //Sets "to_time"

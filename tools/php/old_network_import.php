@@ -54,22 +54,22 @@ if ($handle) {
         
         
         //checks if line is a wifi network
-        if  (substr($line, 2, 1) == ":") {
+        if  (substr($line, 3, 1) == ":") {
             
             
             //put uploaded data (line) into an array
             $uploaded_network_array = explode(",", $line);
             //$firephp->log($uploaded_network_array);
-            $uploaded_bssid = $uploaded_network_array[0];
-            $uploaded_ssid = $uploaded_network_array[1];
-            $uploaded_frequency = $uploaded_network_array[2];
-            $uploaded_capabilities = $uploaded_network_array[3];
-            $uploaded_lasttime = $uploaded_network_array[4];
-            $uploaded_lastlat = $uploaded_network_array[5];
-            $uploaded_lastlon = $uploaded_network_array[6];
-            $uploaded_bestlevel = $uploaded_network_array[8];
-            $uploaded_bestlat = $uploaded_network_array[9];
-            $uploaded_bestlon = substr($uploaded_network_array[10], 0, 11);
+            $uploaded_bssid = substr($uploaded_network_array[0], 1, -1);
+            $uploaded_ssid = substr($uploaded_network_array[1], 1, -1);
+            $uploaded_frequency = substr($uploaded_network_array[2], 1, -1);
+            $uploaded_capabilities = substr($uploaded_network_array[3], 1, -1);
+            $uploaded_lasttime = substr($uploaded_network_array[4], 1, -1);
+            $uploaded_lastlat = substr($uploaded_network_array[5], 1, -1);
+            $uploaded_lastlon = substr($uploaded_network_array[6], 1, -1);
+            $uploaded_bestlevel = substr($uploaded_network_array[8], 1, -1);
+            $uploaded_bestlat = substr($uploaded_network_array[9], 1, -1);
+            $uploaded_bestlon = substr($uploaded_network_array[10], 1, 11);
             
             
             //Searh for network in database

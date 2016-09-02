@@ -55,13 +55,13 @@ if ($handle) {
         //put uploaded data (line) into an array
         $uploaded_location_array = explode(",", $line);
         //$uploaded_id = substr($uploaded_location_array[0], 1, -1);
-        $uploaded_bssid = $uploaded_location_array[1];
-        $uploaded_level = $uploaded_location_array[2];
-        $uploaded_lat = $uploaded_location_array[3];
-        $uploaded_lon = $uploaded_location_array[4];
-        $uploaded_altitude = $uploaded_location_array[5];
-        $uploaded_accuracy = $uploaded_location_array[6];
-        $uploaded_time = substr($uploaded_location_array[7], 0, 13);
+        $uploaded_bssid = substr($uploaded_location_array[1], 1, -1);
+        $uploaded_level = substr($uploaded_location_array[2], 1, -1);
+        $uploaded_lat = substr($uploaded_location_array[3], 1, -1);
+        $uploaded_lon = substr($uploaded_location_array[4], 1, -1);
+        $uploaded_altitude = substr($uploaded_location_array[5], 1, -1);
+        $uploaded_accuracy = substr($uploaded_location_array[6], 1, -1);
+        $uploaded_time = substr($uploaded_location_array[7], 1, 13);
         
         
         //checks if line is a wifi network

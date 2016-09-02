@@ -45,15 +45,6 @@
             </div>
             
             
-            <div id="client_import_1.2-rc1" class="specific">
-                <h3>Upload old client file</h3>
-                <form action="php/client_import_1.2-rc1.php" method="post" enctype="multipart/form-data">
-                    <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
-                    <input type="submit" value="Upload file" name="submit">
-                </form>
-                <p>For .csv files made by: aircrack-ng version 1.2-rc1 - Released 31 October 2014. Replaced 10 April 2015. Earlier versions might also work here.</p>
-            </div>
-            
         </div> <!-- END import -->
         
         
@@ -77,15 +68,6 @@
                 </form>
                 <p>This sets month_seen. And delete position with corrupt/missing location data.</p>
             </div>
-            
-            
-            <!--
-            <div class="specific">
-                <form action="http://google.com">
-                    <input type="submit" value="Go to Google">
-                </form>
-            </div>
-            -->
 
             
             <div id="connected_in_network" class="specific">
@@ -105,6 +87,7 @@
                 <p>Gets the MAC from probing clients and puts it in network table</p>
             </div>
             
+            
             <div id="router_vendor" class="specific">
             <h3>Lookup MAC address for routers</h3>
                 <form action="php/network_mac_lookup.php" method="get">
@@ -112,6 +95,7 @@
                 </form>
                 <p>Checks each router's MAC address against macvendors.com and populates the network table with correct vendor</p>
             </div> 
+            
             
             <div id="client_vendor" class="specific">
             <h3>Lookup MAC address for clients</h3>
@@ -123,6 +107,41 @@
             
         </div> <!-- END update_sql -->
         
+        
+        <div id="import_old" class="main">
+            
+            <h2>Upload data from older versions of wigle/aircrack-ng</h2>
+            
+            <div id="old_network_import" class="specific">
+                <h3>Upload old network file</h3>
+                <form action="php/old_network_import.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
+                    <input type="submit" value="Upload file" name="submit">
+                </form>
+                <p>This uploads the "network" file exported from older versions of wigle. The server then go through the data and update/add information to the database.</p>
+            </div>
+            
+            
+            <div id="old_location_import" class="specific">
+                <h3>Upload old location file</h3>
+                <form action="php/old_location_import.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
+                    <input type="submit" value="Upload file" name="submit">
+                </form>
+                <p>This uploads the "location" file exported from older versions of wigle. The server then go through the data and update/add information to the database.</p>
+            </div>
+            
+            
+            <div id="client_import_1.2-rc1" class="specific">
+                <h3>Upload old client file</h3>
+                <form action="php/client_import_1.2-rc1.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
+                    <input type="submit" value="Upload file" name="submit">
+                </form>
+                <p>For .csv files made by: aircrack-ng version 1.2-rc1 - Released 31 October 2014. Replaced 10 April 2015. Earlier versions might also work here.</p>
+            </div>
+            
+        </div> <!-- END import_old -->
         
         
     </div> <!-- END pagecontent -->
