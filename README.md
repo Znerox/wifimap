@@ -24,17 +24,23 @@ php5-curl (or higher, untested)
 
 ###Setting up server/installing
 
-######File structure and permissions:
+#####File structure and permissions:
 Place the "wifimap" folder on your webserver, and make it available for the users of the map (e.g. make it public if you want public access to the map).
 Place the "tools" folder on your webserver, and set up webserver permissions so only those who will upload data to the database can access it.
 The "tools" folder include various tools that are used to import data and update the database as needed.
 Once  that is done, make sure "../tools/php/uploads" have permission "777" (full access for every user on the system). That is necessary for the importing of data. Note that currently all files uploaded (imported) are being stored forever, or until overwritten by another file with the same name.
 
 
-######Database:
+#####Database:
 If you are using phpmyadmin you can run everything in "dbsetup" to create the database.
 You might have to log out and log in again to see the new database.
 It's recommended to create a new user with only access to the "wifimap" database info.
+There are a total number of four files named "dbinfo.php" where you need to enter the credentials for the mysql user.
+They are located in:
+1. ../tools/php/
+2. ../wifimap/php
+3. ../wifimap/location/php
+4. ../wifimap/clients/php
 
 
 To support uploading big files, and running scripts for a long period of time, change these settings in php.ini
@@ -128,10 +134,18 @@ First of all, when uploading files I recommend always keeping the original files
 This takes the "network.csv" file, and passes it to a php script which will go through it and import/update data to the mysql database.
 Always run "Update fields in network table" after this.
 
+#####Upload old network file
+
+For files exported from older versions of wigle. If you're not sure which one to use, open your network.csv/location.csv in a text editor. If the first character in the file is a quotation mark ("), you've got yourself an "old" file.
+
 #####Upload location file
 
 This takes the "location.csv" file, and passes it to a php script which will go through it and import/update data to the mysql database.
 Always run "Update fields in location table" after this.
+
+#####Upload old location file
+
+For files exported from older versions of wigle. If you're not sure which one to use, open your network.csv/location.csv in a text editor. If the first character in the file is a quotation mark ("), you've got yourself an "old" file.
 
 #####Upload client file
 
