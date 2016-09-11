@@ -28,7 +28,7 @@ php5-curl (or higher, untested)
 Place the "wifimap" folder on your webserver, and make it available for the users of the map (e.g. make it public if you want public access to the map).
 Place the "tools" folder on your webserver, and set up webserver permissions so only those who will upload data to the database can access it.
 The "tools" folder include various tools that are used to import data and update the database as needed.
-Once  that is done, make sure "../tools/php/uploads" have permission "777" (full access for every user on the system). That is necessary for the importing of data. Note that currently all files uploaded (imported) are being stored forever, or until overwritten by another file with the same name.
+Once  that is done, make sure "../tools/php/uploads" have permission "777" (full access for every user on the system). That is necessary for importing data. Note that currently all files uploaded (imported) are being stored forever, or until overwritten by another file with the same name.
 
 
 #####Database:
@@ -175,7 +175,7 @@ This looks up each client in the "clients" table, and checks if that client has 
 #####Lookup MAC address for routers
 
 This takes the OUI (piece of MAC address identifying vendor) on all networks, and looks it up against macvendors.com
-Currently it goes through a 500 different OUI's before stopping and printing out some stats. If you want it to run until completed, comment out line 97 in "network_mac_lookup.php"
+Currently it goes through 500 different OUI's before stopping and printing out some stats. If you want it to run until completed, comment out line 97 in "network_mac_lookup.php"
 
 #####Lookup MAC address for clients
 

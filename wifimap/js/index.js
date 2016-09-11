@@ -23,8 +23,8 @@ function setVariables() {
     band = "%";
     connected_clients = "%";
     probing_clients = "%";
-    from_time = "1451606400000";
-    to_time = "1483228799000";
+    from_time = "0000000000";
+    to_time = "32503679995";
     
     activeSite = "overview";
     loadSettings();
@@ -94,9 +94,9 @@ function deleteMarkers() {
     
     
     //Sets "band", which bands to show
-    if (document.getElementById("2.4ghz").checked)
+    if (document.getElementById("2.4ghz_band").checked)
     {band="2.4ghz"; }
-    else if (document.getElementById("5ghz").checked)
+    else if (document.getElementById("5ghz_band").checked)
     {band="5ghz"; } 
     else
     {band="%"; }
@@ -105,7 +105,10 @@ function deleteMarkers() {
     //Sets "from_time"
     
     //GMT
-    if (from_month == "january" & from_year == "2016")
+    if (from_year == "any")
+    {from_time = "0000000000"}
+    
+    else if (from_month == "january" & from_year == "2016")
     {from_time = "1451606400000";}
     else if (from_month == "february" & from_year == "2016")
     {from_time = "1454284800000";}
@@ -214,7 +217,10 @@ function deleteMarkers() {
     //Sets "to_time"
     
     //GMT
-    if (to_month == "december" & to_year == "2016")
+    if (to_year == "any")
+    {to_time = "32503679995"}
+    
+    else if (to_month == "december" & to_year == "2016")
     {to_time = "1483228799000";}
     
     else if (to_month == "january" & to_year == "2016")
@@ -340,8 +346,8 @@ function deleteMarkers() {
     function load() {
       var map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(mapCenterLatitude,mapCenterLongitude),
-        zoom: 12,
-        mapTypeId: 'roadmap'
+        zoom: defaultZoomLevelNetwork,
+        mapTypeId: mapTypeNetwork
       });
         
         

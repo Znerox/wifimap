@@ -5,9 +5,9 @@
   function setVariables() {
     bssid = window.opener.bssid;
     bestLevel = "-100";
-    bestLat = "69.665";
-    bestLon = "18.955";
-      
+    bestLat = window.opener.mapCenterLatitude;
+    bestLon = window.opener.mapCenterLongitude;
+          
     activeSite = "location";
     loadSettings();
   }
@@ -41,8 +41,8 @@
     function load() {
       map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(mapCenterLatitude,mapCenterLongitude),
-        zoom: 18,
-        mapTypeId: 'hybrid'
+        zoom: defaultZoomLevelLocation,
+        mapTypeId: mapTypeLocation
       });
         
         var styleArray = [
