@@ -117,6 +117,11 @@ downloadUrl("php/genxml.php", function(data) {
     
   markersarray = [];
     
+    if (markers.length == 0) {
+        
+        alert("No location data found for network " + bssid + ". Network data is probably from an older version of wigle.");
+    }
+    
   for (var i = 0; i < markers.length; i++) {
     var BSSID = markers[i].getAttribute("BSSID");
 	var LEVEL = markers[i].getAttribute("LEVEL");

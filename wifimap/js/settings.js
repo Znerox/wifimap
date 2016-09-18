@@ -10,7 +10,7 @@ function loadSettings() {
     
     // Set map center coordinates. Go to maps.google.com and click
     // a location to get its coordinates.    
-    mapCenterLatitude = 69.665;
+    mapCenterLatitude = 69.670;
     mapCenterLongitude = 18.955;
     
     

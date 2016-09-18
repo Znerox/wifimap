@@ -553,6 +553,7 @@ function getLocation (BSSIDFunctionFriendly) {
 //------------------------------------------------
 function openClientTab () {
     
+    alert("Copy client MAC from this window, and paste in client window");
     locationWindow = window.open(clientsPageAddress);
 }
 //------------------------------------------------
