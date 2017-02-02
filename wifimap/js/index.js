@@ -102,11 +102,36 @@ function deleteMarkers() {
     {band="%"; }
     
     
-    //Sets "from_time"
+    //Sets "from_time" (GMT)
     
-    //GMT
     if (from_year == "any")
     {from_time = "0000000000"}
+
+    else if (from_month == "january" & from_year == "2017")
+    {from_time = "1483228800000";}
+    else if (from_month == "february" & from_year == "2017")
+    {from_time = "1485907200000";}
+    else if (from_month == "march" & from_year == "2017")
+    {from_time = "1488326400000";}
+    else if (from_month == "april" & from_year == "2017")
+    {from_time = "1491004800000";}
+    else if (from_month == "may" & from_year == "2017")
+    {from_time = "1493596800000";}
+    else if (from_month == "june" & from_year == "2017")
+    {from_time = "1496275200000";}
+    else if (from_month == "july" & from_year == "2017")
+    {from_time = "1498867200000";}
+    else if (from_month == "august" & from_year == "2017")
+    {from_time = "1501545600000";}
+    else if (from_month == "september" & from_year == "2017")
+    {from_time = "1504224000000";}
+    else if (from_month == "october" & from_year == "2017")
+    {from_time = "1506816000000";}
+    else if (from_month == "november" & from_year == "2017")
+    {from_time = "1509494400000";}
+    else if (from_month == "december" & from_year == "2017")
+    {from_time = "1512086400000";}
+    
     
     else if (from_month == "january" & from_year == "2016")
     {from_time = "1451606400000";}
@@ -133,7 +158,7 @@ function deleteMarkers() {
     else if (from_month == "december" & from_year == "2016")
     {from_time = "1480550400000";}
     
-    //GMT
+    
     else if (from_month == "january" & from_year == "2015")
     {from_time = "1420070400000";}
     else if (from_month == "february" & from_year == "2015")
@@ -159,7 +184,7 @@ function deleteMarkers() {
     else if (from_month == "december" & from_year == "2015")
     {from_time = "1448928000000";}
     
-    //GMT
+    
     else if (from_month == "january" & from_year == "2014")
     {from_time = "1388534400000";}
     else if (from_month == "february" & from_year == "2014")
@@ -185,7 +210,6 @@ function deleteMarkers() {
     else if (from_month == "december" & from_year == "2014")
     {from_time = "1417392000000";}
     
-    //GMT
     else if (from_month == "january" & from_year == "2013")
     {from_time = "1356998400000";}
     else if (from_month == "february" & from_year == "2013")
@@ -214,11 +238,38 @@ function deleteMarkers() {
     else {from_time = "1356998400000"};
     
     
-    //Sets "to_time"
+    //Sets "to_time" (GMT)
     
-    //GMT
     if (to_year == "any")
     {to_time = "32503679995"}
+    
+    
+    else if (to_month == "december" & to_year == "2017")
+    {to_time = "1514764799000";}
+    
+    else if (to_month == "january" & to_year == "2017")
+    {to_time = "1485907199000";}
+    else if (to_month == "february" & to_year == "2017")
+    {to_time = "1214883263990003";}
+    else if (to_month == "march" & to_year == "2017")
+    {to_time = "1491004799000";}
+    else if (to_month == "april" & to_year == "2017")
+    {to_time = "1493596799000";}
+    else if (to_month == "may" & to_year == "2017")
+    {to_time = "1496275199000";}
+    else if (to_month == "june" & to_year == "2017")
+    {to_time = "1498867199000";}
+    else if (to_month == "july" & to_year == "2017")
+    {to_time = "1501459199000";}
+    else if (to_month == "august" & to_year == "2017")
+    {to_time = "1504223999000";}
+    else if (to_month == "september" & to_year == "2017")
+    {to_time = "1506815999000";}
+    else if (to_month == "october" & to_year == "2017")
+    {to_time = "1509494399000";}
+    else if (to_month == "november" & to_year == "2017")
+    {to_time = "1512086399000";}
+    
     
     else if (to_month == "december" & to_year == "2016")
     {to_time = "1483228799000";}
@@ -246,7 +297,7 @@ function deleteMarkers() {
     else if (to_month == "november" & to_year == "2016")
     {to_time = "1480550399000";}
     
-    //GMT
+    
     else if (to_month == "december" & to_year == "2015")
     {to_time = "1451606399000";}
     
@@ -274,7 +325,6 @@ function deleteMarkers() {
     {to_time = "1448927999000";}
 
     
-    //GMT
     else if (to_month == "december" & to_year == "2014")
     {to_time = "1420070399000";}
     
@@ -302,7 +352,6 @@ function deleteMarkers() {
     {to_time = "1417391999000";}
 
     
-    //GMT
     else if (to_month == "december" & to_year == "2013")
     {to_time = "1388534399000";}
     

@@ -122,7 +122,7 @@ In "DB Browser for SQLite", choose "File, Export, Table(s) as CSV file". Select 
 Once you have a "network.csv" and a "location.csv" file, those can be imported with the "Upload network file" and "Upload location file" options on the "tools" page.
 
 
-In "wifimap/js/settings.js" there are several settings that can be changed. Thoose include language (English is default, Norwegian partially supported). The center off the map, and the IP address/URL to the site. Those NEED to be set for everything to work correctly. You should also change the "bestLat" and "bestLon" variables in "wifimap/location/js/index.js". They should be the same as "mapCenterLatitude" and "mapCenterLongitude" in "settings.js"
+In "wifimap/js/settings.js" there are several settings that can be changed. Thoose include the center off the map, and the IP address/URL to the site. Those NEED to be set for everything to work correctly. It is also possible to set language. English is default, Norwegian partially supported. 
 
 
 ###Tools explained

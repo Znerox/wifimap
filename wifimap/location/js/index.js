@@ -4,7 +4,7 @@
 //------------------------------------------------
   function setVariables() {
     bssid = window.opener.bssid;
-    bestLevel = "-100";
+    bestLevel = "-1000";
     bestLat = window.opener.mapCenterLatitude;
     bestLon = window.opener.mapCenterLongitude;
           
@@ -112,56 +112,58 @@
         
         
 downloadUrl("php/genxml.php", function(data) {
-  var xml = data.responseXML;
-  markers = xml.documentElement.getElementsByTagName("marker");
+    var xml = data.responseXML;
+    markers = xml.documentElement.getElementsByTagName("marker");
     
-  markersarray = [];
+    markersarray = [];
     
     if (markers.length == 0) {
         
         alert("No location data found for network " + bssid + ". Network data is probably from an older version of wigle.");
     }
     
-  for (var i = 0; i < markers.length; i++) {
-    var BSSID = markers[i].getAttribute("BSSID");
-	var LEVEL = markers[i].getAttribute("LEVEL");
-	var LAT = markers[i].getAttribute("LAT");
-	var LON = markers[i].getAttribute("LON");
-	var ACCURACY = markers[i].getAttribute("ACCURACY");
-	var MONTH_SEEN = markers[i].getAttribute("MONTH_SEEN");
     
-    if (LEVEL > bestLevel) {
-        bestLevel = LEVEL;
-        bestLat = LAT;
-        bestLon = LON; }
-      
-    
-    if (LEVEL > -80)
-    {icon = "http://www.google.com/mapfiles/ms/micons/green.png"}
-	else if (LEVEL >= -90)
-    {icon = "http://www.google.com/mapfiles/ms/micons/yellow.png"}
-    else
-    {icon = "http://www.google.com/mapfiles/ms/micons/red.png"};
-	
-	var point = new google.maps.LatLng(
-        parseFloat(LAT),
-        parseFloat(LON));
-	
-//This is the pop-up window that appears when clicking on a network
-	var html = "Router: " + BSSID + "<br>"  + "Signalstregth: " + LEVEL + " dBm" + "<br>" +"Accuracy: " + ACCURACY + " meters" + "<br>" + "Date: " + MONTH_SEEN;
-	
-	
-    var marker = new google.maps.Marker({
-        map: map,
-        position: point,
-        icon: icon
-    });
-	
-	
-    bindInfoWindow(marker, map, infoWindow, html);
-	markersarray.push(marker);
-      
-  } //END OF FOR LOOP
+    //This is done on each line from db
+    for (var i = 0; i < markers.length; i++) {
+        var BSSID = markers[i].getAttribute("BSSID");
+        var LEVEL = markers[i].getAttribute("LEVEL");
+        var LAT = markers[i].getAttribute("LAT");
+        var LON = markers[i].getAttribute("LON");
+        var ACCURACY = markers[i].getAttribute("ACCURACY");
+        var MONTH_SEEN = markers[i].getAttribute("MONTH_SEEN");
+        
+        if (LEVEL > bestLevel) {
+            bestLevel = LEVEL;
+            bestLat = LAT;
+            bestLon = LON; }
+        
+        
+        if (LEVEL > -80)
+        {icon = "http://www.google.com/mapfiles/ms/micons/green.png"}
+        else if (LEVEL >= -90)
+        {icon = "http://www.google.com/mapfiles/ms/micons/yellow.png"}
+        else
+        {icon = "http://www.google.com/mapfiles/ms/micons/red.png"};
+        
+        var point = new google.maps.LatLng(
+            parseFloat(LAT),
+            parseFloat(LON));
+        
+        //This is the pop-up window that appears when clicking on a network
+        var html = "Router: " + BSSID + "<br>"  + "Signalstregth: " + LEVEL + " dBm" + "<br>" +"Accuracy: " + ACCURACY + " meters" + "<br>" + "Date: " + MONTH_SEEN;
+        
+        
+        var marker = new google.maps.Marker({
+            map: map,
+            position: point,
+            icon: icon
+        });
+        
+        
+        bindInfoWindow(marker, map, infoWindow, html);
+        markersarray.push(marker);
+        
+    } //END OF FOR LOOP
     
     map.setCenter(new google.maps.LatLng(bestLat,bestLon));
 
