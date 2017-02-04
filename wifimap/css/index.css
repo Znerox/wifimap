@@ -208,7 +208,6 @@ body {
 #last_seen_text {
     margin-top: 0px;
     margin-bottom: -14px;
-    padding-bottom: ;
     font-size: 1em;
 }
 
@@ -220,6 +219,17 @@ body {
 
 #clientcheckboxarea {
 	padding:8px 0px 8px 0px;
+}
+
+
+#predefined_search_header {
+    margin-top: 0px;
+    margin-bottom: -14px;
+}
+
+
+#predefined_search_group {
+    padding: 8px 0px 8px 0px;
 }
 
 

@@ -41,15 +41,15 @@ function loadSettings() {
     
     
     // Where is the "location" webpage located?
-    // For example for site available on your local network: http://192.168.1.31/wifimap/location
-    // For example for site available on the internet: http://wifimap.mydomain.net/location
+    // Example for site available on your local network: http://192.168.1.31/wifimap/location
+    // Example for site available on the public internet: http://wifimap.mydomain.net/location
     
     locationPageAddress = "http://SERVER_IP/wifimap/location";
     
     
     // Where is the "clients" webpage located?
-    // For example for site available on your local network: http://192.168.1.31/wifimap/clients
-    // For example for site available on the internet: http://wifimap.mydomain.net/clients
+    // Example for site available on your local network: http://192.168.1.31/wifimap/clients
+    // Example for site available on the public internet: http://wifimap.mydomain.net/clients
     
     clientsPageAddress = "http://SERVER_IP/wifimap/clients";
     
@@ -68,42 +68,45 @@ function loadSettings() {
         
         if (language == "norwegian") {
             
-        // checkboxes to choose encryption
-        $(open_checkbox_text).html("Åpen");
-        $(wpa_wps_checkbox_text).html("WPA, med WPS");
-        $(wep_checkbox_text).html("WEP");
-        $(wpa_no_wps_checkbox_text).html("WPA, uten WPS");
-        
-        //$(last_seen_text).html("Sist sett:");
-        
-        // text under icons, at the bottom if the sidepanel
-        $(searchinfoheadline_open).html("<b>Åpen</b>");
-        $(searchinfoheadline_wep).html("<b>WEP</b>");
-        $(searchinfoheadline_wps).html("<b>WPS</b>");
-        $(searchinfoheadline_wpa).html("<b>WPA</b>");
-        
-        // radio button, selecting both frequency bands
-        $(both_band_text).html("Begge");
-        
-        // downmost checkboxes, selecting connected/probing clients
-        $(connected_checkbox_text).html("Tilkoblet");
-        $(probing_checkbox_text).html("Søkende");
-        
-        // text by the icons, explaining what they mean
-        $(opentext).html("Typisk gjestenettverk");
-        $(weptext).html("Utdatert kryptering");
-        $(wpstext).html("Sikker kryptering (WPA med WPS, kan utnyttes)");
-        $(wpatext).html("Sikker kryptering (WPA uten WPS)"); 
-        
-        // text inside the popup box that appears when clicking a marker
-        popup_channel = "Kanal: ";
-        popup_lastseen = "Sist sett: ";
-        popup_connectedclients = "Tilkoblede klienter: ";
-        popup_probingclients = "Søkende klienter: ";
-        popup_location = "Nøyaktig plassering";
-        popup_clientinfo = "Klient info";
-           
-    }
+            // checkboxes to choose encryption
+            $(open_checkbox_text).html("Åpen");
+            $(wpa_wps_checkbox_text).html("WPA, med WPS");
+            $(wep_checkbox_text).html("WEP");
+            $(wpa_no_wps_checkbox_text).html("WPA, uten WPS");
+            
+            //$(last_seen_text).html("Sist sett:");
+            
+            // text under icons, at the bottom if the sidepanel
+            $(searchinfoheadline_open).html("<b>Åpen</b>");
+            $(searchinfoheadline_wep).html("<b>WEP</b>");
+            $(searchinfoheadline_wps).html("<b>WPS</b>");
+            $(searchinfoheadline_wpa).html("<b>WPA</b>");
+            
+            // radio button, selecting both frequency bands
+            $(both_band_text).html("Begge");
+            
+            // downmost checkboxes, selecting connected/probing clients
+            $(connected_checkbox_text).html("Tilkoblet");
+            $(probing_checkbox_text).html("Søkende");
+            
+            // text over predefined search menu
+            $(predefined_search_header).html("Forhåndsdefinerte søk");
+            
+            // text by the icons, explaining what they mean
+            $(opentext).html("Typisk gjestenettverk");
+            $(weptext).html("Utdatert kryptering");
+            $(wpstext).html("Sikker kryptering (WPA med WPS, kan utnyttes)");
+            $(wpatext).html("Sikker kryptering (WPA uten WPS)"); 
+            
+            // text inside the popup box that appears when clicking a marker
+            popup_channel = "Kanal: ";
+            popup_lastseen = "Sist sett: ";
+            popup_connectedclients = "Tilkoblede klienter: ";
+            popup_probingclients = "Søkende klienter: ";
+            popup_location = "Nøyaktig plassering";
+            popup_clientinfo = "Klient info";
+            
+        }
         
         if (language == "english") {
             
@@ -130,6 +133,9 @@ function loadSettings() {
             // downmost checkboxes, selecting connected/probing clients
             $(connected_checkbox_text).html("Connected");
             $(probing_checkbox_text).html("Probing");
+            
+            // text over predefined search menu
+            $(predefined_search_header).html("Predefined searches");
             
             // text by the icons, explaining what they mean
             $(opentext).html("Typically a guestnetwork");

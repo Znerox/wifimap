@@ -71,7 +71,21 @@ $mysqli->query("UPDATE location SET month_seen='October 2016' WHERE time > '1475
 $mysqli->query("UPDATE location SET month_seen='November 2016' WHERE time > '1477958400000' AND time < '1480550399000'");
 $mysqli->query("UPDATE location SET month_seen='December 2016' WHERE time > '1480550400000' AND time < '1483228799000'");
 
-//if date is not set, update field to let user know. use epochconverter.com to find timestamp (in milliseconds) to update this list
+//2017 GMT
+$mysqli->query("UPDATE network SET lastseen='January 2017' WHERE lasttime > '1483228800000' AND lasttime < '1485907199000'");
+$mysqli->query("UPDATE network SET lastseen='February 2017' WHERE lasttime > '1485907200000' AND lasttime < '1214883263990003'");
+$mysqli->query("UPDATE network SET lastseen='March 2017' WHERE lasttime > '1488326400000' AND lasttime < '1491004799000'");
+$mysqli->query("UPDATE network SET lastseen='April 2017' WHERE lasttime > '1491004800000' AND lasttime < '1493596799000'");
+$mysqli->query("UPDATE network SET lastseen='May 2017' WHERE lasttime > '1493596800000' AND lasttime < '1496275199000'");
+$mysqli->query("UPDATE network SET lastseen='June 2017' WHERE lasttime > '1496275200000' AND lasttime < '1498867199000'");
+$mysqli->query("UPDATE network SET lastseen='July 2017' WHERE lasttime > '1498867200000' AND lasttime < '1501459199000'");
+$mysqli->query("UPDATE network SET lastseen='August 2017' WHERE lasttime > '1501545600000' AND lasttime < '1504223999000'");
+$mysqli->query("UPDATE network SET lastseen='September 2017' WHERE lasttime > '1504224000000' AND lasttime < '1506815999000'");
+$mysqli->query("UPDATE network SET lastseen='October 2017' WHERE lasttime > '1506816000000' AND lasttime < '1509494399000'");
+$mysqli->query("UPDATE network SET lastseen='November 2017' WHERE lasttime > '1509494400000' AND lasttime < '1512086399000'");
+$mysqli->query("UPDATE network SET lastseen='December 2017' WHERE lasttime > '1512086400000' AND lasttime < '1514764799000'");
+
+//if date is not set, update field to let user know. you can use use epochconverter.com to find timestamp (in milliseconds) to update this list yourself
 $mysqli->query("UPDATE location SET month_seen='UNKNOWN' WHERE month_seen LIKE ''");
 
 //let user know script is completed

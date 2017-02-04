@@ -26,7 +26,8 @@ if ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[wpa_w
 	OR CAPABILITIES LIKE '%WPA%')
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
     
 //EVERYTHING EXCEPT OPEN
 elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "yes" && $_POST[wpa_no_wps_network] == "yes")
@@ -40,7 +41,8 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[w
 	OR CAPABILITIES LIKE '%WPA%')
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 	
 //ONLY WEP	
 elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "no")
@@ -53,7 +55,8 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[w
 	(CAPABILITIES LIKE '%WEP%')
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 	
 //EVERYTHING EXCEPT WEP	
 elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[wpa_wps_network] == "yes" && $_POST[wpa_no_wps_network] == "yes")
@@ -66,7 +69,8 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[w
 	(CAPABILITIES LIKE '%WEP%')
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 
 //ONLY WPA WITH WPS
 elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "no" && $_POST[wpa_wps_network] == "yes" && $_POST[wpa_no_wps_network] == "no")
@@ -81,7 +85,8 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "no" && $_POST[wp
 	AND CAPABILITIES NOT LIKE '%WEP%')
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 	
 //EVERYTHING EXCEPT WPA WITH WPS
 elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "yes")
@@ -96,7 +101,8 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[
 	AND CAPABILITIES NOT LIKE '%WEP%')
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 	
 //ONLY WPA WITHOUT WPS
 elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "no" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "yes")
@@ -111,7 +117,8 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "no" && $_POST[wp
 	AND CAPABILITIES NOT LIKE '%WPS%')
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 
 //EVERYTHING EXCEPT WPA WITHOUT WPS
 elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "yes" && $_POST[wpa_no_wps_network] == "no")
@@ -126,7 +133,8 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[
 	AND CAPABILITIES NOT LIKE '%WPS%')
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 	
 //ONLY OPEN + WEP
 elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "no")
@@ -141,7 +149,8 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[
 	OR (CAPABILITIES LIKE '%WEP%'))
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 	
 //ONLY OPEN + WPA WITH WPS
 elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[wpa_wps_network] == "yes" && $_POST[wpa_no_wps_network] == "no")
@@ -158,7 +167,8 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[w
 	AND CAPABILITIES NOT LIKE '%WEP%'))
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 	
 //ONLY OPEN + WPA WITHOUT WPS
 elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "yes")
@@ -175,7 +185,8 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[w
 	AND CAPABILITIES NOT LIKE '%WPS%'))
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 
 //ONLY WEP + WPA WITH WPS
 elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "yes" && $_POST[wpa_no_wps_network] == "no")
@@ -192,7 +203,8 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[w
 	AND CAPABILITIES NOT LIKE '%WPS%'))
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 
 //ONLY WEP + WPA WITHOUT WPS
 elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "yes")
@@ -209,7 +221,8 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[w
 	AND CAPABILITIES NOT LIKE '%WEP%'))
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 
 //ONLY WPA (BOTH TYPES)
 elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "no")
@@ -224,7 +237,8 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[
 	OR (CAPABILITIES LIKE '%WEP%'))
     AND BAND LIKE '$_POST[band]'
     AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+    AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+    AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 
 
 //IF NOTHING MATCHES/DEFAULT	
@@ -236,7 +250,8 @@ AND
 (LASTTIME > '$_POST[from_time]' AND LASTTIME < '$_POST[to_time]')
 AND BAND LIKE '$_POST[band]'
 AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
-AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'";}
+AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";}
 
 
 /*
@@ -270,6 +285,7 @@ while ($row = $result->fetch_assoc()){
     $newnode->setAttribute("ICON", $row['icon']);
     $newnode->setAttribute("CONNECTED_CLIENTS", $row['connected_clients']);
     $newnode->setAttribute("PROBING_CLIENTS", $row['probing_clients']);
+    $newnode->setAttribute("PREDEFINED_SEARCH", $row['predefined_search']);
 }
 
 echo $dom->saveXML();

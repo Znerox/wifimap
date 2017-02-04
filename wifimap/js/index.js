@@ -20,11 +20,13 @@ function setVariables() {
     wep_network = "yes";
     wpa_wps_network = "yes";
     wpa_no_wps_network = "yes";
+    from_time = "0000000000";
+    to_time = "32503679995";
     band = "%";
     connected_clients = "%";
     probing_clients = "%";
-    from_time = "0000000000";
-    to_time = "32503679995";
+    predefined_search = "%";
+    
     
     activeSite = "overview";
     loadSettings();
@@ -82,6 +84,15 @@ function deleteMarkers() {
     to_year=document.getElementById("to_year").value;
     
     
+    //Sets "band", which bands to show
+    if (document.getElementById("2.4ghz_band").checked)
+    {band="2.4ghz"; }
+    else if (document.getElementById("5ghz_band").checked)
+    {band="5ghz"; } 
+    else
+    {band="%"; }
+    
+    
     if (document.getElementById("connected_clients").checked)
     {connected_clients=":"; }
     else 
@@ -93,13 +104,7 @@ function deleteMarkers() {
     {probing_clients="%"; }
     
     
-    //Sets "band", which bands to show
-    if (document.getElementById("2.4ghz_band").checked)
-    {band="2.4ghz"; }
-    else if (document.getElementById("5ghz_band").checked)
-    {band="5ghz"; } 
-    else
-    {band="%"; }
+    predefined_search=document.getElementById("predefined_search").value;
     
     
     //Sets "from_time" (GMT)
@@ -570,7 +575,7 @@ function bindInfoWindow(marker, map, infoWindow, html) {
  
         request.open('POST', url, true);
         request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-        request.send("open_network="+open_network+"&"+"wep_network="+wep_network+"&"+"wpa_wps_network="+wpa_wps_network+"&"+"wpa_no_wps_network="+wpa_no_wps_network+"&"+"searchinput="+searchinput+"&"+"from_time="+from_time+"&"+"to_time="+to_time+"&"+"band="+band+"&"+"connected_clients="+connected_clients+"&"+"probing_clients="+probing_clients);
+        request.send("open_network="+open_network+"&"+"wep_network="+wep_network+"&"+"wpa_wps_network="+wpa_wps_network+"&"+"wpa_no_wps_network="+wpa_no_wps_network+"&"+"searchinput="+searchinput+"&"+"from_time="+from_time+"&"+"to_time="+to_time+"&"+"band="+band+"&"+"connected_clients="+connected_clients+"&"+"probing_clients="+probing_clients+"&"+"predefined_search="+predefined_search);
         
     }
 	

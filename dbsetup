@@ -18,6 +18,7 @@ channel int(8),
 band varchar(64) NOT NULL DEFAULT '',
 vendor varchar(64) NOT NULL DEFAULT '',
 lastseen varchar(64) NOT NULL DEFAULT '',
+predefined_search varchar (256) NOT NULL DEFAULT '',
 icon varchar(128) NOT NULL DEFAULT '',
 connected_clients varchar(2048) NOT NULL DEFAULT '',
 probing_clients varchar(4096) NOT NULL DEFAULT '')
