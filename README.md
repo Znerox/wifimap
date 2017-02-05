@@ -1,4 +1,4 @@
-![](http://i.imgur.com/NyOB1u9.png)
+![](http://i.imgur.com/FJBoO1a.png)
 [Live version](http://wifikart.net)
 
 # WifiMap
