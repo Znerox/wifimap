@@ -138,7 +138,7 @@ function loadSettings() {
             $(predefined_search_header).html("Predefined searches");
             
             // text by the icons, explaining what they mean
-            $(opentext).html("Typically a guestnetwork");
+            $(opentext).html("Typically a guest network");
             $(weptext).html("Outdated encryption");
             $(wpstext).html("Secure encryption (WPA with WPS, which can be exploited)");
             $(wpatext).html("Secure encryption (WPA without WPS)");
@@ -184,7 +184,7 @@ function loadSettings() {
         
         if (language == "norwegian") {
             
-            $(show_connected_text).html("Vs tilkoblede");
+            $(show_connected_text).html("Vis tilkoblede");
             $(show_probed_text).html("Vis probed");
             $(dont_show_unlikely_probes_text).html("Ikke vis usannsynlige probes");
             

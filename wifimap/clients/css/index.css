@@ -3,43 +3,43 @@
 ##############################*/
 
 html {
-	width:100%;
-	height:100%;
-    margin:0;
-	box-sizing:border-box;
+	width: 100%;
+	height: 100%;
+    margin: 0;
+	box-sizing: border-box;
 }
 
 body {
-	width:100%;
-	height:100%;
-    margin:0;
-	box-sizing:border-box;
+	width: 100%;
+	height: 100%;
+    margin: 0;
+	box-sizing: border-box;
 }
 
 #pagecontent {
-	width:100%;
-	height:100%;
-	box-sizing:border-box;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
 }
 
 #map {
     width: 100%;
-	height:100%;
-	box-sizing:border-box;
-	display:block;
-	float:left;
+	height: 100%;
+	box-sizing: border-box;
+	display: block;
+	float: left;
 }
 
 #sidetab {
-	width:300px;
-    height:100%;
-	box-sizing:border-box;
-	padding:10px;
-	text-align:center;
-	display:block;
-	float:right;
-    position:absolute;
-    right:0px;
+	width: 300px;
+    height: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	text-align: center;
+	display: block;
+	float: right;
+    position: absolute;
+    right: 0;
 }
 
 /*##############################
@@ -47,8 +47,8 @@ body {
 ##############################*/
 
 .sidegroup {
-    margin: 16px 0px 0px 0px;
-    padding: 0px;
+    margin: 16px 0 0 0;
+    padding: 0;
     border-radius: 32px;
     background: #0095cd;
     background: -moz-linear-gradient(top,  #00adee,  #0078a5);
@@ -58,18 +58,19 @@ body {
 
 
 .sideelement {
-    padding: 8px 0px 0px 0px;
+    padding: 8px 0 0 0;
 }
 
 
 .textinput {
-		margin: 0;
-		padding: 5px 15px;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size:14px;
-		border:1px solid #0076a3; border-right:0px;
-		border-top-left-radius: 5px 5px;
-		border-bottom-left-radius: 5px 5px;
+    margin: 0;
+    padding: 5px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border: 1px solid #0076a3;
+    border-right: 0;
+    border-top-left-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
 }
 
 
@@ -79,14 +80,12 @@ body {
 
 
 .checkboxAndText {
-    margin: 0px;
+    margin: 0;
 }
 
 
 .checkbox {
-    display: inline-block;
     float: left;
-
     margin-left: 15px;
 }
 
@@ -94,7 +93,7 @@ body {
 .checkboxText {
     text-align: left;
     margin: 10px 50px;
-    padding: 0x;
+    padding: 0;
 }
 
 
@@ -107,16 +106,20 @@ body {
     margin-top: 5px;
 	padding: 4px 15px;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size:14px;
+	font-size: 14px;
 	outline: none;
 	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
 	color: #ffffff;
-	border: solid 1px #0076a3; border-right:0px;
-	background: #0095cd;
-	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
-	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+	border: solid 1px #0076a3;
+    border-right: 0;
+	background: #0095cd; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#00adee, #0078a5); /* For Safari 5.1 to 6.0 */
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5)); /* "Old" WebKit */
+    background: -o-linear-gradient(#00adee, #0078a5); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#00adee,  #0078a5); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#00adee, #0078a5); /* Standard syntax (must be last) */
 	border-radius: 5px;
 }
 
@@ -125,8 +128,8 @@ body {
 ##############################*/
 
 #sidetext {
-	padding:12px 0px 12px 12px;
-    margin: 0px 8px;
+	padding: 12px 0 12px 12px;
+    margin: 0 8px;
     text-align: left
 }
 
@@ -153,9 +156,11 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
+
 input[type="radio"] {
     cursor: pointer;
 }
+
 
 input[type="select"] {
     cursor: pointer;

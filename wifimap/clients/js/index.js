@@ -290,7 +290,7 @@ function getNetworkData() {
     }); //END of downloadUrl_networkdata
         
         
-    }; 
+    }
 //------------------------------------------------
 // END getNetworkData function (not actual function
 // but launching, from within clientdata)
