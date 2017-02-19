@@ -20,8 +20,8 @@ function setVariables() {
     wep_network = "yes";
     wpa_wps_network = "yes";
     wpa_no_wps_network = "yes";
-    from_time = "0000000000";
-    to_time = "32503679995";
+    from_time = "0000000000000";
+    to_time = "32503679995000";
     band = "%";
     connected_clients = "%";
     probing_clients = "%";
@@ -110,7 +110,7 @@ function deleteMarkers() {
     //Sets "from_time" (GMT)
     
     if (from_year == "any")
-    {from_time = "0000000000"}
+    {from_time = "0000000000000"}
 
     else if (from_month == "january" & from_year == "2017")
     {from_time = "1483228800000";}
@@ -240,13 +240,13 @@ function deleteMarkers() {
     else if (from_month == "december" & from_year == "2013")
     {from_time = "1385856000000";}
     
-    else {from_time = "1356998400000"};
+    else {from_time = "0000000000000"};
     
     
     //Sets "to_time" (GMT)
     
     if (to_year == "any")
-    {to_time = "32503679995"}
+    {to_time = "32503679995000"}
     
     
     else if (to_month == "december" & to_year == "2017")
@@ -383,7 +383,7 @@ function deleteMarkers() {
     else if (to_month == "november" & to_year == "2013")
     {to_time = "1385855999000";}
     
-    else {to_time = "1483228799000"};
+    else {to_time = "32503679995000"};
        
 
       load();         

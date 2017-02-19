@@ -72,18 +72,18 @@ $mysqli->query("UPDATE location SET month_seen='November 2016' WHERE time > '147
 $mysqli->query("UPDATE location SET month_seen='December 2016' WHERE time > '1480550400000' AND time < '1483228799000'");
 
 //2017 GMT
-$mysqli->query("UPDATE network SET lastseen='January 2017' WHERE lasttime > '1483228800000' AND lasttime < '1485907199000'");
-$mysqli->query("UPDATE network SET lastseen='February 2017' WHERE lasttime > '1485907200000' AND lasttime < '1214883263990003'");
-$mysqli->query("UPDATE network SET lastseen='March 2017' WHERE lasttime > '1488326400000' AND lasttime < '1491004799000'");
-$mysqli->query("UPDATE network SET lastseen='April 2017' WHERE lasttime > '1491004800000' AND lasttime < '1493596799000'");
-$mysqli->query("UPDATE network SET lastseen='May 2017' WHERE lasttime > '1493596800000' AND lasttime < '1496275199000'");
-$mysqli->query("UPDATE network SET lastseen='June 2017' WHERE lasttime > '1496275200000' AND lasttime < '1498867199000'");
-$mysqli->query("UPDATE network SET lastseen='July 2017' WHERE lasttime > '1498867200000' AND lasttime < '1501459199000'");
-$mysqli->query("UPDATE network SET lastseen='August 2017' WHERE lasttime > '1501545600000' AND lasttime < '1504223999000'");
-$mysqli->query("UPDATE network SET lastseen='September 2017' WHERE lasttime > '1504224000000' AND lasttime < '1506815999000'");
-$mysqli->query("UPDATE network SET lastseen='October 2017' WHERE lasttime > '1506816000000' AND lasttime < '1509494399000'");
-$mysqli->query("UPDATE network SET lastseen='November 2017' WHERE lasttime > '1509494400000' AND lasttime < '1512086399000'");
-$mysqli->query("UPDATE network SET lastseen='December 2017' WHERE lasttime > '1512086400000' AND lasttime < '1514764799000'");
+$mysqli->query("UPDATE location SET month_seen='January 2017' WHERE time > '1483228800000' AND time < '1485907199000'");
+$mysqli->query("UPDATE location SET month_seen='February 2017' WHERE time > '1485907200000' AND time < '1488326399000'");
+$mysqli->query("UPDATE location SET month_seen='March 2017' WHERE time > '1488326400000' AND time < '1491004799000'");
+$mysqli->query("UPDATE location SET month_seen='April 2017' WHERE time > '1491004800000' AND time < '1493596799000'");
+$mysqli->query("UPDATE location SET month_seen='May 2017' WHERE time > '1493596800000' AND time < '1496275199000'");
+$mysqli->query("UPDATE location SET month_seen='June 2017' WHERE time > '1496275200000' AND time < '1498867199000'");
+$mysqli->query("UPDATE location SET month_seen='July 2017' WHERE time > '1498867200000' AND time < '1501459199000'");
+$mysqli->query("UPDATE location SET month_seen='August 2017' WHERE time > '1501545600000' AND time < '1504223999000'");
+$mysqli->query("UPDATE location SET month_seen='September 2017' WHERE time > '1504224000000' AND time < '1506815999000'");
+$mysqli->query("UPDATE location SET month_seen='October 2017' WHERE time > '1506816000000' AND time < '1509494399000'");
+$mysqli->query("UPDATE location SET month_seen='November 2017' WHERE time > '1509494400000' AND time < '1512086399000'");
+$mysqli->query("UPDATE location SET month_seen='December 2017' WHERE time > '1512086400000' AND time < '1514764799000'");
 
 //if date is not set, update field to let user know. you can use use epochconverter.com to find timestamp (in milliseconds) to update this list yourself
 $mysqli->query("UPDATE location SET month_seen='UNKNOWN' WHERE month_seen LIKE ''");

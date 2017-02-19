@@ -113,7 +113,7 @@ $mysqli->query("UPDATE network SET lastseen='December 2016' WHERE lasttime > '14
 
 //2017 GMT
 $mysqli->query("UPDATE network SET lastseen='January 2017' WHERE lasttime > '1483228800000' AND lasttime < '1485907199000'");
-$mysqli->query("UPDATE network SET lastseen='February 2017' WHERE lasttime > '1485907200000' AND lasttime < '1214883263990003'");
+$mysqli->query("UPDATE network SET lastseen='February 2017' WHERE lasttime > '1485907200000' AND lasttime < '1488326399000'");
 $mysqli->query("UPDATE network SET lastseen='March 2017' WHERE lasttime > '1488326400000' AND lasttime < '1491004799000'");
 $mysqli->query("UPDATE network SET lastseen='April 2017' WHERE lasttime > '1491004800000' AND lasttime < '1493596799000'");
 $mysqli->query("UPDATE network SET lastseen='May 2017' WHERE lasttime > '1493596800000' AND lasttime < '1496275199000'");

@@ -50,9 +50,12 @@ body {
     margin: 16px 0 0 0;
     padding: 0;
     border-radius: 32px;
-    background: #0095cd;
-    background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+    background: #0095cd; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#00adee, #0078a5); /* For Safari 5.1 to 6.0 */
+    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5)); /* "Old" WebKit */
+    background: -o-linear-gradient(#00adee, #0078a5); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#00adee,  #0078a5); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#00adee, #0078a5); /* Standard syntax (must be last) */
     border: 2px solid black;
 }
 
