@@ -3,24 +3,18 @@
 require("dbinfo.php");
 
 // Opens a connection to a MySQL server
-$connection=mysql_connect ('localhost', $username, $password);
-if (!$connection) {  die('Not connected : ' . mysql_error());}
+$mysqli = new mysqli("localhost", $username, $password, $database);
 
-
-// Set the active MySQL database
-$db_selected = mysql_select_db($database, $connection);
-if (!$db_selected) {
-  die ('Can\'t use db : ' . mysql_error());
-}
-
+// Change character set to utf8
+mysqli_set_charset($mysqli,"utf8");
 
 // Select all the rows in the clients table that has data in "probed_essid"
 $probing_network_lookup = "SELECT * FROM clients WHERE probed_essid !=''";
-$probing_network_lookup_result = mysql_query($probing_network_lookup);
+$probing_network_lookup_result = $mysqli->query($probing_network_lookup);
 
 
 //run code on each line in the result
-while ($row = @mysql_fetch_assoc($probing_network_lookup_result)){
+while ($row = $probing_network_lookup_result->fetch_assoc()){
 
     
     //put all the probed essid for this client into an array
@@ -34,25 +28,25 @@ while ($row = @mysql_fetch_assoc($probing_network_lookup_result)){
         
         //take the probed essid from the client, and get all data on the router from network table
         $specificESSIDQueryOnNetwork = "SELECT * FROM network WHERE BINARY ssid LIKE '$probed_essid_array_for_this_client[$i]'";
-        $specificESSIDQueryOnNetworkResult = mysql_query($specificESSIDQueryOnNetwork);
-        //$specificESSIDQueryOnNetworkResultArray = @mysql_fetch_assoc($specificESSIDQueryOnNetworkResult);
+        $specificESSIDQueryOnNetworkResult = $mysqli->query($specificESSIDQueryOnNetwork);
+        //$specificESSIDQueryOnNetworkResultArray = $mysqli->query($specificESSIDQueryOnNetworkResult);
         
         
         //go thorugh each network with this ssid, there could be multiple!
-        while ($routerWithESSIDMatchingClientProbe = @mysql_fetch_assoc($specificESSIDQueryOnNetworkResult)) {
+        while ($routerWithESSIDMatchingClientProbe = $specificESSIDQueryOnNetworkResult->fetch_assoc()) {
             
             
             //check if the probing_clients field for this router is empty
             if (!$routerWithESSIDMatchingClientProbe['probing_clients']) {
                 
-                //this router in network has no data (NULL) in probing_clients field, insert data
-                mysql_query ("UPDATE network SET probing_clients='$row[client_mac]' WHERE bssid LIKE '$routerWithESSIDMatchingClientProbe[bssid]'");
-                //router in network table had NULL data in probing_clients field. added client_mac
+                //this router in network has no data (empty/NULL) in probing_clients field, insert data
+                $mysqli->query("UPDATE network SET probing_clients='<br>$row[client_mac]<br>' WHERE bssid LIKE '$routerWithESSIDMatchingClientProbe[bssid]'");
+                //router in network table had empty/NULL data in probing_clients field. added client_mac
                 
             } else {
                 
                 //put all the probing_clients for this network into an array
-                $probing_clients_array_for_this_router = explode(",", $routerWithESSIDMatchingClientProbe['probing_clients']);
+                $probing_clients_array_for_this_router = preg_split('/<br[^>]*>/i', $routerWithESSIDMatchingClientProbe['probing_clients']);
                 
                 
                 //this router in network has data in probing_clients field, check if this client_mac is present
@@ -63,7 +57,7 @@ while ($row = @mysql_fetch_assoc($probing_network_lookup_result)){
                 } else {
                     
                     //this router in network already has some data in probing_clients field, but this client_mac is new. concat new data
-                    mysql_query ("UPDATE network SET probing_clients=CONCAT(probing_clients,',$row[client_mac]') WHERE bssid LIKE '$routerWithESSIDMatchingClientProbe[bssid]'");
+                    $mysqli->query("UPDATE network SET probing_clients=CONCAT(probing_clients,'$row[client_mac]<br>') WHERE bssid LIKE '$routerWithESSIDMatchingClientProbe[bssid]'");
                     //concatted client_mac to probing_clients field in network table
                     
                 }
@@ -72,12 +66,12 @@ while ($row = @mysql_fetch_assoc($probing_network_lookup_result)){
             }
             
             
-        }//end while loop, kjør kode på hver ruter som har matchende ssid
+        }//end while loop, run code on each router that has matching ssid
         
         
-    }//end for loop, kjør kode på hver connected router for denne klienten
+    }//end for loop, run code on each connected router for denne klienten
     
-}//end while loop, gå gjennom row data, kode for hver klient som har minst en connected router
+}//end while loop, go through row data, code for each client that has at least one connected router
 
 echo "script completed";
 

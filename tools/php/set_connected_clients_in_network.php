@@ -15,11 +15,11 @@ $connected_to_bssid_lookup_result = $mysqli->query($connected_to_bssid_lookup);
 
 //run code on each line in the result
 while ($row = $connected_to_bssid_lookup_result->fetch_assoc()){
-
+    
     
     //put all the connected bssid for this client into an array
     $connected_bssid_array_for_this_client = explode(",", $row['connected_to_bssid']);
- 
+    
     
     //count how many bssid this client is connected to
     $connected_bssid_number_for_client = count($connected_bssid_array_for_this_client);
@@ -32,40 +32,40 @@ while ($row = $connected_to_bssid_lookup_result->fetch_assoc()){
         $specificBSSIDQueryOnNetworkResult = $mysqli->query($specificBSSIDQueryOnNetwork);
         $specificBSSIDQueryOnNetworkResultArray = $specificBSSIDQueryOnNetworkResult->fetch_assoc();
         
-
+        
         //check if the connected_clients field for this router is empty
         if (!$specificBSSIDQueryOnNetworkResultArray['connected_clients']) {
             
-            //this bssid in network has no data (NULL) in connected_clients field, insert data
-            $mysqli->query("UPDATE network SET connected_clients='$row[client_mac]' WHERE bssid LIKE '$connected_bssid_array_for_this_client[$i]'");
-            //bssid in network table had NULL data in connected_clients field. added client_mac
-                
+            //this bssid in network has no data (empty/NULL) in connected_clients field, insert data
+            $mysqli->query("UPDATE network SET connected_clients='<br>$row[client_mac]<br>' WHERE bssid LIKE '$connected_bssid_array_for_this_client[$i]'");
+            //bssid in network table had empty/NULL data in connected_clients field. added client_mac
+            
         } else {
             
             //put all the connected_clients for this network into an array
-            $connected_clients_array_for_this_bssid = explode(",", $specificBSSIDQueryOnNetworkResultArray['connected_clients']);
+            $connected_clients_array_for_this_bssid = preg_split('/<br[^>]*>/i', $specificBSSIDQueryOnNetworkResultArray['connected_clients']);
             
-
+            
             //this bssid in network has data in connected_clients field, check if this client_mac is present
             if (in_array($row['client_mac'], $connected_clients_array_for_this_bssid)) {
                 
                 //client_mac already in connected_clients field of bssid in network, not concatting!
                 
             } else {
-                 
+                
                 //this bssid in network already has some data in connected_clients field, but this client_mac is new. concat new data
-                $mysqli->query("UPDATE network SET connected_clients=CONCAT(connected_clients,',$row[client_mac]') WHERE bssid LIKE '$connected_bssid_array_for_this_client[$i]'");
+                $mysqli->query("UPDATE network SET connected_clients=CONCAT(connected_clients,'$row[client_mac]<br>') WHERE bssid LIKE '$connected_bssid_array_for_this_client[$i]'");
                 //concatted client_mac to connected_clients field in network table
-                     
+                
             }
-  
+            
             
         }
-  
         
-    }//end for loop, kjør kode på hver connected bssid for denne klienten
+        
+    }//end for loop, run code on each connected bssid for this client
     
-}//end while loop, gå gjennom row data, kode for hver klient som har minst en connected bssid
+}//end while loop, go through row data, code for each client that has at least one connected bssids
 
 echo "script completed";
 

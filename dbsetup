@@ -2,16 +2,15 @@ CREATE DATABASE wifimap DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_
 
 USE wifimap;
 
-CREATE TABLE network
-(
-bssid varchar(27),
-ssid varchar(32),
-frequency varchar(13),
-capabilities varchar(57),
-lasttime varchar(49),
+CREATE TABLE network(
+bssid varchar(27) PRIMARY KEY NOT NULL DEFAULT '',
+ssid varchar(32) NOT NULL DEFAULT '',
+frequency varchar(13) NOT NULL DEFAULT '',
+capabilities varchar(57) NOT NULL DEFAULT '',
+lasttime varchar(49) NOT NULL DEFAULT '',
 lastlat decimal(28,12),
 lastlon decimal(28,12),
-bestlevel varchar(4),
+bestlevel varchar(4) NOT NULL DEFAULT '',
 bestlat decimal(28,12),
 bestlon decimal(28,12),
 channel int(8),
@@ -23,33 +22,29 @@ icon varchar(128) NOT NULL DEFAULT '',
 connected_clients varchar(2048) NOT NULL DEFAULT '',
 probing_clients varchar(4096) NOT NULL DEFAULT '')
 CHARACTER SET utf8
-COLLATE utf8_general_ci
-;
+COLLATE utf8_general_ci;
 
 
-CREATE TABLE location
-(
-bssid varchar(64),
-level varchar(64),
-lat varchar(64),
-lon varchar(64),
-altitude varchar(64),
+CREATE TABLE location(
+id int AUTO_INCREMENT PRIMARY KEY,
+bssid varchar(64) NOT NULL DEFAULT '',
+level varchar(64) NOT NULL DEFAULT '',
+lat varchar(64) NOT NULL DEFAULT '',
+lon varchar(64) NOT NULL DEFAULT '',
+altitude varchar(64) NOT NULL DEFAULT '',
 accuracy decimal(64,0),
-time varchar(64),
+time varchar(64) NOT NULL DEFAULT '',
 month_seen varchar(64) NOT NULL DEFAULT '')
 CHARACTER SET utf8
-COLLATE utf8_general_ci
-;
+COLLATE utf8_general_ci;
 
 
-CREATE TABLE clients
-(
-client_mac varchar(17),
+CREATE TABLE clients(
+client_mac varchar(17) PRIMARY KEY NOT NULL DEFAULT '',
 vendor varchar(256) NOT NULL DEFAULT '',
 connected_to_bssid varchar(1024) NOT NULL DEFAULT '',
 probed_essid varchar(1024) NOT NULL DEFAULT '',
 first_seen varchar(32) NOT NULL DEFAULT '',
 last_seen varchar(32) NOT NULL DEFAULT '')
 CHARACTER SET utf8
-COLLATE utf8_general_ci
-;
+COLLATE utf8_general_ci;

@@ -108,7 +108,7 @@ if ($networksWithNullVendor > 0) {
 
 else {
     
-    echo "No more clients left with missing vendor!";
+    echo "No more networks left with missing vendor!";
 }
 
 ?>
