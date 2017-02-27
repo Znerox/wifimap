@@ -271,7 +271,7 @@ function getNetworkData() {
             
             
             //This is the pop-up window that appears when clicking on a network
-            var html = "<b>" + SSID + "</b> <br>" + BSSID + "<br>" + VENDOR + "<br>" + "<br>" + CAPABILITIES + "<br>" + "Kanal: " + CHANNEL + " (" + FREQUENCY + " MHz)" + "<br>" + "Signal: " + BESTLEVEL + " dBm" + "<br>" + "Sist sett: " + LASTSEEN + "<br>" + "<br>" + "Connected clients: " + "<b>" + CONNECTED_CLIENTS + "</b>" + "<br>" + "Probing clients: " + "<b>" + PROBING_CLIENTS + "</b>" + "<br>" + "<input type='button' onclick='getLocation(" + BSSIDFunctionFriendly + ");' value='Precise location' class='infoWindowSearchButton'>";
+            var html = "<b>" + SSID + "</b> <br>" + BSSID + "<br>" + VENDOR + "<br>" + "<br>" + CAPABILITIES + "<br>" + "Channel: " + CHANNEL + " (" + FREQUENCY + " MHz)" + "<br>" + "Signal: " + BESTLEVEL + " dBm" + "<br>" + "Last seen: " + LASTSEEN + "<br>" + "<br>" + "Connected clients: " + "<b>" + CONNECTED_CLIENTS + "</b>" + "<br>" + "Probing clients: " + "<b>" + PROBING_CLIENTS + "</b>" + "<br>" + "<input type='button' onclick='getLocation(" + BSSIDFunctionFriendly + ");' value='Precise location' class='infoWindowSearchButton'>";
             
             marker = new google.maps.Marker({
                 map: map,
