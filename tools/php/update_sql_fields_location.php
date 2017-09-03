@@ -15,34 +15,6 @@ $mysqli->query("DELETE FROM `location` WHERE lon LIKE 'inf'");
 
 //set month_seen
 
-//2013 GMT
-$mysqli->query("UPDATE location SET month_seen='January 2013' WHERE time > '1356998400000' AND time < '1359676799000'");
-$mysqli->query("UPDATE location SET month_seen='February 2013' WHERE time > '1359676800000' AND time < '1362095999000'");
-$mysqli->query("UPDATE location SET month_seen='March 2013' WHERE time > '1362096000000' AND time < '1364774399000'");
-$mysqli->query("UPDATE location SET month_seen='April 2013' WHERE time > '1364774400000' AND time < '1367366399000'");
-$mysqli->query("UPDATE location SET month_seen='May 2013'WHERE time > '1367366400000' AND time < '1370044799000'");
-$mysqli->query("UPDATE location SET month_seen='June 2013' WHERE time > '1370044800000' AND time < '1372636799000'");
-$mysqli->query("UPDATE location SET month_seen='July 2013' WHERE time > '1372636800000' AND time < '1377993599000'");
-$mysqli->query("UPDATE location SET month_seen='August 2013' WHERE time > '1375315200000' AND time < '1377986399000'");
-$mysqli->query("UPDATE location SET month_seen='September 2013' WHERE time > '1377993600000' AND time < '1380585599000'");
-$mysqli->query("UPDATE location SET month_seen='October 2013' WHERE time > '1380585600000' AND time < '1383263999000'");
-$mysqli->query("UPDATE location SET month_seen='November 2013' WHERE time > '1383264000000' AND time < '1385855999000");
-$mysqli->query("UPDATE location SET month_seen='December 2013' WHERE time > '1385856000000' AND time < '1388534399000'");
-
-//2014 GMT
-$mysqli->query("UPDATE location SET month_seen='January 2014' WHERE time > '1388534400000' AND time < '1391212799000'");
-$mysqli->query("UPDATE location SET month_seen='February 2014' WHERE time > '1391212800000' AND time < '1393631999000'");
-$mysqli->query("UPDATE location SET month_seen='March 2014' WHERE time > '1393632000000' AND time < '1396310399000'");
-$mysqli->query("UPDATE location SET month_seen='April 2014' WHERE time > '1396310400000' AND time < '1398902399000'");
-$mysqli->query("UPDATE location SET month_seen='May 2014' WHERE time > '1398902400000' AND time < '1401580799000'");
-$mysqli->query("UPDATE location SET month_seen='June 2014' WHERE time > '1401580800000' AND time < '1404172799000'");
-$mysqli->query("UPDATE location SET month_seen='July 2014' WHERE time > '1404172800000' AND time < '1406851199000'");
-$mysqli->query("UPDATE location SET month_seen='August 2014' WHERE time > '1406851200000' AND time < '1409529599000'");
-$mysqli->query("UPDATE location SET month_seen='September 2014' WHERE time > '1409529600000' AND time < '1412121599000'");
-$mysqli->query("UPDATE location SET month_seen='October 2014' WHERE time > '1412121600000' AND time < '1414799999000'");
-$mysqli->query("UPDATE location SET month_seen='November 2014' WHERE time > '1414800000000' AND time < '1417391999000'");
-$mysqli->query("UPDATE location SET month_seen='December 2014' WHERE time > '1417392000000' AND time < '1420070399000'");
-
 //2015 GMT
 $mysqli->query("UPDATE location SET month_seen='January 2015' WHERE time > '1420070400000' AND time < '1422748799000'");
 $mysqli->query("UPDATE location SET month_seen='February 2015' WHERE time > '1422748800000' AND time < '1425167999000'");
@@ -91,4 +63,4 @@ $mysqli->query("UPDATE location SET month_seen='UNKNOWN' WHERE month_seen LIKE '
 //let user know script is completed
 echo "script completed";
 
-?> 
+?>

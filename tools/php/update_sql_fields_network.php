@@ -55,34 +55,6 @@ $mysqli->query("UPDATE network SET band='INVALID' WHERE band LIKE ''");
 
 //set lastseen
 
-//2013 GMT
-$mysqli->query("UPDATE network SET lastseen='January 2013' WHERE lasttime > '1356998400000' AND lasttime < '1359676799000'");
-$mysqli->query("UPDATE network SET lastseen='February 2013' WHERE lasttime > '1359676800000' AND lasttime < '1362095999000'");
-$mysqli->query("UPDATE network SET lastseen='March 2013' WHERE lasttime > '1362096000000' AND lasttime < '1364774399000'");
-$mysqli->query("UPDATE network SET lastseen='April 2013' WHERE lasttime > '1364774400000' AND lasttime < '1367366399000'");
-$mysqli->query("UPDATE network SET lastseen='May 2013'WHERE lasttime > '1367366400000' AND lasttime < '1370044799000'");
-$mysqli->query("UPDATE network SET lastseen='June 2013' WHERE lasttime > '1370044800000' AND lasttime < '1372636799000'");
-$mysqli->query("UPDATE network SET lastseen='July 2013' WHERE lasttime > '1372636800000' AND lasttime < '1377993599000'");
-$mysqli->query("UPDATE network SET lastseen='August 2013' WHERE lasttime > '1375315200000' AND lasttime < '1377986399000'");
-$mysqli->query("UPDATE network SET lastseen='September 2013' WHERE lasttime > '1377993600000' AND lasttime < '1380585599000'");
-$mysqli->query("UPDATE network SET lastseen='October 2013' WHERE lasttime > '1380585600000' AND lasttime < '1383263999000'");
-$mysqli->query("UPDATE network SET lastseen='November 2013' WHERE lasttime > '1383264000000' AND lasttime < '1385855999000");
-$mysqli->query("UPDATE network SET lastseen='December 2013' WHERE lasttime > '1385856000000' AND lasttime < '1388534399000'");
-
-//2014 GMT
-$mysqli->query("UPDATE network SET lastseen='January 2014' WHERE lasttime > '1388534400000' AND lasttime < '1391212799000'");
-$mysqli->query("UPDATE network SET lastseen='February 2014' WHERE lasttime > '1391212800000' AND lasttime < '1393631999000'");
-$mysqli->query("UPDATE network SET lastseen='March 2014' WHERE lasttime > '1393632000000' AND lasttime < '1396310399000'");
-$mysqli->query("UPDATE network SET lastseen='April 2014' WHERE lasttime > '1396310400000' AND lasttime < '1398902399000'");
-$mysqli->query("UPDATE network SET lastseen='May 2014' WHERE lasttime > '1398902400000' AND lasttime < '1401580799000'");
-$mysqli->query("UPDATE network SET lastseen='June 2014' WHERE lasttime > '1401580800000' AND lasttime < '1404172799000'");
-$mysqli->query("UPDATE network SET lastseen='July 2014' WHERE lasttime > '1404172800000' AND lasttime < '1406851199000'");
-$mysqli->query("UPDATE network SET lastseen='August 2014' WHERE lasttime > '1406851200000' AND lasttime < '1409529599000'");
-$mysqli->query("UPDATE network SET lastseen='September 2014' WHERE lasttime > '1409529600000' AND lasttime < '1412121599000'");
-$mysqli->query("UPDATE network SET lastseen='October 2014' WHERE lasttime > '1412121600000' AND lasttime < '1414799999000'");
-$mysqli->query("UPDATE network SET lastseen='November 2014' WHERE lasttime > '1414800000000' AND lasttime < '1417391999000'");
-$mysqli->query("UPDATE network SET lastseen='December 2014' WHERE lasttime > '1417392000000' AND lasttime < '1420070399000'");
-
 //2015 GMT
 $mysqli->query("UPDATE network SET lastseen='January 2015' WHERE lasttime > '1420070400000' AND lasttime < '1422748799000'");
 $mysqli->query("UPDATE network SET lastseen='February 2015' WHERE lasttime > '1422748800000' AND lasttime < '1425167999000'");
@@ -178,4 +150,4 @@ OR capabilities LIKE '5700'
 //let user know script is completed
 echo "script completed";
 
-?> 
+?>

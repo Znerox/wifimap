@@ -2,14 +2,14 @@
 <head>
     <meta charset="utf-8">
 	<title>WiFi Map - Location</title>
-      
+
 	<link type="text/css" rel="stylesheet" href="css/index.css"/>
-    <script type="text/javascript" src="https://cdn.rawgit.com/Znerox/js-marker-clusterer/gh-pages/src/markerclusterer_compiled.js"></script>
+    <script type="text/javascript" src="../js/markerclusterer.js"></script>
     <script type="text/javascript" src="../js/settings.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-      
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 
@@ -18,33 +18,33 @@
         <div id="map"></div>
 		<div id="sidetab">
             <div class="sidegroup">
-            	
+
                 <div id="search_button" class="sideelement">
                     <!-- This is searchfield -->
                     <span><input type="text" class="textinput" id="searchinput" size="16" maxlength="25" placeholder="BSSID" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="searchbutton" onclick="deleteMarkers();" value="Search" class="searchbutton"></span>
                     </div> <!-- END  search_button -->
-       
+
                 <!-- This is the area under search-->
                 <div id="sidetext" class="sideelement">
-                    
+
                     <div class="signal_info_div">
                         <div class="signal_info_icon"><img class=image src="http://www.google.com/mapfiles/ms/micons/green.png"/></div>
                         <div class="signal_info_text"><p id="signal_info_text_good">Signal stregth over -80 dBm</p></div>
                     </div>
-                    
+
                     <div class="signal_info_div">
                         <div class="signal_info_icon"><img class=image src="http://www.google.com/mapfiles/ms/micons/yellow.png"/></div>
                         <div class="signal_info_text"><p id="signal_info_text_medium">Signal stregth -80/-90 dBm</p></div>
                     </div>
-                    
+
                     <div class="signal_info_div">
                         <div class="signal_info_icon"><img class=image src="http://www.google.com/mapfiles/ms/micons/red.png"/></div>
                         <div class="signal_info_text"><p id="signal_info_text_bad">Signal stregth under -90 dBm</p></div>
-                    </div>  
-                    
+                    </div>
+
                 </div> <!-- END  sidetext -->
             </div> <!-- END  sideelement -->
-				
+
 		</div> <!-- END  sidetab -->
 
 	</div> <!-- END  pagecontent -->
