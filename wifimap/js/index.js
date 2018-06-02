@@ -112,6 +112,31 @@ function deleteMarkers() {
     if (from_year == "any")
     {from_time = "0000000000000"}
 
+    else if (from_month == "january" & from_year == "2018")
+    {from_time = "1514764800000";}
+    else if (from_month == "february" & from_year == "2018")
+    {from_time = "1517443200000";}
+    else if (from_month == "march" & from_year == "2018")
+    {from_time = "1519862400000";}
+    else if (from_month == "april" & from_year == "2018")
+    {from_time = "1522540800000";}
+    else if (from_month == "may" & from_year == "2018")
+    {from_time = "1525132800000";}
+    else if (from_month == "june" & from_year == "2018")
+    {from_time = "1527811200000";}
+    else if (from_month == "july" & from_year == "2018")
+    {from_time = "1530403200000";}
+    else if (from_month == "august" & from_year == "2018")
+    {from_time = "1533081600000";}
+    else if (from_month == "september" & from_year == "2018")
+    {from_time = "1535760000000";}
+    else if (from_month == "october" & from_year == "2018")
+    {from_time = "1538352000000";}
+    else if (from_month == "november" & from_year == "2018")
+    {from_time = "1541030400000";}
+    else if (from_month == "december" & from_year == "2018")
+    {from_time = "1543622400000";}
+
     else if (from_month == "january" & from_year == "2017")
     {from_time = "1483228800000";}
     else if (from_month == "february" & from_year == "2017")
@@ -197,6 +222,33 @@ function deleteMarkers() {
 
     if (to_year == "any")
     {to_time = "32503679995000"}
+
+
+    else if (to_month == "december" & to_year == "2018")
+    {to_time = "1546300799000";}
+
+    else if (to_month == "january" & to_year == "2018")
+    {to_time = "1517443199000";}
+    else if (to_month == "february" & to_year == "2018")
+    {to_time = "1519862399000";}
+    else if (to_month == "march" & to_year == "2018")
+    {to_time = "1522540799000";}
+    else if (to_month == "april" & to_year == "2018")
+    {to_time = "1525132799000";}
+    else if (to_month == "may" & to_year == "2018")
+    {to_time = "1527811199000";}
+    else if (to_month == "june" & to_year == "2018")
+    {to_time = "1530403199000";}
+    else if (to_month == "july" & to_year == "2018")
+    {to_time = "1533081599000";}
+    else if (to_month == "august" & to_year == "2018")
+    {to_time = "1535759999000";}
+    else if (to_month == "september" & to_year == "2018")
+    {to_time = "1538351999000";}
+    else if (to_month == "october" & to_year == "2018")
+    {to_time = "1541030399000";}
+    else if (to_month == "november" & to_year == "2018")
+    {to_time = "1543622399000";}
 
 
     else if (to_month == "december" & to_year == "2017")
