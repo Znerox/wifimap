@@ -20,7 +20,7 @@ BSSID LIKE '$_POST[bssid]'";
 $result = $mysqli->query($query);
 
 header("Content-type: text/xml;charset=UTF-8");
- 
+
 // Iterate through the rows, adding XML nodes for each
 while ($row = $result->fetch_assoc()){
   // ADD TO XML DOCUMENT NODE
@@ -31,7 +31,7 @@ while ($row = $result->fetch_assoc()){
   $newnode->setAttribute("LAT", $row['lat']);
   $newnode->setAttribute("LON", $row['lon']);
   $newnode->setAttribute("ACCURACY", $row['accuracy']);
-  $newnode->setAttribute("MONTH_SEEN", $row['month_seen']);    
+  $newnode->setAttribute("MONTH_SEEN", $row['month_seen']);
 }
 
 echo $dom->saveXML();
