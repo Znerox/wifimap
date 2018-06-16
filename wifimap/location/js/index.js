@@ -8,7 +8,7 @@ function setVariables() {
   bestLat = window.opener.mapCenterLatitude;
   bestLon = window.opener.mapCenterLongitude;
   activeSite = "location";
-  loadSettings();
+  loadMapThemes();
 }
 
 //------------------------------------------------
@@ -39,69 +39,8 @@ function loadMap() {
     streetViewControl: false
   });
 
-  var styleArray = [{
-    "featureType": "administrative.locality",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "landscape.natural",
-    "elementType": "geometry.fill",
-    "stylers": [{
-      "gamma": 0.5
-    }]
-  }, {
-    "featureType": "landscape.natural",
-    "elementType": "labels.text",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "poi.attraction",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "poi.business",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "poi.place_of_worship",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "poi.sports_complex",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "road.local",
-    "elementType": "geometry",
-    "stylers": [{
-      "gamma": 2.0
-    }]
-  }, {
-    "featureType": "transit.station.airport",
-    "elementType": "labels.icon",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "water",
-    "elementType": "geometry.fill",
-    "stylers": [{
-        "gamma": 0.5
-      },
-      {
-        "weight": 0.1
-      }
-    ]
-  }];
-
   map.setOptions({
-    styles: styleArray
+    styles: mapThemeLocation
   });
   var infoWindow = new google.maps.InfoWindow;
 
@@ -131,11 +70,11 @@ function loadMap() {
       }
 
       if (LEVEL > -80) {
-        icon = "http://www.google.com/mapfiles/ms/micons/green.png"
+        icon = "https://www.google.com/mapfiles/ms/micons/green.png"
       } else if (LEVEL >= -90) {
-        icon = "http://www.google.com/mapfiles/ms/micons/yellow.png"
+        icon = "https://www.google.com/mapfiles/ms/micons/yellow.png"
       } else {
-        icon = "http://www.google.com/mapfiles/ms/micons/red.png"
+        icon = "https://www.google.com/mapfiles/ms/micons/red.png"
       };
 
       var point = new google.maps.LatLng(

@@ -11,7 +11,7 @@ function setVariables() {
   show_probing = "yes";
   dont_show_probe_matching_connected = "yes";
   activeSite = "clients";
-  loadSettings();
+  loadMapThemes();
 }
 
 //------------------------------------------------
@@ -75,69 +75,8 @@ function loadMap() {
     streetViewControl: false
   });
 
-  var styleArray = [{
-    "featureType": "administrative.locality",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "landscape.natural",
-    "elementType": "geometry.fill",
-    "stylers": [{
-      "gamma": 0.5
-    }]
-  }, {
-    "featureType": "landscape.natural",
-    "elementType": "labels.text",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "poi.attraction",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "poi.business",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "poi.place_of_worship",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "poi.sports_complex",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "road.local",
-    "elementType": "geometry",
-    "stylers": [{
-      "gamma": 2.0
-    }]
-  }, {
-    "featureType": "transit.station.airport",
-    "elementType": "labels.icon",
-    "stylers": [{
-      "visibility": "off"
-    }]
-  }, {
-    "featureType": "water",
-    "elementType": "geometry.fill",
-    "stylers": [{
-        "gamma": 0.5
-      },
-      {
-        "weight": 0.1
-      }
-    ]
-  }];
-
   map.setOptions({
-    styles: styleArray
+    styles: mapThemeClients
   });
 
   infoWindow = new google.maps.InfoWindow;
