@@ -59,11 +59,9 @@ body {
     border: 2px solid black;
 }
 
-
 .sideelement {
     padding: 8px 0 0 0;
 }
-
 
 .textinput {
 		margin: 0;
@@ -75,21 +73,17 @@ body {
 		border-bottom-left-radius: 5px 5px;
 }
 
-
 .searchbutton {
 		padding: 4px 15px;
 }
-
 
 .encryption_item_div {
     display: inline-block;
 }
 
-
 .form-select {
     cursor: pointer;
 }
-
 
 .infoWindowSearchButton {
     margin-top: 5px;
@@ -109,40 +103,33 @@ body {
 	border-radius: 5px;
 }
 
-
 .checkbox-radio_div {
     display: inline-block;
 }
 
-
 .checkbox-radio_div p {
     margin: 0;
 }
-
 
 .searchinfotype {
     padding-top: 8px;
     padding-bottom: 8px;
 }
 
-
-.searchinfo_icon_and_headline {   
+.searchinfo_icon_and_headline {
     vertical-align: middle;
     display: inline-block;
 }
 
-
 .image {
     float: left;
 }
-
 
 .searchinfotext {
     vertical-align: middle;
     display: inline-block;
     width: 80%;
 }
-
 
 /*##############################
 ###           IDs       ########
@@ -152,11 +139,9 @@ body {
 	padding: 8px 0 8px 0;
 }
 
-
 #lastseen_band_clients {
 
 }
-
 
 #last_seen_text {
     margin-top: 0;
@@ -164,22 +149,18 @@ body {
     font-size: 1em;
 }
 
-
 #clientcheckboxarea {
 	padding: 8px 0 8px 0;
 }
-
 
 #predefined_search_header {
     margin-top: 0;
     margin-bottom: -14px;
 }
 
-
 #predefined_search_group {
     padding: 8px 0 8px 0;
 }
-
 
 #sidetext {
 	padding:12px;
@@ -195,28 +176,23 @@ p {
 	font-size: 1.1em;
 }
 
-
 label {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1.1em;
     cursor: pointer;
 }
 
+input[type="button"] {
+    cursor: pointer;
+}
 
 input[type="checkbox"] {
     cursor: pointer;
 }
 
-
 input[type="radio"] {
     cursor: pointer;
 }
-
-
-input[type="select"] {
-    cursor: pointer;
-}
-
 
 a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
        cursor: pointer;

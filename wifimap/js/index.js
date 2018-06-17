@@ -10,8 +10,8 @@ function setVariables() {
   wep_network = "yes";
   wpa_wps_network = "yes";
   wpa_no_wps_network = "yes";
-  from_time = "0000000000000";
-  to_time = "32503679995000";
+  selected_fromtime = "";
+  selected_totime = "";
   band = "%";
   connected_clients = "%";
   probing_clients = "%";
@@ -57,10 +57,8 @@ function deleteMarkers() {
   }
 
   searchinput = document.getElementById("searchinput").value;
-  from_month = document.getElementById("from_month").value;
-  from_year = document.getElementById("from_year").value;
-  to_month = document.getElementById("to_month").value;
-  to_year = document.getElementById("to_year").value;
+  selected_fromtime = document.getElementById("selected_fromtime").value;
+  selected_totime = document.getElementById("selected_totime").value;
 
   //Sets "band", which bands to show
   if (document.getElementById("2.4ghz_band").checked) {
@@ -84,212 +82,6 @@ function deleteMarkers() {
   }
 
   predefined_search = document.getElementById("predefined_search").value;
-
-  //Sets "from_time" (GMT)
-  if (from_year == "any") {
-    from_time = "0000000000000"
-  } else if (from_month == "january" & from_year == "2018") {
-    from_time = "1514764800000";
-  } else if (from_month == "february" & from_year == "2018") {
-    from_time = "1517443200000";
-  } else if (from_month == "march" & from_year == "2018") {
-    from_time = "1519862400000";
-  } else if (from_month == "april" & from_year == "2018") {
-    from_time = "1522540800000";
-  } else if (from_month == "may" & from_year == "2018") {
-    from_time = "1525132800000";
-  } else if (from_month == "june" & from_year == "2018") {
-    from_time = "1527811200000";
-  } else if (from_month == "july" & from_year == "2018") {
-    from_time = "1530403200000";
-  } else if (from_month == "august" & from_year == "2018") {
-    from_time = "1533081600000";
-  } else if (from_month == "september" & from_year == "2018") {
-    from_time = "1535760000000";
-  } else if (from_month == "october" & from_year == "2018") {
-    from_time = "1538352000000";
-  } else if (from_month == "november" & from_year == "2018") {
-    from_time = "1541030400000";
-  } else if (from_month == "december" & from_year == "2018") {
-    from_time = "1543622400000";
-  } else if (from_month == "january" & from_year == "2017") {
-    from_time = "1483228800000";
-  } else if (from_month == "february" & from_year == "2017") {
-    from_time = "1485907200000";
-  } else if (from_month == "march" & from_year == "2017") {
-    from_time = "1488326400000";
-  } else if (from_month == "april" & from_year == "2017") {
-    from_time = "1491004800000";
-  } else if (from_month == "may" & from_year == "2017") {
-    from_time = "1493596800000";
-  } else if (from_month == "june" & from_year == "2017") {
-    from_time = "1496275200000";
-  } else if (from_month == "july" & from_year == "2017") {
-    from_time = "1498867200000";
-  } else if (from_month == "august" & from_year == "2017") {
-    from_time = "1501545600000";
-  } else if (from_month == "september" & from_year == "2017") {
-    from_time = "1504224000000";
-  } else if (from_month == "october" & from_year == "2017") {
-    from_time = "1506816000000";
-  } else if (from_month == "november" & from_year == "2017") {
-    from_time = "1509494400000";
-  } else if (from_month == "december" & from_year == "2017") {
-    from_time = "1512086400000";
-  } else if (from_month == "january" & from_year == "2016") {
-    from_time = "1451606400000";
-  } else if (from_month == "february" & from_year == "2016") {
-    from_time = "1454284800000";
-  } else if (from_month == "march" & from_year == "2016") {
-    from_time = "1456790400000";
-  } else if (from_month == "april" & from_year == "2016") {
-    from_time = "1459468800000";
-  } else if (from_month == "may" & from_year == "2016") {
-    from_time = "1462060800000";
-  } else if (from_month == "june" & from_year == "2016") {
-    from_time = "1464739200000";
-  } else if (from_month == "july" & from_year == "2016") {
-    from_time = "1467331200000";
-  } else if (from_month == "august" & from_year == "2016") {
-    from_time = "1470009600000";
-  } else if (from_month == "september" & from_year == "2016") {
-    from_time = "1472688000000";
-  } else if (from_month == "october" & from_year == "2016") {
-    from_time = "1475280000000";
-  } else if (from_month == "november" & from_year == "2016") {
-    from_time = "1477958400000";
-  } else if (from_month == "december" & from_year == "2016") {
-    from_time = "1480550400000";
-  } else if (from_month == "january" & from_year == "2015") {
-    from_time = "1420070400000";
-  } else if (from_month == "february" & from_year == "2015") {
-    from_time = "1422748800000";
-  } else if (from_month == "march" & from_year == "2015") {
-    from_time = "1425168000000";
-  } else if (from_month == "april" & from_year == "2015") {
-    from_time = "1427846400000";
-  } else if (from_month == "may" & from_year == "2015") {
-    from_time = "1430438400000";
-  } else if (from_month == "june" & from_year == "2015") {
-    from_time = "1433116800000";
-  } else if (from_month == "july" & from_year == "2015") {
-    from_time = "1435708800000";
-  } else if (from_month == "august" & from_year == "2015") {
-    from_time = "1438387200000";
-  } else if (from_month == "september" & from_year == "2015") {
-    from_time = "1441065600000";
-  } else if (from_month == "october" & from_year == "2015") {
-    from_time = "1443657600000";
-  } else if (from_month == "november" & from_year == "2015") {
-    from_time = "1446336000000";
-  } else if (from_month == "december" & from_year == "2015") {
-    from_time = "1448928000000";
-  } else {
-    from_time = "0000000000000"
-  };
-
-  //Sets "to_time" (GMT)
-  if (to_year == "any") {
-    to_time = "32503679995000"
-  } else if (to_month == "december" & to_year == "2018") {
-    to_time = "1546300799000";
-  } else if (to_month == "january" & to_year == "2018") {
-    to_time = "1517443199000";
-  } else if (to_month == "february" & to_year == "2018") {
-    to_time = "1519862399000";
-  } else if (to_month == "march" & to_year == "2018") {
-    to_time = "1522540799000";
-  } else if (to_month == "april" & to_year == "2018") {
-    to_time = "1525132799000";
-  } else if (to_month == "may" & to_year == "2018") {
-    to_time = "1527811199000";
-  } else if (to_month == "june" & to_year == "2018") {
-    to_time = "1530403199000";
-  } else if (to_month == "july" & to_year == "2018") {
-    to_time = "1533081599000";
-  } else if (to_month == "august" & to_year == "2018") {
-    to_time = "1535759999000";
-  } else if (to_month == "september" & to_year == "2018") {
-    to_time = "1538351999000";
-  } else if (to_month == "october" & to_year == "2018") {
-    to_time = "1541030399000";
-  } else if (to_month == "november" & to_year == "2018") {
-    to_time = "1543622399000";
-  } else if (to_month == "december" & to_year == "2017") {
-    to_time = "1514764799000";
-  } else if (to_month == "january" & to_year == "2017") {
-    to_time = "1485907199000";
-  } else if (to_month == "february" & to_year == "2017") {
-    to_time = "1214883263990003";
-  } else if (to_month == "march" & to_year == "2017") {
-    to_time = "1491004799000";
-  } else if (to_month == "april" & to_year == "2017") {
-    to_time = "1493596799000";
-  } else if (to_month == "may" & to_year == "2017") {
-    to_time = "1496275199000";
-  } else if (to_month == "june" & to_year == "2017") {
-    to_time = "1498867199000";
-  } else if (to_month == "july" & to_year == "2017") {
-    to_time = "1501459199000";
-  } else if (to_month == "august" & to_year == "2017") {
-    to_time = "1504223999000";
-  } else if (to_month == "september" & to_year == "2017") {
-    to_time = "1506815999000";
-  } else if (to_month == "october" & to_year == "2017") {
-    to_time = "1509494399000";
-  } else if (to_month == "november" & to_year == "2017") {
-    to_time = "1512086399000";
-  } else if (to_month == "december" & to_year == "2016") {
-    to_time = "1483228799000";
-  } else if (to_month == "january" & to_year == "2016") {
-    to_time = "1454284799000";
-  } else if (to_month == "february" & to_year == "2016") {
-    to_time = "1456790399000";
-  } else if (to_month == "march" & to_year == "2016") {
-    to_time = "1459468799000";
-  } else if (to_month == "april" & to_year == "2016") {
-    to_time = "1462060799000";
-  } else if (to_month == "may" & to_year == "2016") {
-    to_time = "1464739199000";
-  } else if (to_month == "june" & to_year == "2016") {
-    to_time = "1467331199000";
-  } else if (to_month == "july" & to_year == "2016") {
-    to_time = "1470009599000";
-  } else if (to_month == "august" & to_year == "2016") {
-    to_time = "1472687999000";
-  } else if (to_month == "september" & to_year == "2016") {
-    to_time = "1475279999000";
-  } else if (to_month == "october" & to_year == "2016") {
-    to_time = "1477958399000";
-  } else if (to_month == "november" & to_year == "2016") {
-    to_time = "1480550399000";
-  } else if (to_month == "december" & to_year == "2015") {
-    to_time = "1451606399000";
-  } else if (to_month == "january" & to_year == "2015") {
-    to_time = "1422748799000";
-  } else if (to_month == "february" & to_year == "2015") {
-    to_time = "1425167999000";
-  } else if (to_month == "march" & to_year == "2015") {
-    to_time = "1427846399000";
-  } else if (to_month == "april" & to_year == "2015") {
-    to_time = "1430438399000";
-  } else if (to_month == "may" & to_year == "2015") {
-    to_time = "1433116799000";
-  } else if (to_month == "june" & to_year == "2015") {
-    to_time = "1435708799000";
-  } else if (to_month == "july" & to_year == "2015") {
-    to_time = "1438387199000";
-  } else if (to_month == "august" & to_year == "2015") {
-    to_time = "1441065599000";
-  } else if (to_month == "september" & to_year == "2015") {
-    to_time = "1443657599000";
-  } else if (to_month == "october" & to_year == "2015") {
-    to_time = "1446335999000";
-  } else if (to_month == "november" & to_year == "2015") {
-    to_time = "1448927999000";
-  } else {
-    to_time = "32503679995000"
-  };
 
   loadMap();
 }
@@ -392,7 +184,7 @@ function downloadUrl(url, callback) {
 
   request.open('POST', url, true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  request.send("open_network=" + open_network + "&" + "wep_network=" + wep_network + "&" + "wpa_wps_network=" + wpa_wps_network + "&" + "wpa_no_wps_network=" + wpa_no_wps_network + "&" + "searchinput=" + searchinput + "&" + "from_time=" + from_time + "&" + "to_time=" + to_time + "&" + "band=" + band + "&" + "connected_clients=" + connected_clients + "&" + "probing_clients=" + probing_clients + "&" + "predefined_search=" + predefined_search);
+  request.send("open_network=" + open_network + "&" + "wep_network=" + wep_network + "&" + "wpa_wps_network=" + wpa_wps_network + "&" + "wpa_no_wps_network=" + wpa_no_wps_network + "&" + "searchinput=" + searchinput + "&" + "selected_fromtime=" + selected_fromtime + "&" + "selected_totime=" + selected_totime + "&" + "band=" + band + "&" + "connected_clients=" + connected_clients + "&" + "probing_clients=" + probing_clients + "&" + "predefined_search=" + predefined_search);
 }
 
 //------------------------------------------------

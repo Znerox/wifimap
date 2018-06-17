@@ -81,50 +81,9 @@
 
       <div id="lastseen_band_clients" class="sidegroup">
         <div id="lastseenarea" class="sideelement">
-          <p id="last_seen_text"></p><br> From:
-          <select id="from_month">
-                    <option value="january" selected="selected">January</option>
-                    <option value="february">February</option>
-                    <option value="march">March</option>
-                    <option value="april">April</option>
-                    <option value="may">May</option>
-                    <option value="june">June</option>
-                    <option value="july">July</option>
-                    <option value="august">August</option>
-                    <option value="september">September</option>
-                    <option value="october">October</option>
-                    <option value="november">November</option>
-                    <option value="december">December</option>
-                </select>
-          <select id="from_year">
-                    <option value="%" selected="selected">Any</option>
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                </select><br> To:
-          <select id="to_month">
-                    <option value="january">January</option>
-                    <option value="february">February</option>
-                    <option value="march">March</option>
-                    <option value="april">April</option>
-                    <option value="may">May</option>
-                    <option value="june">June</option>
-                    <option value="july">July</option>
-                    <option value="august">August</option>
-                    <option value="september">September</option>
-                    <option value="october">October</option>
-                    <option value="november">November</option>
-                    <option value="december" selected="selected">December</option>
-                </select>
-          <select id="to_year">
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="%" selected="selected">Any</option>
-                </select>
-
+          <p id="last_seen_text"></p><br>
+          From:<input type="date" id="selected_fromtime"><br>
+          To:<input type="date" id="selected_totime">
         </div>
         <!-- END lastssenarea -->
 
