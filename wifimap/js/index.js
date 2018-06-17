@@ -102,10 +102,12 @@ function loadMap() {
   map.setOptions({
     styles: mapThemeNetwork
   });
+
   var mcOptions = {
     gridSize: 70,
     maxZoom: 16
   };
+
   var infoWindow = new google.maps.InfoWindow;
 
   downloadUrl("php/genxml.php", function(data) {
@@ -113,6 +115,10 @@ function loadMap() {
     markers = xml.documentElement.getElementsByTagName("marker");
 
     markersarray = [];
+
+    //Overlapping Marker Spiderfier
+    //This is splitting of networks on identical coordinates
+    var oms = new OverlappingMarkerSpiderfier(map, {});
 
     var markersLength = markers.length;
 
@@ -151,6 +157,7 @@ function loadMap() {
 
       bindInfoWindow(marker, map, infoWindow, html);
       markersarray.push(marker);
+      oms.addMarker(marker);
 
     } //END FOR LOOP
 
@@ -162,7 +169,7 @@ function loadMap() {
 } //END loadMap
 
 function bindInfoWindow(marker, map, infoWindow, html) {
-  google.maps.event.addListener(marker, 'click', function() {
+  google.maps.event.addListener(marker, 'spider_click', function() {
     infoWindow.setContent(html);
     infoWindow.open(map, marker);
   });
