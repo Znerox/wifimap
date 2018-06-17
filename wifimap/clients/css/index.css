@@ -3,43 +3,43 @@
 ##############################*/
 
 html {
-	width: 100%;
-	height: 100%;
-    margin: 0;
-	box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-	width: 100%;
-	height: 100%;
-    margin: 0;
-	box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 #pagecontent {
-	width: 100%;
-	height: 100%;
-	box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 #map {
-    width: 100%;
-	height: 100%;
-	box-sizing: border-box;
-	display: block;
-	float: left;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  display: block;
+  float: left;
 }
 
 #sidetab {
-	width: 300px;
-    height: 100%;
-	box-sizing: border-box;
-	padding: 10px;
-	text-align: center;
-	display: block;
-	float: right;
-    position: absolute;
-    right: 0;
+  width: 300px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+  display: block;
+  float: right;
+  position: absolute;
+  right: 0;
 }
 
 /*##############################
@@ -47,83 +47,73 @@ body {
 ##############################*/
 
 .sidegroup {
-    margin: 16px 0 0 0;
-    padding: 0;
-    border-radius: 32px;
-    background: #0095cd; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#00adee, #0078a5); /* For Safari 5.1 to 6.0 */
-    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5)); /* "Old" WebKit */
-    background: -o-linear-gradient(#00adee, #0078a5); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#00adee,  #0078a5); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#00adee, #0078a5); /* Standard syntax (must be last) */
-    border: 2px solid black;
+  margin: 16px 0 0 0;
+  padding: 0;
+  border-radius: 32px;
+  background: #0095cd; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#00adee, #0078a5); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#00adee, #0078a5); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#00adee, #0078a5); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#00adee, #0078a5); /* Standard syntax (must be last) */
+  border: 2px solid black;
 }
-
 
 .sideelement {
-    padding: 8px 0 0 0;
+  padding: 8px 0 0 0;
 }
-
 
 .textinput {
-    margin: 0;
-    padding: 5px 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    border: 1px solid #0076a3;
-    border-right: 0;
-    border-top-left-radius: 5px 5px;
-    border-bottom-left-radius: 5px 5px;
+  margin: 0;
+  padding: 5px 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  border: 1px solid #0076a3;
+  border-right: 0;
+  border-top-left-radius: 5px 5px;
+  border-bottom-left-radius: 5px 5px;
 }
-
 
 .searchbutton {
-		padding: 4px 15px;
+  padding: 4px 15px;
 }
-
 
 .checkboxAndText {
-    margin: 0;
+  margin: 0;
 }
-
 
 .checkbox {
-    float: left;
-    margin-left: 15px;
+  float: left;
+  margin-left: 15px;
 }
-
 
 .checkboxText {
-    text-align: left;
-    margin: 10px 50px;
-    padding: 0;
+  text-align: left;
+  margin: 10px 50px;
+  padding: 0;
 }
-
 
 .form-select {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
 .infoWindowSearchButton {
-    margin-top: 5px;
-	padding: 4px 15px;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 14px;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	color: #ffffff;
-	border: solid 1px #0076a3;
-    border-right: 0;
+  margin-top: 5px;
+  padding: 4px 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #0076a3;
+  border-right: 0;
 	background: #0095cd; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#00adee, #0078a5); /* For Safari 5.1 to 6.0 */
-    background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5)); /* "Old" WebKit */
-    background: -o-linear-gradient(#00adee, #0078a5); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#00adee,  #0078a5); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#00adee, #0078a5); /* Standard syntax (must be last) */
-	border-radius: 5px;
+  background: -webkit-linear-gradient(#00adee, #0078a5); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#00adee, #0078a5); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#00adee, #0078a5); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#00adee, #0078a5); /* Standard syntax (must be last) */
+  border-radius: 5px;
 }
 
 /*##############################
@@ -131,45 +121,31 @@ body {
 ##############################*/
 
 #sidetext {
-	padding: 12px 0 12px 12px;
-    margin: 0 8px;
-    text-align: left
+  padding: 12px 0 12px 12px;
+  margin: 0 8px;
+  text-align: left
 }
-
 
 /*##############################
 ###          Misc       ########
 ##############################*/
 
 p {
-    font-family: Arial, Helvetica, sans-serif;
-    -webkit-text-stroke: 0.25px black;
-	font-size: 1.1em;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-text-stroke: 0.25px black;
+  font-size: 1.1em;
 }
-
 
 label {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1.1em;
-    cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1em;
+  cursor: pointer;
 }
-
 
 input[type="checkbox"] {
-    cursor: pointer;
+  cursor: pointer;
 }
-
-
-input[type="radio"] {
-    cursor: pointer;
-}
-
-
-input[type="select"] {
-    cursor: pointer;
-}
-
 
 a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
-       cursor: pointer;
+  cursor: pointer;
 }

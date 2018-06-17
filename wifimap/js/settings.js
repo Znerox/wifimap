@@ -114,8 +114,8 @@ function loadSettings() {
             // text by the icons, explaining what they mean
             $(opentext).html("Typisk gjestenettverk");
             $(weptext).html("Utdatert kryptering");
-            $(wpstext).html("Sikker kryptering (WPA med WPS, kan utnyttes)");
-            $(wpatext).html("Sikker kryptering (WPA uten WPS)");
+            $(wpstext).html("Kan være usikker <br> (WPA med WPS)");
+            $(wpatext).html("Sikker kryptering <br> (WPA uten WPS)");
 
             // text inside the popup box that appears when clicking a marker
             popup_channel = "Kanal: ";
@@ -159,8 +159,8 @@ function loadSettings() {
             // text by the icons, explaining what they mean
             $(opentext).html("Typically a guest network");
             $(weptext).html("Outdated encryption");
-            $(wpstext).html("Secure encryption (WPA with WPS, which can be exploited)");
-            $(wpatext).html("Secure encryption (WPA without WPS)");
+            $(wpstext).html("Possibly vulnerable <br> (WPA with WPS)");
+            $(wpatext).html("Secure encryption <br> (WPA without WPS)");
 
             // text inside the popup box that appears when clicking a marker
             popup_channel = "Channel: ";

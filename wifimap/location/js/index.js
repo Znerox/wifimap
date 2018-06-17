@@ -51,7 +51,7 @@ function loadMap() {
     markersarray = [];
 
     if (markers.length == 0) {
-      alert("No location data found for network " + bssid + ". Network data is probably from an older version of wigle.");
+      alert("No location data found for network " + bssid);
     }
 
     //This is done on each line from db
@@ -70,11 +70,11 @@ function loadMap() {
       }
 
       if (LEVEL > -80) {
-        icon = "https://www.google.com/mapfiles/ms/micons/green.png"
+        icon = "../images/green.png"
       } else if (LEVEL >= -90) {
-        icon = "https://www.google.com/mapfiles/ms/micons/yellow.png"
+        icon = "../images/yellow.png"
       } else {
-        icon = "https://www.google.com/mapfiles/ms/micons/red.png"
+        icon = "../images/red.png"
       };
 
       var point = new google.maps.LatLng(

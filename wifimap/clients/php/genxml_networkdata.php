@@ -117,7 +117,7 @@ if ($_POST['show_probing'] == "yes") {
               $newnode->setAttribute("CHANNEL", $row['channel']);
               $newnode->setAttribute("VENDOR", $row['vendor']);
               $newnode->setAttribute("LASTSEEN", $row['lastseen']);
-              $newnode->setAttribute("ICON", "http://www.google.com/mapfiles/ms/micons/red.png");
+              $newnode->setAttribute("ICON", "../images/red.png");
               $newnode->setAttribute("CONNECTED_CLIENTS", $row['connected_clients']);
               $newnode->setAttribute("PROBING_CLIENTS", $row['probing_clients']);
               }
@@ -138,7 +138,7 @@ if ($_POST['show_probing'] == "yes") {
                 $newnode->setAttribute("CHANNEL", $row['channel']);
                 $newnode->setAttribute("VENDOR", $row['vendor']);
                 $newnode->setAttribute("LASTSEEN", $row['lastseen']);
-                $newnode->setAttribute("ICON", "http://www.google.com/mapfiles/ms/micons/yellow.png");
+                $newnode->setAttribute("ICON", "../images/yellow.png");
                 $newnode->setAttribute("CONNECTED_CLIENTS", $row['connected_clients']);
                 $newnode->setAttribute("PROBING_CLIENTS", $row['probing_clients']);
                 }

@@ -27,54 +27,54 @@
         </div>
         <!-- END searchinputarea -->
 
-        <div id="securitycheckbox" class="sideelement">
+        <div id="securitycheckboxes" class="sideelement">
 
-          <div id="open-wpa-boxes">
-
-            <label>
-                        <div class="encryption_item_div" id="encryption_item_div_open">
-                            <div class="checkbox-radio_div"><input type="checkbox" id="open" checked></div>
-                            <div class="checkbox-radio_div">
-                                <p id="open_checkbox_text"></p>
-                            </div>
-                        </div>
-                    </label>
-
-            <label>
-                        <div class="encryption_item_div" id="encryption_item_div_wpa-with-wps">
-                            <div class="checkbox-radio_div"><input type="checkbox" id="wpa_wps" checked></div>
-                            <div class="checkbox-radio_div">
-                                <p id="wpa_wps_checkbox_text"></p>
-                            </div>
-                        </div>
-                    </label>
-
+          <div id="encryption_grid_item_open">
+            <label id="encryption_item_label_open">
+              <div class="encryption_item_div" id="encryption_item_div_open">
+                <div class="checkbox-radio_div"><input type="checkbox" id="open" checked></div>
+                <div class="checkbox-radio_div">
+                  <p id="open_checkbox_text"></p>
+                </div>
+              </div>
+            </label>
           </div>
 
-          <div id="wep-no_wpa-boxes">
+          <div id="encryption_grid_item_wpa-with-wps">
+            <label id="encryption_item_label_wpa-with-wps">
+              <div class="encryption_item_div" id="encryption_item_div_wpa-with-wps">
+                <div class="checkbox-radio_div"><input type="checkbox" id="wpa_wps" checked></div>
+                <div class="checkbox-radio_div">
+                  <p id="wpa_wps_checkbox_text"></p>
+                </div>
+              </div>
+            </label>
+          </div>
 
-            <label>
-                        <div class="encryption_item_div" id="encryption_item_div_wep">
-                            <div class="checkbox-radio_div"><input type="checkbox" id="wep" checked></div>
-                            <div class="checkbox-radio_div">
-                                <p id="wep_checkbox_text"></p>
-                            </div>
-                        </div>
-                    </label>
+          <div id="encryption_grid_item_wep">
+            <label class="encryption_item_label_wep">
+              <div class="encryption_item_div" id="encryption_item_div_wep">
+                <div class="checkbox-radio_div"><input type="checkbox" id="wep" checked></div>
+                <div class="checkbox-radio_div">
+                  <p id="wep_checkbox_text"></p>
+                </div>
+              </div>
+            </label>
+          </div>
 
-            <label>
-                        <div class="encryption_item_div" id="encryption_item_div_wpa-without-wps">
-                            <div class="checkbox-radio_div"><input type="checkbox" id="wpa_no_wps" checked></div>
-                            <div class="checkbox-radio_div">
-                                <p id="wpa_no_wps_checkbox_text"></p>
-                            </div>
-                        </div>
-                    </label>
-
+          <div id="encryption_grid_item_wpa-without-wps">
+            <label class="encryption_item_label_wpa-without-wps">
+              <div class="encryption_item_div" id="encryption_item_div_wpa-without-wps">
+                <div class="checkbox-radio_div"><input type="checkbox" id="wpa_no_wps" checked></div>
+                <div class="checkbox-radio_div">
+                  <p id="wpa_no_wps_checkbox_text"></p>
+                </div>
+              </div>
+            </label>
           </div>
 
         </div>
-        <!-- END securitycheckbox -->
+        <!-- END securitycheckboxes -->
 
       </div>
       <!-- END search_security -->
@@ -82,8 +82,14 @@
       <div id="lastseen_band_clients" class="sidegroup">
         <div id="lastseenarea" class="sideelement">
           <p id="last_seen_text"></p><br>
-          From:<input type="date" id="selected_fromtime"><br>
-          To:<input type="date" id="selected_totime">
+
+          <div id="date_selector_area">
+            <div id="ds_grid_1">From:&nbsp;</div>
+            <div id="ds_grid_2"><input type="date" id="selected_fromtime"></div>
+            <div id="ds_grid_3">To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div id="ds_grid_4"><input type="date" id="selected_totime"></div>
+          </div>
+
         </div>
         <!-- END lastssenarea -->
 
@@ -119,7 +125,7 @@
 
         <div class="searchinfotype">
           <div class="searchinfo_icon_and_headline">
-            <div class="searchinfoicon"><img class=image src="https://www.google.com/mapfiles/ms/micons/blue.png" /></div>
+            <div class="searchinfoicon"><img class=image src="images/blue.png" /></div>
             <div class="seachinfoheadline">
               <p id="searchinfoheadline_open"></p>
             </div>
@@ -131,7 +137,7 @@
 
         <div class="searchinfotype">
           <div class="searchinfo_icon_and_headline">
-            <div class="searchinfoicon"><img class=image src="https://www.google.com/mapfiles/ms/micons/red.png" /></div>
+            <div class="searchinfoicon"><img class=image src="images/red.png" /></div>
             <div class="seachinfoheadline">
               <p id="searchinfoheadline_wep"></p>
             </div>
@@ -143,7 +149,7 @@
 
         <div class="searchinfotype">
           <div class="searchinfo_icon_and_headline">
-            <div class="searchinfoicon"><img class=image src="https://www.google.com/mapfiles/ms/micons/yellow.png" /></div>
+            <div class="searchinfoicon"><img class=image src="images/yellow.png" /></div>
             <div class="seachinfoheadline">
               <p id="searchinfoheadline_wps"></p>
             </div>
@@ -155,7 +161,7 @@
 
         <div class="searchinfotype">
           <div class="searchinfo_icon_and_headline">
-            <div class="searchinfoicon"><img class=image src="https://www.google.com/mapfiles/ms/micons/green.png" /></div>
+            <div class="searchinfoicon"><img class=image src="images/green.png" /></div>
             <div class="seachinfoheadline">
               <p id="searchinfoheadline_wpa"></p>
             </div>
