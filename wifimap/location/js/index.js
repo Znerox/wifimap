@@ -61,7 +61,7 @@ function loadMap() {
       var LAT = markers[i].getAttribute("LAT");
       var LON = markers[i].getAttribute("LON");
       var ACCURACY = markers[i].getAttribute("ACCURACY");
-      var MONTH_SEEN = markers[i].getAttribute("MONTH_SEEN");
+      var DATE = markers[i].getAttribute("DATE");
 
       if (LEVEL > bestLevel) {
         bestLevel = LEVEL;
@@ -82,7 +82,7 @@ function loadMap() {
         parseFloat(LON));
 
       //This is the pop-up window that appears when clicking on a network
-      var html = "AP: " + BSSID + "<br>" + "Signalstregth: " + LEVEL + " dBm" + "<br>" + "Accuracy: " + ACCURACY + " meters" + "<br>" + "Date: " + MONTH_SEEN;
+      var html = "AP: " + BSSID + "<br>" + "Signalstregth: " + LEVEL + " dBm" + "<br>" + "Accuracy: " + ACCURACY + " meters" + "<br>" + "Date: " + DATE;
 
       var marker = new google.maps.Marker({
         map: map,

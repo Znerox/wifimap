@@ -34,7 +34,7 @@ lon varchar(64) NOT NULL DEFAULT '',
 altitude varchar(64) NOT NULL DEFAULT '',
 accuracy decimal(64,0),
 time varchar(64) NOT NULL DEFAULT '',
-month_seen varchar(64) NOT NULL DEFAULT '')
+date varchar(64) NOT NULL DEFAULT '')
 CHARACTER SET utf8
 COLLATE utf8_general_ci;
 

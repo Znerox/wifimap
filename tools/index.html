@@ -2,20 +2,20 @@
 <head>
     <meta charset="utf-8">
     <title>WiFi Map - Tools</title>
-    
+
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
     <script type="text/javascript" src="js/index.js"></script>
-    
+
 </head>
 
 <body>
     <div id="pagecontent">
         <h1>WiFi Tools</h1>
-        
+
         <div id="import" class="main">
-            
+
             <h2>Upload data</h2>
-            
+
             <div id="network_import" class="specific">
                 <h3>Upload network file</h3>
                 <form action="php/network_import.php" method="post" enctype="multipart/form-data">
@@ -24,8 +24,8 @@
                 </form>
                 <p>This uploads the "network" file exported from wigle. The server then go through the data and update/add information to the database.</p>
             </div>
-            
-            
+
+
             <div id="location_import" class="specific">
                 <h3>Upload location file</h3>
                 <form action="php/location_import.php" method="post" enctype="multipart/form-data">
@@ -34,8 +34,8 @@
                 </form>
                 <p>This uploads the "location" file exported from wigle. The server then go through the data and update/add information to the database.</p>
             </div>
-            
-            
+
+
             <div id="client_import" class="specific">
                 <h3>Upload client file</h3>
                 <form action="php/client_import.php" method="post" enctype="multipart/form-data">
@@ -44,15 +44,15 @@
                 </form>
                 <p>This uploads the .csv files from airodump. The server then go through the data and update/add information to the database. (aircrack-ng version 1.2-rc2 and later).</p>
             </div>
-            
-            
+
+
         </div> <!-- END import -->
-        
-        
+
+
         <div id="update_sql" class="main">
-            
+
             <h2>Update database</h2>
-            
+
             <div id="sql_network" class="specific">
                 <h3>Update fields in network table</h3>
                 <form action="php/update_sql_fields_network.php" method="get">
@@ -60,17 +60,17 @@
                 </form>
                 <p>This sets: channel, band, lastseen, icon, hidden ssid. And overwrites best lat/lon with last lat/lon if blank.</p>
             </div>
-            
-            
+
+
             <div id="sql_location" class="specific">
                 <h3>Update fields in location table</h3>
                 <form action="php/update_sql_fields_location.php" method="get">
                     <input type="submit" value="Update database" class="uploadButton">
                 </form>
-                <p>This sets month_seen. And deletes position with corrupt/missing location data.</p>
+                <p>This sets date. And deletes position with corrupt/missing location data.</p>
             </div>
 
-            
+
             <div id="connected_in_network" class="specific">
                 <h3>Update connected clients in network table</h3>
                 <form action="php/set_connected_clients_in_network.php" method="get">
@@ -78,8 +78,8 @@
                 </form>
                 <p>Gets the MAC from connected clients and puts it in network table</p>
             </div>
-            
-            
+
+
             <div id="probing_in_network" class="specific">
                 <h3>Update probing clients in network table</h3>
                 <form action="php/set_probing_clients_in_network.php" method="get">
@@ -87,17 +87,17 @@
                 </form>
                 <p>Gets the MAC from probing clients and puts it in network table</p>
             </div>
-            
-            
+
+
             <div id="router_vendor" class="specific">
             <h3>Lookup MAC address for routers</h3>
                 <form action="php/network_mac_lookup.php" method="get">
                     <input type="submit" value="MAC lookup" class="uploadButton">
                 </form>
                 <p>Checks each router's MAC address against macvendors.com and populates the network table with correct vendor</p>
-            </div> 
-            
-            
+            </div>
+
+
             <div id="client_vendor" class="specific">
             <h3>Lookup MAC address for clients</h3>
                 <form action="php/client_mac_lookup.php" method="get">
@@ -105,14 +105,14 @@
                 </form>
                 <p>Checks each client's MAC address against macvendors.com and populates the clients table with correct vendor</p>
             </div>
-            
+
         </div> <!-- END update_sql -->
-        
-        
+
+
         <div id="import_old" class="main">
-            
+
             <h2>Upload data from older versions of wigle/aircrack-ng</h2>
-            
+
             <div id="old_network_import" class="specific">
                 <h3>Upload old network file</h3>
                 <form action="php/old_network_import.php" method="post" enctype="multipart/form-data">
@@ -121,8 +121,8 @@
                 </form>
                 <p>This uploads the "network" file exported from older versions of wigle. The server then go through the data and update/add information to the database.</p>
             </div>
-            
-            
+
+
             <div id="old_location_import" class="specific">
                 <h3>Upload old location file</h3>
                 <form action="php/old_location_import.php" method="post" enctype="multipart/form-data">
@@ -131,8 +131,8 @@
                 </form>
                 <p>This uploads the "location" file exported from older versions of wigle. The server then go through the data and update/add information to the database.</p>
             </div>
-            
-            
+
+
             <div id="client_import_1.2-rc1" class="specific">
                 <h3>Upload old client file</h3>
                 <form action="php/client_import_1.2-rc1.php" method="post" enctype="multipart/form-data">
@@ -141,10 +141,10 @@
                 </form>
                 <p>For .csv files made by: aircrack-ng version 1.2-rc1 - Released 31 October 2014. Replaced 10 April 2015. Earlier versions might also work here.</p>
             </div>
-            
+
         </div> <!-- END import_old -->
-        
-        
+
+
     </div> <!-- END pagecontent -->
 </body>
 

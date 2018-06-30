@@ -31,7 +31,7 @@ while ($row = $result->fetch_assoc()){
   $newnode->setAttribute("LAT", $row['lat']);
   $newnode->setAttribute("LON", $row['lon']);
   $newnode->setAttribute("ACCURACY", $row['accuracy']);
-  $newnode->setAttribute("MONTH_SEEN", $row['month_seen']);
+  $newnode->setAttribute("DATE", $row['date']);
 }
 
 echo $dom->saveXML();
