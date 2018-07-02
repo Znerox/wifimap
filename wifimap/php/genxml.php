@@ -17,14 +17,22 @@ mysqli_set_charset($mysqli,"utf8");
 if ($_POST[selected_fromtime] == "") {
 	$selected_fromtime_epoch = "0000000000000";
 } else {
-	$selected_fromtime_epoch = 1000 * date_format(date_create($_POST[selected_fromtime]), 'U');
+	// Take the date provided by html date input (YYYY-MM-DD)
+	// Output a format DateTime understands (MM/DD/YYYY)
+	$sorted_fromtime_humandate = substr($_POST[selected_fromtime], 5, 2) . "/" . substr($_POST[selected_fromtime], 8, 2) . "/" . substr($_POST[selected_fromtime], 0, 4);
+	$dt_from = new DateTime($sorted_fromtime_humandate);
+	$selected_fromtime_epoch = 1000 * $dt_from->format('U');
 }
 
 // Convert selected_totime to epoch time
 if ($_POST[selected_totime] == "") {
 	$selected_totime_epoch = "32503679995000";
 } else {
-	$selected_totime_epoch = 1000 * date_format(date_create($_POST[selected_totime]), 'U');
+	// Take the date provided by html date input (YYYY-MM-DD)
+	// Output a format DateTime understands (MM/DD/YYYY)
+	$sorted_totime_humandate = substr($_POST[selected_totime], 5, 2) . "/" . substr($_POST[selected_totime], 8, 2) . "/" . substr($_POST[selected_totime], 0, 4);
+	$dt_to = new DateTime($sorted_totime_humandate);
+	$selected_totime_epoch = 1000 * $dt_to->format('U');
 }
 
 // Select rows in network table
