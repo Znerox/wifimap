@@ -10,7 +10,6 @@ if (!$mysqli) {  die('Not connected : ' . $mysqli->connect_error);}
 mysqli_set_charset($mysqli,"utf8");
 
 //delete inaccurate points
-$mysqli->query("DELETE FROM `location` WHERE accuracy > '5'");
 $mysqli->query("DELETE FROM `location` WHERE lat LIKE 'inf'");
 $mysqli->query("DELETE FROM `location` WHERE lon LIKE 'inf'");
 

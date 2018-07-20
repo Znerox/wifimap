@@ -15,7 +15,7 @@ mysqli_set_charset($mysqli,"utf8");
 
 // Select all the rows in the location table that matches bssid
 $query = "SELECT * FROM location WHERE
-BSSID LIKE '$_POST[bssid]'";
+BSSID LIKE '$_POST[bssid]' AND ACCURACY <= '$_POST[location_data_accuracy_cutoff]'";
 
 $result = $mysqli->query($query);
 

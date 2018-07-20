@@ -78,7 +78,7 @@ body {
 }
 
 .checkboxAndText {
-  margin: 0;
+  margin-top: 10px;
 }
 
 .checkbox {
@@ -88,8 +88,6 @@ body {
 
 .checkboxText {
   text-align: left;
-  margin: 10px 50px;
-  padding: 0;
 }
 
 .form-select {
@@ -114,6 +112,11 @@ body {
   background: -moz-linear-gradient(#00adee, #0078a5); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#00adee, #0078a5); /* Standard syntax (must be last) */
   border-radius: 5px;
+}
+
+.icon {
+  display: inline-block;
+  float: left;
 }
 
 /*##############################

@@ -27,26 +27,30 @@
 
           <span><input type="text" class="textinput" id="searchinput" size="16" maxlength="25" placeholder="Client MAC" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="searchbutton" onclick="deleteMarkers();" value="Search" class="searchbutton"></span>
           <br>
-          <label>
-                        <div class="checkboxAndText">
-                            <div><input type="checkbox" id="show_connected" class="checkbox" checked></div>
-                            <div><p id="show_connected_text" class="checkboxText"></p></div>
-                        </div>
-                    </label>
 
           <label>
-                        <div class="checkboxAndText">
-                            <div><input type="checkbox" id="show_probing" class="checkbox" checked></div>
-                            <div><p id="show_probed_text" class="checkboxText"></p></div>
-                        </div>
-                    </label>
+            <div class="checkboxAndText">
+              <div><input type="checkbox" id="show_connected" class="checkbox" checked></div>
+              <div class="icon"><img class=image src="../images/green.png" /></div>
+              <div><p id="show_connected_text" class="checkboxText"></p></div>
+            </div>
+          </label>
 
           <label>
-                        <div class="checkboxAndText">
-                            <div><input type="checkbox" id="dont_show_probe_matching_connected" class="checkbox" checked></div>
-                            <div> <p id="dont_show_unlikely_probes_text" class="checkboxText"></p></div>
-                        </div>
-                    </label>
+            <div class="checkboxAndText">
+              <div><input type="checkbox" id="show_probing" class="checkbox" checked></div>
+              <div class="icon"><img class=image src="../images/yellow.png" /></div>
+              <div><p id="show_probed_text" class="checkboxText"></p></div>
+            </div>
+          </label>
+
+          <label>
+            <div class="checkboxAndText">
+              <div><input type="checkbox" id="dont_show_probe_matching_connected" class="checkbox" checked></div>
+              <div class="icon"><img class=image src="../images/red.png" /></div>
+              <div> <p id="dont_show_unlikely_probes_text" class="checkboxText"></p></div>
+              </div>
+            </label>
 
         </div>
         <!-- END searchinputarea -->
@@ -66,6 +70,8 @@
           <p id="connected_field"></p><br>
           <h3>Probing:</h3>
           <p id="probing_field"></p><br>
+
+
 
         </div>
         <!-- END sidetext -->

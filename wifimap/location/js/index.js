@@ -124,7 +124,7 @@ function downloadUrl(url, callback) {
 
   request.open('POST', url, true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  request.send("bssid=" + bssid);
+  request.send("bssid=" + bssid + "&" + "location_data_accuracy_cutoff=" + location_data_accuracy_cutoff);
 }
 
 function doNothing() {}
