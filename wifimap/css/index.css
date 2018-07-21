@@ -216,6 +216,10 @@ body {
   padding: 8px 0 8px 0;
 }
 
+#vendorarea {
+  padding: 8px 0 8px 0;
+}
+
 #predefined_search_header {
   margin-top: 0;
   margin-bottom: -14px;

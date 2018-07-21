@@ -45,6 +45,7 @@ if ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[wpa_w
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -57,6 +58,7 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[w
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -69,6 +71,7 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[w
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -81,6 +84,7 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[w
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -93,6 +97,7 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "no" && $_POST[wp
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -105,6 +110,7 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -117,6 +123,7 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "no" && $_POST[wp
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -129,6 +136,7 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -141,6 +149,7 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -153,6 +162,7 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[w
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -165,6 +175,7 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[w
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -177,6 +188,7 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[w
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -189,6 +201,7 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[w
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -201,6 +214,7 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
@@ -212,6 +226,7 @@ else {
 	AND BAND LIKE '$_POST[band]'
 	AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
 	AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
+	AND VENDOR LIKE '%$_POST[vendorinput]%'
 	AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 

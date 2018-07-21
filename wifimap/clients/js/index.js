@@ -213,7 +213,7 @@ function downloadUrl_networkdata(url, callback) {
 
   request.open('POST', url, true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  request.send("connected_to_bssid=" + connected_to_bssid + "&" + "probed_essid=" + probed_essid + "&" + "show_connected=" + show_connected + "&" + "show_probing=" + show_probing + "&" + "dont_show_probe_matching_connected=" + dont_show_probe_matching_connected);
+  request.send("connected_to_bssid=" + connected_to_bssid + "&probed_essid=" + probed_essid + "&show_connected=" + show_connected + "&show_probing=" + show_probing + "&dont_show_probe_matching_connected=" + dont_show_probe_matching_connected);
 }
 
 //------------------------------------------------

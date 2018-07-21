@@ -15,6 +15,7 @@ function setVariables() {
   band = "%";
   connected_clients = "%";
   probing_clients = "%";
+  vendorinput = "";
   predefined_search = "%";
   activeSite = "overview";
   loadMapThemes();
@@ -59,8 +60,9 @@ function deleteMarkers() {
   searchinput = document.getElementById("searchinput").value;
   selected_fromtime = document.getElementById("selected_fromtime").value;
   selected_totime = document.getElementById("selected_totime").value;
+  vendorinput = document.getElementById("vendorinput").value;
+  predefined_search = document.getElementById("predefined_search").value;
 
-  //Sets "band", which bands to show
   if (document.getElementById("2.4ghz_band").checked) {
     band = "2.4ghz";
   } else if (document.getElementById("5ghz_band").checked) {
@@ -80,8 +82,6 @@ function deleteMarkers() {
   } else {
     probing_clients = "%";
   }
-
-  predefined_search = document.getElementById("predefined_search").value;
 
   loadMap();
 }
@@ -191,7 +191,7 @@ function downloadUrl(url, callback) {
 
   request.open('POST', url, true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  request.send("open_network=" + open_network + "&" + "wep_network=" + wep_network + "&" + "wpa_wps_network=" + wpa_wps_network + "&" + "wpa_no_wps_network=" + wpa_no_wps_network + "&" + "searchinput=" + searchinput + "&" + "selected_fromtime=" + selected_fromtime + "&" + "selected_totime=" + selected_totime + "&" + "band=" + band + "&" + "connected_clients=" + connected_clients + "&" + "probing_clients=" + probing_clients + "&" + "predefined_search=" + predefined_search);
+  request.send("open_network=" + open_network + "&wep_network=" + wep_network + "&wpa_wps_network=" + wpa_wps_network + "&wpa_no_wps_network=" + wpa_no_wps_network + "&searchinput=" + searchinput + "&selected_fromtime=" + selected_fromtime + "&selected_totime=" + selected_totime + "&band=" + band + "&connected_clients=" + connected_clients + "&probing_clients=" + probing_clients + "&vendorinput=" + vendorinput + "&predefined_search=" + predefined_search);
 }
 
 //------------------------------------------------
@@ -200,7 +200,7 @@ function downloadUrl(url, callback) {
 //------------------------------------------------
 function getLocation(BSSIDFunctionFriendly) {
   bssid = BSSIDFunctionFriendly;
-  locationWindow = window.open(locationPageAddress);
+  var locationWindow = window.open(locationPageAddress);
 }
 
 //------------------------------------------------
@@ -209,7 +209,23 @@ function getLocation(BSSIDFunctionFriendly) {
 //------------------------------------------------
 function openClientTab() {
   alert("Copy client MAC from this window, and paste in client window");
-  locationWindow = window.open(clientsPageAddress);
+  var clientsWindow = window.open(clientsPageAddress);
+}
+
+function showVendors() {
+  vendorList = [];
+  downloadUrl("php/getvendors.php", function(data) {
+    var xml = data.responseXML;
+    var vendors = xml.documentElement.getElementsByTagName("vendor");
+
+    for (var i = 0; i < vendors.length; i++) {
+      var vendor = vendors[i].getAttribute("vendor");
+      vendorList.push(vendor);
+    }
+
+    alert('Unique vendors in database: ' + vendors.length + '\n\n' + vendorList.join('\n'));
+
+  });
 }
 
 function doNothing() {}

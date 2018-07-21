@@ -27,7 +27,6 @@
         <div id="searchinputarea" class="sideelement">
           <span><input type="text" class="textinput" id="searchinput" size="16" maxlength="25" placeholder="Router SSID/MAC" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="searchbutton" onclick="deleteMarkers();" value="Search" class="searchbutton"></span>
         </div>
-        <!-- END searchinputarea -->
 
         <div id="securitycheckboxes" class="sideelement">
 
@@ -76,10 +75,7 @@
           </div>
 
         </div>
-        <!-- END securitycheckboxes -->
-
       </div>
-      <!-- END search_security -->
 
       <div id="lastseen_band_clients" class="sidegroup">
         <div id="lastseenarea" class="sideelement">
@@ -91,36 +87,33 @@
             <div id="ds_grid_3">To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
             <div id="ds_grid_4"><input type="date" id="selected_totime"></div>
           </div>
-
         </div>
-        <!-- END lastssenarea -->
 
         <div id="radiobuttonarea" class="sideelement">
           <label><div class="checkbox-radio_div"><input type="radio" name="band_radio" id="2.4ghz_band"></div><div class="checkbox-radio_div"><p id="2.4ghz_text"> 2.4GHz</p></div></label>
           <label><div class="checkbox-radio_div"><input type="radio" name="band_radio" id="5ghz_band"></div><div class="checkbox-radio_div"><p id="5ghz_text"> 5GHz</p></div></label>
           <label><div class="checkbox-radio_div"><input type="radio" name="band_radio" id="both_bands" checked></div><div class="checkbox-radio_div"><p id="both_band_text"></p></div></label>
-
         </div>
-        <!-- END radiobuttonarea -->
 
         <div id="clientcheckboxarea" class="sideelement">
           <label><div class="checkbox-radio_div"><input type="checkbox" id="connected_clients"></div><div class="checkbox-radio_div"><p id="connected_checkbox_text"></p></div></label>
           <label><div class="checkbox-radio_div"><input type="checkbox" id="probing_clients"></div><div class="checkbox-radio_div"><p id="probing_checkbox_text"></p></div></label>
-
         </div>
-        <!-- END clientcheckboxarea -->
 
       </div>
-      <!-- END  lastseen_band_clients -->
 
-      <!-- START predefined search area-->
+      <div id="vendorgroup" class="sidegroup">
+        <div id="vendorarea" class="sideelement">
+          <span><input type="text" class="textinput" id="vendorinput" size="16" maxlength="25" placeholder="Vendor"></span><span><input type="button" id="venderbutton" onclick="showVendors();" value="Show DB" class="searchbutton"></span>
+        </div>
+      </div>
+
       <div id="predefined_search_group" class="sidegroup">
         <p id="predefined_search_header"></p><br>
         <select id="predefined_search">
                     <option value="%" selected="selected">Show all</option>
                 </select>
       </div>
-      <!-- END predefined search area-->
 
       <!-- This is the area under search-->
       <div id="sidetext" class="sidegroup">
@@ -174,16 +167,12 @@
         </div>
 
       </div>
-      <!-- END sidetext -->
-
     </div>
-    <!-- END sidetab -->
 
     <div id="sidetab-background"></div>
     <!-- background for sidetab, to make opacity work -->
 
   </div>
-  <!-- END pagecontent -->
 
 </body>
 
