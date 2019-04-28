@@ -32,7 +32,7 @@ if ($_POST[selected_totime] == "") {
 	// Output a format DateTime understands (MM/DD/YYYY)
 	$sorted_totime_humandate = substr($_POST[selected_totime], 5, 2) . "/" . substr($_POST[selected_totime], 8, 2) . "/" . substr($_POST[selected_totime], 0, 4);
 	$dt_to = new DateTime($sorted_totime_humandate);
-	$selected_totime_epoch = 1000 * $dt_to->format('U');
+	$selected_totime_epoch = 1000 * ($dt_to->format('U') + 86400); //Add 86400 seconds (24h), so the query result will include data from the date we choose as "to date"
 }
 
 // Select rows in network table

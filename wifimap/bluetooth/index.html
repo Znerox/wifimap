@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>WiFi Map - Bluetooth</title>
+
+  <link rel="icon" href="../images/favicon.png" type="image/png" sizes="32x32">
+  <link type="text/css" rel="stylesheet" href="css/index.css" />
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../js/markerclusterer.js"></script>
+  <script src="../js/oms.min.js"></script>
+  <script src="../js/mapthemes.js"></script>
+  <script src="../js/settings.js"></script>
+  <script src="js/index.js"></script>
+
+</head>
+
+<body onload="setVariables()">
+  <div id="pagecontent">
+    <div id="map"></div>
+    <div id="sidetab">
+
+      <div class="sidegroup">
+        <div class="sideelement">
+          <span><input type="text" class="textinput" id="searchinput" size="16" maxlength="25" placeholder="BD_ADDR / Name" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="searchbutton" onclick="deleteMarkers();" value="Search" class="searchbutton"></span>
+        </div>
+      </div>
+
+      <div class="sidegroup">
+        <div class="sideelement">
+          <p id="last_seen_text">Last seen:</p><br>
+
+          <div id="date_selector_area">
+            <div id="ds_grid_1">From:&nbsp;</div>
+            <div id="ds_grid_2"><input type="date" id="selected_fromtime"></div>
+            <div id="ds_grid_3">To:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div id="ds_grid_4"><input type="date" id="selected_totime"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="vendorgroup" class="sidegroup">
+        <div id="vendorarea" class="sideelement">
+          <span><input type="text" class="textinput" id="vendorinput" size="16" maxlength="25" placeholder="Vendor"></span><span><input type="button" id="venderbutton" onclick="showVendors();" value="Show DB" class="searchbutton"></span>
+        </div>
+      </div>
+
+    </div>
+    <div id="sidetab-background"></div>
+    <!-- background for sidetab, to make opacity work -->
+  </div>
+</body>
+</html>

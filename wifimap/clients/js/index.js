@@ -9,7 +9,7 @@ function setVariables() {
   markersarray = [];
   show_connected = "yes";
   show_probing = "yes";
-  dont_show_probe_matching_connected = "yes";
+  show_false_positives = "no";
   activeSite = "clients";
   loadMapThemes();
 }
@@ -39,10 +39,10 @@ function deleteMarkers() {
     show_probing = "no";
   }
 
-  if (document.getElementById("dont_show_probe_matching_connected").checked) {
-    dont_show_probe_matching_connected = "yes";
+  if (document.getElementById("show_false_positives").checked) {
+    show_false_positives = "yes";
   } else {
-    dont_show_probe_matching_connected = "no";
+    show_false_positives = "no";
   }
 
   connected_to_bssid = "";
@@ -164,7 +164,7 @@ function getNetworkData() {
       var SSIDFunctionFriendly = '"' + SSID + '"';
 
       //This is the pop-up window that appears when clicking on a network
-      var html = "<b>" + SSID + "</b> <br>" + BSSID + "<br>" + VENDOR + "<br>" + "<br>" + CAPABILITIES + "<br>" + "Channel: " + CHANNEL + " (" + FREQUENCY + " MHz)" + "<br>" + "Signal: " + BESTLEVEL + " dBm" + "<br>" + "Last seen: " + LASTSEEN + "<br>" + "<br>" + "Connected clients: " + "<b>" + CONNECTED_CLIENTS + "</b>" + "<br>" + "Probing clients: " + "<b>" + PROBING_CLIENTS + "</b>" + "<br>" + "<input type='button' onclick='getLocation(" + BSSIDFunctionFriendly + ");' value='Precise location' class='infoWindowSearchButton'>";
+      var html = "<b>" + SSID + "</b> <br>" + BSSID + "<br>" + VENDOR + "<br><br>" + CAPABILITIES + "<br>Channel: " + CHANNEL + " (" + FREQUENCY + " MHz)<br>Signal: " + BESTLEVEL + " dBm<br>Last seen: " + LASTSEEN + "<br><br>Connected clients: <b>" + CONNECTED_CLIENTS + "</b><br>Probing clients: <b>" + PROBING_CLIENTS + "</b><br><input type='button' onclick='getLocation(" + BSSIDFunctionFriendly + ");' value='Precise location' class='infoWindowSearchButton'>";
 
       marker = new google.maps.Marker({
         map: map,
@@ -213,7 +213,7 @@ function downloadUrl_networkdata(url, callback) {
 
   request.open('POST', url, true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  request.send("connected_to_bssid=" + connected_to_bssid + "&probed_essid=" + probed_essid + "&show_connected=" + show_connected + "&show_probing=" + show_probing + "&dont_show_probe_matching_connected=" + dont_show_probe_matching_connected);
+  request.send("connected_to_bssid=" + connected_to_bssid + "&probed_essid=" + probed_essid + "&show_connected=" + show_connected + "&show_probing=" + show_probing + "&show_false_positives=" + show_false_positives);
 }
 
 //------------------------------------------------

@@ -10,10 +10,11 @@ capabilities varchar(57) NOT NULL DEFAULT '',
 lasttime varchar(49) NOT NULL DEFAULT '',
 lastlat decimal(28,12),
 lastlon decimal(28,12),
+type varchar(8) DEFAULT '',
 bestlevel varchar(4) NOT NULL DEFAULT '',
 bestlat decimal(28,12),
 bestlon decimal(28,12),
-channel int(8),
+channel varchar(8) NOT NULL DEFAULT '',
 band varchar(64) NOT NULL DEFAULT '',
 vendor varchar(64) NOT NULL DEFAULT '',
 lastseen varchar(64) NOT NULL DEFAULT '',
@@ -46,5 +47,25 @@ connected_to_bssid varchar(1024) NOT NULL DEFAULT '',
 probed_essid varchar(1024) NOT NULL DEFAULT '',
 first_seen varchar(32) NOT NULL DEFAULT '',
 last_seen varchar(32) NOT NULL DEFAULT '')
+CHARACTER SET utf8
+COLLATE utf8_general_ci;
+
+
+CREATE TABLE bluetooth(
+bssid varchar(27) PRIMARY KEY NOT NULL DEFAULT '',
+ssid varchar(32) NOT NULL DEFAULT '',
+frequency varchar(13) NOT NULL DEFAULT '',
+capabilities varchar(57) NOT NULL DEFAULT '',
+lasttime varchar(49) NOT NULL DEFAULT '',
+lastlat decimal(28,12),
+lastlon decimal(28,12),
+type varchar(8) DEFAULT '',
+bestlevel varchar(4) NOT NULL DEFAULT '',
+bestlat decimal(28,12),
+bestlon decimal(28,12),
+vendor varchar(64) NOT NULL DEFAULT '',
+lastseen varchar(64) NOT NULL DEFAULT '',
+predefined_search varchar (256) NOT NULL DEFAULT '',
+icon varchar(128) NOT NULL DEFAULT '')
 CHARACTER SET utf8
 COLLATE utf8_general_ci;

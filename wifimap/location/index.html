@@ -6,12 +6,12 @@
 
   <link rel="icon" href="../images/favicon.png" type="image/png" sizes="32x32">
   <link type="text/css" rel="stylesheet" href="css/index.css" />
-  <script type="text/javascript" src="../js/markerclusterer.js"></script>
-  <script type="text/javascript" src="../js/mapthemes.js"></script>
-  <script type="text/javascript" src="../js/settings.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../js/markerclusterer.js"></script>
+  <script src="../js/mapthemes.js"></script>
+  <script src="../js/settings.js"></script>
+  <script src="js/index.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -23,47 +23,35 @@
 
         <div id="search_button" class="sideelement">
 
-          <!-- This is searchfield -->
-          <span><input type="text" class="textinput" id="searchinput" size="16" maxlength="25" placeholder="Router MAC" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="searchbutton" onclick="deleteMarkers();" value="Search" class="searchbutton"></span>
+          <span><input type="text" class="textinput" id="searchinput" size="16" maxlength="25" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="searchbutton" onclick="deleteMarkers();" value="Search" class="searchbutton"></span>
         </div>
-        <!-- END  search_button -->
 
-        <!-- This is the area under search-->
         <div id="sidetext" class="sideelement">
 
           <div class="signal_info_div">
             <div class="signal_info_icon"><img class=image src="../images/green.png" /></div>
             <div class="signal_info_text">
-              <p id="signal_info_text_good">Signal stregth over -80 dBm</p>
+              <p>Signal stregth over -80 dBm</p>
             </div>
           </div>
 
           <div class="signal_info_div">
             <div class="signal_info_icon"><img class=image src="../images/yellow.png" /></div>
             <div class="signal_info_text">
-              <p id="signal_info_text_medium">Signal stregth -80/-90 dBm</p>
+              <p>Signal stregth -80/-90 dBm</p>
             </div>
           </div>
 
           <div class="signal_info_div">
             <div class="signal_info_icon"><img class=image src="../images/red.png" /></div>
             <div class="signal_info_text">
-              <p id="signal_info_text_bad">Signal stregth under -90 dBm</p>
+              <p>Signal stregth under -90 dBm</p>
             </div>
           </div>
 
         </div>
-        <!-- END  sidetext -->
-
       </div>
-      <!-- END  sideelement -->
-
     </div>
-    <!-- END  sidetab -->
-
   </div>
-  <!-- END  pagecontent -->
-
 </body>
-
 </html>

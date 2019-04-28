@@ -81,8 +81,22 @@ function loadMap() {
         parseFloat(LAT),
         parseFloat(LON));
 
-      //This is the pop-up window that appears when clicking on a network
-      var html = "AP: " + BSSID + "<br>" + "Signalstregth: " + LEVEL + " dBm" + "<br>" + "Accuracy: " + ACCURACY + " meters" + "<br>" + "Date: " + DATE;
+      //This is the pop-up window that appears when clicking on a network/bluetooth device
+      switch(window.opener.activeSite) {
+        case "overview":
+          $(searchinput).attr("placeholder", "Router MAC");
+          var html = "<b>AP MAC: </b>" + BSSID + "<br><b>Accuracy: </b>" + ACCURACY + " meters<br><b>Signal: </b>" + LEVEL + " dBm<br><b>Date: </b>" + DATE;
+          break;
+        case "clients":
+          $(searchinput).attr("placeholder", "Router MAC");
+          var html = "<b>AP MAC: </b>" + BSSID + "<br><b>Accuracy: </b>" + ACCURACY + " meters<br><b>Signal: </b>" + LEVEL + " dBm<br><b>Date: </b>" + DATE;
+          break;
+        case "bluetooth":
+          $(searchinput).attr("placeholder", "BD_ADDR");
+          var html = "<b>BD_ADDR: </b>" + BSSID + "<br><b>Accuracy: </b>" + ACCURACY + " meters<br><b>Signal: </b>" + LEVEL + " dBm<br><b>Date: </b>" + DATE;
+          break;
+        default:
+      }
 
       var marker = new google.maps.Marker({
         map: map,

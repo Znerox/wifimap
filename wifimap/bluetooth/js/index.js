@@ -6,18 +6,10 @@
 //------------------------------------------------
 function setVariables() {
   searchinput = "";
-  open_network = "yes";
-  wep_network = "yes";
-  wpa_wps_network = "yes";
-  wpa_no_wps_network = "yes";
   selected_fromtime = "";
   selected_totime = "";
-  band = "%";
-  connected_clients = "%";
-  probing_clients = "%";
   vendorinput = "";
-  predefined_search = "%";
-  activeSite = "overview";
+  activeSite = "bluetooth";
   loadMapThemes();
 }
 
@@ -33,55 +25,10 @@ function deleteMarkers() {
     markersarray[i].setMap(null);
   }
 
-  if (document.getElementById("open").checked) {
-    open_network = "yes";
-  } else {
-    open_network = "no";
-  }
-
-  if (document.getElementById("wep").checked) {
-    wep_network = "yes";
-  } else {
-    wep_network = "no";
-  }
-
-  if (document.getElementById("wpa_wps").checked) {
-    wpa_wps_network = "yes";
-  } else {
-    wpa_wps_network = "no";
-  }
-
-  if (document.getElementById("wpa_no_wps").checked) {
-    wpa_no_wps_network = "yes";
-  } else {
-    wpa_no_wps_network = "no";
-  }
-
   searchinput = document.getElementById("searchinput").value;
   selected_fromtime = document.getElementById("selected_fromtime").value;
   selected_totime = document.getElementById("selected_totime").value;
   vendorinput = document.getElementById("vendorinput").value;
-  predefined_search = document.getElementById("predefined_search").value;
-
-  if (document.getElementById("2.4ghz_band").checked) {
-    band = "2.4ghz";
-  } else if (document.getElementById("5ghz_band").checked) {
-    band = "5ghz";
-  } else {
-    band = "%";
-  }
-
-  if (document.getElementById("connected_clients").checked) {
-    connected_clients = ":";
-  } else {
-    connected_clients = "%";
-  }
-
-  if (document.getElementById("probing_clients").checked) {
-    probing_clients = ":";
-  } else {
-    probing_clients = "%";
-  }
 
   loadMap();
 }
@@ -90,8 +37,8 @@ function deleteMarkers() {
 function loadMap() {
   var map = new google.maps.Map(document.getElementById("map"), {
     center: new google.maps.LatLng(mapCenterLatitude, mapCenterLongitude),
-    mapTypeId: mapTypeNetwork,
-    zoom: defaultZoomLevelNetwork,
+    mapTypeId: mapTypeBluetooth,
+    zoom: defaultZoomLevelBluetooth,
     zoomControlOptions: {
       position: google.maps.ControlPosition.LEFT_BOTTOM
     },
@@ -100,7 +47,7 @@ function loadMap() {
   });
 
   map.setOptions({
-    styles: mapThemeNetwork
+    styles: mapThemeBluetooth
   });
 
   var mcOptions = {
@@ -136,8 +83,6 @@ function loadMap() {
       var BESTLEVEL = markers[i].getAttribute("BESTLEVEL");
       var BESTLAT = markers[i].getAttribute("BESTLAT");
       var BESTLON = markers[i].getAttribute("BESTLON");
-      var CONNECTED_CLIENTS = markers[i].getAttribute("CONNECTED_CLIENTS");
-      var PROBING_CLIENTS = markers[i].getAttribute("PROBING_CLIENTS");
 
       var point = new google.maps.LatLng(
         parseFloat(BESTLAT),
@@ -147,7 +92,7 @@ function loadMap() {
       var SSIDFunctionFriendly = '"' + SSID + '"';
 
       //This is the pop-up window that appears when clicking on a network
-      var html = "<b>SSID: </b>" + SSID + "<br><b>MAC: </b>" + BSSID + "<br><b>Vendor: </b>" + VENDOR + "<br><br><b>Capabilities: </b>" + CAPABILITIES + "<br><b>Channel: </b>" + CHANNEL + " (" + FREQUENCY + " MHz)<br><b>Signal: </b>" + BESTLEVEL + " dBm<br><b>Last seen: </b>" + LASTSEEN + "<br><br><b>Connected clients: </b>" + CONNECTED_CLIENTS + "<br><b>Probing clients: </b>" + PROBING_CLIENTS + "<br><input type='button' onclick='getLocation(" + BSSIDFunctionFriendly + ");' value='Precise location' class='infoWindowSearchButton'>   <input type='button' id='showclients' onclick='openClientTab();' value='Client info' class='infoWindowSearchButton'>";
+      var html = "<b>Name: </b>" + SSID + "<br><b>BD_ADDR: </b>" + BSSID + "<br><b>Vendor: </b>" + VENDOR + "<br><br><b>Capabilities: </b>" + CAPABILITIES + "<br><b>Signal: </b>" + BESTLEVEL + " dBm<br><b>Last seen: </b>" + LASTSEEN + "<br><input type='button' onclick='getLocation(" + BSSIDFunctionFriendly + ");' value='Precise location' class='infoWindowSearchButton'>";
 
       var marker = new google.maps.Marker({
         map: map,
@@ -159,14 +104,14 @@ function loadMap() {
       markersarray.push(marker);
       oms.addMarker(marker);
 
-    }
+    } //END FOR LOOP
 
     //This is grouping of networks that are close together
     mc = new MarkerClusterer(map, markersarray, mcOptions);
 
-  });
+  }); //END downloadUrl
 
-}
+} //END loadMap
 
 function bindInfoWindow(marker, map, infoWindow, html) {
   google.maps.event.addListener(marker, 'spider_click', function() {
@@ -191,7 +136,7 @@ function downloadUrl(url, callback) {
 
   request.open('POST', url, true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  request.send("open_network=" + open_network + "&wep_network=" + wep_network + "&wpa_wps_network=" + wpa_wps_network + "&wpa_no_wps_network=" + wpa_no_wps_network + "&searchinput=" + searchinput + "&selected_fromtime=" + selected_fromtime + "&selected_totime=" + selected_totime + "&band=" + band + "&connected_clients=" + connected_clients + "&probing_clients=" + probing_clients + "&vendorinput=" + vendorinput + "&predefined_search=" + predefined_search);
+  request.send("searchinput=" + searchinput + "&selected_fromtime=" + selected_fromtime + "&selected_totime=" + selected_totime + "&vendorinput=" + vendorinput);
 }
 
 //------------------------------------------------
@@ -201,15 +146,6 @@ function downloadUrl(url, callback) {
 function getLocation(BSSIDFunctionFriendly) {
   bssid = BSSIDFunctionFriendly;
   var locationWindow = window.open(locationPageAddress);
-}
-
-//------------------------------------------------
-// openClientTab
-// opens a new tab, for client lookup
-//------------------------------------------------
-function openClientTab() {
-  alert("Copy client MAC, and paste in client searchbox");
-  var clientsWindow = window.open(clientsPageAddress);
 }
 
 function showVendors() {

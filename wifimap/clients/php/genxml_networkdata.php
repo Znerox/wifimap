@@ -99,9 +99,9 @@ if ($_POST['show_probing'] == "yes") {
           if (in_array($row['ssid'], $essidOfConnectedNetworksArray)) {
             //this ssid from query is in $essidOfConnectedNetworksArray, meaning it is very unlikely
             //the client has ever used this network. therefore it will be marked with a red marker,
-            //if checkbox is unchecked and user want to see theese results
+            //if checkbox is checked and user want to see theese results
 
-            if ($_POST['dont_show_probe_matching_connected'] == "no") {
+            if ($_POST['show_false_positives'] == "yes") {
               // ADD TO XML DOCUMENT NODE
               $node = $dom->createElement("marker");
               $newnode = $parnode->appendChild($node);

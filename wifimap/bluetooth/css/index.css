@@ -31,7 +31,7 @@ body {
 }
 
 #sidetab {
-  width: 310px;
+  width: 315px;
   height: 100%;
   box-sizing: border-box;
   padding: 10px;
@@ -56,11 +56,10 @@ body {
   background: -moz-linear-gradient(#00adee, #0078a5); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#00adee, #0078a5); /* Standard syntax (must be last) */
   border: 2px solid black;
-  height: 165px;
 }
 
 .sideelement {
-  padding: 8px 0 0 0;
+  padding: 8px 0 8px 0;
 }
 
 .textinput {
@@ -78,30 +77,86 @@ body {
   padding: 4px 15px;
 }
 
-.signal_info_div {
-  text-align: left;
+.infoWindowSearchButton {
+  margin-top: 5px;
+  padding: 4px 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #0076a3;
+  border-right: 0;
+  background: #0095cd; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#00adee, #0078a5); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#00adee, #0078a5); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#00adee, #0078a5); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#00adee, #0078a5); /* Standard syntax (must be last) */
+  border-radius: 5px;
 }
 
-.signal_info_icon {
-  vertical-align: middle;
+.checkbox-radio_div {
   display: inline-block;
-  margin-left: 12px;
 }
 
-.signal_info_text {
-  display: inline-block;
-}
-
-.signal_info_text p {
+.checkbox-radio_div p {
   margin: 0;
+}
+
+.image {
+  float: left;
 }
 
 /*##############################
 ###           IDs       ########
 ##############################*/
 
-#sidetext {
-  padding: 12px 0 8px 0;
+#last_seen_text {
+  margin-top: 0;
+  margin-bottom: -14px;
+  font-size: 1em;
+}
+
+#date_selector_area {
+  display: grid;
+}
+
+#ds_grid_1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  text-align: right;
+}
+
+#ds_grid_2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  text-align: left;
+}
+
+#ds_grid_3 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  text-align: right;
+}
+
+#ds_grid_4 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  text-align: left;
+}
+
+#vendorarea {
+  padding: 8px 0 8px 0;
 }
 
 /*##############################
@@ -121,6 +176,14 @@ label {
 }
 
 input[type="button"] {
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+input[type="radio"] {
   cursor: pointer;
 }
 

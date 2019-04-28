@@ -4,8 +4,9 @@
   <meta charset="utf-8">
   <title>WiFi Map - Tools</title>
 
+  <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32">
   <link type="text/css" rel="stylesheet" href="css/index.css" />
-  <!--<script type="text/javascript" src="js/index.js"></script>-->
+  <!--<script src="js/index.js"></script>-->
 
 </head>
 
@@ -16,14 +17,13 @@
     <h2 class="headline_text">Upload data</h2>
 
     <div id="import" class="main">
-
       <div id="network_import" class="specific">
         <h3>Upload network file</h3>
         <form action="php/network_import.php" method="post" enctype="multipart/form-data">
           <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
           <input type="submit" value="Upload file" name="submit">
         </form>
-        <p>Upload the "network" file exported from wigle</p>
+        <p>Upload the "network" file from wigle<br>WiFi networks and Bluetooth devices</p>
       </div>
 
       <div id="location_import" class="specific">
@@ -32,87 +32,88 @@
           <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
           <input type="submit" value="Upload file" name="submit">
         </form>
-        <p>Upload the "location" file exported from wigle</p>
+        <p>Upload the "location" file from wigle<br>WiFi networks and Bluetooth devices</p>
       </div>
 
       <div id="client_import" class="specific">
-        <h3>Upload client file</h3>
+        <h3>Upload WiFi client file</h3>
         <form action="php/client_import.php" method="post" enctype="multipart/form-data">
           <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
           <input type="submit" value="Upload file" name="submit">
         </form>
-        <p>Upload the .csv file from airodump-ng (NOT *.kismet.csv)</p>
+        <p>Upload .csv files from airodump-ng (NOT *.kismet.csv)<br>WiFi clients</p>
       </div>
-
     </div>
-    <!-- END import -->
 
-    <h2 class="headline_text">Update database</h2>
+    <h2 class="headline_text">Database scripts</h2>
 
     <div id="update_sql" class="main">
-
-      <div id="sql_network" class="specific">
-        <h3>Update network data</h3>
-        <form action="php/update_sql_fields_network.php" method="get">
-          <input type="submit" value="Update database" class="uploadButton">
-        </form>
-        <p>Run this after uploading network file</p>
+      <div id="sql" class="specific">
+        <h3>Update database</h3>
+        <div class="database_script_button">
+          <form action="php/update_sql_fields_network.php" method="get">
+            <input type="submit" value="Network" class="uploadButton">
+          </form>
+        </div>
+        <div class="database_script_button">
+          <form action="php/update_sql_fields_location.php" method="get">
+            <input type="submit" value="Location" class="uploadButton">
+          </form>
+        </div>
+        <div class="database_script_button">
+          <form action="php/update_sql_fields_bluetooth.php" method="get">
+            <input type="submit" value="Bluetooth" class="uploadButton">
+          </form>
+        </div>
+        <p>Run this after uploading files</p>
       </div>
 
-      <div id="sql_location" class="specific">
-        <h3>Update location data</h3>
-        <form action="php/update_sql_fields_location.php" method="get">
-          <input type="submit" value="Update database" class="uploadButton">
-        </form>
-        <p>Run this after uploading location file</p>
+      <div id="vendor" class="specific">
+        <h3>Lookup MAC vendors</h3>
+        <div class="database_script_button">
+          <form action="php/network_mac_lookup.php" method="get">
+            <input type="submit" value="Networks" class="uploadButton">
+          </form>
+        </div>
+        <div class="database_script_button">
+          <form action="php/client_mac_lookup.php" method="get">
+            <input type="submit" value="Clients" class="uploadButton">
+          </form>
+        </div>
+        <div class="database_script_button">
+          <form action="php/bluetooth_mac_lookup.php" method="get">
+            <input type="submit" value="Bluetooth" class="uploadButton">
+          </form>
+        </div>
+        <p>Run this after uploading files</p>
       </div>
 
-      <div id="router_vendor" class="specific">
-        <h3>Lookup MAC address for routers</h3>
-        <form action="php/network_mac_lookup.php" method="get">
-          <input type="submit" value="MAC lookup" class="uploadButton">
-        </form>
-        <p>Find vendor based on MAC address</p>
+      <div id="link_clients" class="specific">
+        <h3>Link clients to routers</h3>
+        <div class="database_script_button">
+          <form action="php/set_connected_clients_in_network.php" method="get">
+            <input type="submit" value="Connected clients" class="uploadButton">
+          </form>
+        </div>
+        <div class="database_script_button">
+          <form action="php/set_probing_clients_in_network.php" method="get">
+            <input type="submit" value="Probing clients" class="uploadButton">
+          </form>
+        </div>
+        <p>Run this after uploading files</p>
       </div>
-
-      <div id="client_vendor" class="specific">
-        <h3>Lookup MAC address for clients</h3>
-        <form action="php/client_mac_lookup.php" method="get">
-          <input type="submit" value="MAC lookup" class="uploadButton">
-        </form>
-        <p>Find vendor based on MAC address</p>
-      </div>
-
-      <div id="connected_in_network" class="specific">
-        <h3>Link connected clients to network</h3>
-        <form action="php/set_connected_clients_in_network.php" method="get">
-          <input type="submit" value="Update database" class="uploadButton">
-        </form>
-        <p>Run this after uploading client file</p>
-      </div>
-
-      <div id="probing_in_network" class="specific">
-        <h3>Link probing clients to network</h3>
-        <form action="php/set_probing_clients_in_network.php" method="get">
-          <input type="submit" value="Update database" class="uploadButton">
-        </form>
-        <p>Run this after uploading client file</p>
-      </div>
-
     </div>
-    <!-- END update_sql -->
 
     <h2 class="headline_text">Upload data from older versions of wigle/aircrack-ng</h2>
 
     <div id="import_old" class="main">
-
       <div id="old_network_import" class="specific">
         <h3>Upload old network file</h3>
         <form action="php/old_network_import.php" method="post" enctype="multipart/form-data">
           <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
           <input type="submit" value="Upload file" name="submit">
         </form>
-        <p>Upload the "network" file exported from older versions of wigle</p>
+        <p>Upload the "network" file from older versions of wigle</p>
       </div>
 
       <div id="old_location_import" class="specific">
@@ -121,7 +122,7 @@
           <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
           <input type="submit" value="Upload file" name="submit">
         </form>
-        <p>Upload the "location" file exported from older versions of wigle</p>
+        <p>Upload the "location" file from older versions of wigle</p>
       </div>
 
       <div id="client_import_1dot2-rc1" class="specific">
@@ -130,14 +131,10 @@
           <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
           <input type="submit" value="Upload file" name="submit">
         </form>
-        <p>aircrack-ng version 1.2-rc1. Replaced 10 April 2015<br>Earlier versions might also work here</p>
+        <p>aircrack-ng version 1.2-rc1. Replaced 10 April 2015</p>
       </div>
-
     </div>
-    <!-- END import_old -->
 
   </div>
-  <!-- END pagecontent -->
 </body>
-
 </html>

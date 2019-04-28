@@ -28,10 +28,13 @@ if ($networksWithNullDate > 0) {
     // Convert from epoch time to human readable date
     $dt = new DateTime("@$epochtime");
     $humantime = $dt->format('d-m-Y');
-    $mysqli->query("UPDATE location SET date='" . $humantime . "' WHERE bssid LIKE '" . $row[bssid] . "' AND time LIKE '" . $row[time] . "'");
+    $mysqli->query("UPDATE location SET date='" . $humantime . "' WHERE time LIKE '" . $row[time] . "'");
   }
 
 }
+
+//set date t o"Unknown" for networks with date = 0
+$mysqli->query("UPDATE location SET date='' WHERE time LIKE '0'");
 
 //let user know script is completed
 echo "script completed";

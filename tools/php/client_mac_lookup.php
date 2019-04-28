@@ -16,16 +16,11 @@ $clientsWithNullVendor = $probeResult->num_rows;
 
 if ($clientsWithNullVendor > 0) {
 
-  echo $clientsWithNullVendor . " rows left without vendor (before the round just completed)";
-  echo "<br>";
-  echo "Running through loop up to 500 times, updating 500 next vendors";
-  echo "<br>";
-  echo "All clients matching a particular OUI will be updated at once";
-  echo "<br>";
+  echo $clientsWithNullVendor . " rows left without vendor (before the round just completed)<br>";
+  echo "Running through loop up to 500 times, updating 500 next vendors<br>";
+  echo "All clients matching a particular OUI will be updated at once<br>";
   echo "Press F5 to run script again";
-  echo "<br>";
-  echo "----------------------------------------------------------------";
-  echo "<br>";
+  echo "<br>----------------------------------------------------------------<br>";
 
   $stopLoop = 0;
 
@@ -46,38 +41,22 @@ if ($clientsWithNullVendor > 0) {
     if($response !== "No vendor") {
 
       echo $mac_from_db_trimmed . " - " . $response;
-      echo "<br>";
-      echo "<br>";
-      echo "The following command has been run against database:";
-      echo "<br>";
-      echo "<br>";
+      echo "<br><br>The following command has been run against database:<br><br>";
       echo "UPDATE clients";
-      echo "<br>";
-      echo "SET vendor='$response'";
-      echo "<br>";
-      echo "WHERE client_mac LIKE '" . $mac_from_db_trimmed . ":__:__:__';";
-      echo "<br>";
-      echo "----------------------------------------------------------------";
-      echo "<br>";
+      echo "<br>SET vendor='$response'";
+      echo "<br>WHERE client_mac LIKE '" . $mac_from_db_trimmed . ":__:__:__';";
+      echo "<br>----------------------------------------------------------------<br>";
 
       $query2 = 'UPDATE clients SET vendor="' . $response . '" WHERE client_mac LIKE "' . $mac_from_db_trimmed . ':__:__:__";';
       $result2 = $connection->query($query2);
 
     } else {
       echo $mac_from_db_trimmed . " - UNKNOWN" ;
-      echo "<br>";
-      echo "<br>";
-      echo "MAC vendor is unknown. The following command has been run against database:";
-      echo "<br>";
-      echo "<br>";
+      echo "<br><br>MAC vendor is unknown. The following command has been run against database:<br><br>";
       echo "UPDATE clients";
-      echo "<br>";
-      echo "SET vendor='UNKNOWN'";
-      echo "<br>";
-      echo "WHERE client_mac LIKE '" . $mac_from_db_trimmed . ":__:__:__';";
-      echo "<br>";
-      echo "----------------------------------------------------------------";
-      echo "<br>";
+      echo "<br>SET vendor='UNKNOWN'";
+      echo "<br>WHERE client_mac LIKE '" . $mac_from_db_trimmed . ":__:__:__';";
+      echo "<br>----------------------------------------------------------------<br>";
 
       $query3 = "UPDATE clients SET vendor='UNKNOWN' WHERE client_mac LIKE '" . $mac_from_db_trimmed . ":__:__:__';";
       $result3 = $connection->query($query3);
@@ -90,8 +69,7 @@ if ($clientsWithNullVendor > 0) {
     if ($clientsWithNullVendor == 0) {
 
       $stopLoop = 1;
-      echo "No more clients left with missing vendor! Stopping loop";
-      echo "<br>";
+      echo "No more clients left with missing vendor! Stopping loop<br>";
     }
 
     $loopCount++;

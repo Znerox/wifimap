@@ -81,10 +81,6 @@ body {
   text-align: left;
 }
 
-.form-select {
-  cursor: pointer;
-}
-
 .infoWindowSearchButton {
   margin-top: 5px;
   padding: 4px 15px;

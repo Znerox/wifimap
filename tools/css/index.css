@@ -40,20 +40,24 @@ body {
   border: 1px solid black;
 }
 
+.database_script_button {
+  display: inline-block;
+}
+
 /*##############################
 ###           IDs       ########
 ##############################*/
 
 #import {
-  grid-template-rows: 125px;
+  grid-template-rows: 140px;
 }
 
 #update_sql {
-  grid-template-rows: 125px 125px;
+  grid-template-rows: 125px;
 }
 
 #import_old {
-  grid-template-rows: 140px;
+  grid-template-rows: 125px;
 }
 
 #network_import {
@@ -75,48 +79,6 @@ body {
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 2;
-}
-
-#sql_network {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-#sql_location {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 3;
-}
-
-#router_vendor {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-#client_vendor {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
-}
-
-#connected_in_network {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-#probing_in_network {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 3;
 }
 
 #old_network_import {

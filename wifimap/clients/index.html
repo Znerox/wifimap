@@ -6,12 +6,12 @@
 
   <link rel="icon" href="../images/favicon.png" type="image/png" sizes="32x32">
   <link type="text/css" rel="stylesheet" href="css/index.css" />
-  <script type="text/javascript" src="../js/markerclusterer.js"></script>
-  <script type="text/javascript" src="../js/mapthemes.js"></script>
-  <script type="text/javascript" src="../js/settings.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../js/markerclusterer.js"></script>
+  <script src="../js/mapthemes.js"></script>
+  <script src="../js/settings.js"></script>
+  <script src="js/index.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -21,8 +21,6 @@
     <div id="sidetab">
 
       <div id="searchbubble" class="sidegroup">
-
-        <!-- This is searchfield/checkboxes -->
         <div id="searchinputarea" class="sideelement">
 
           <span><input type="text" class="textinput" id="searchinput" size="16" maxlength="25" placeholder="Client MAC" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="searchbutton" onclick="deleteMarkers();" value="Search" class="searchbutton"></span>
@@ -32,7 +30,7 @@
             <div class="checkboxAndText">
               <div><input type="checkbox" id="show_connected" class="checkbox" checked></div>
               <div class="icon"><img class=image src="../images/green.png" /></div>
-              <div><p id="show_connected_text" class="checkboxText"></p></div>
+              <div><p class="checkboxText">Connected Network</p></div>
             </div>
           </label>
 
@@ -40,27 +38,23 @@
             <div class="checkboxAndText">
               <div><input type="checkbox" id="show_probing" class="checkbox" checked></div>
               <div class="icon"><img class=image src="../images/yellow.png" /></div>
-              <div><p id="show_probed_text" class="checkboxText"></p></div>
+              <div><p class="checkboxText">Probed SSID</p></div>
             </div>
           </label>
 
           <label>
             <div class="checkboxAndText">
-              <div><input type="checkbox" id="dont_show_probe_matching_connected" class="checkbox" checked></div>
+              <div><input type="checkbox" id="show_false_positives" class="checkbox" unchecked></div>
               <div class="icon"><img class=image src="../images/red.png" /></div>
-              <div> <p id="dont_show_unlikely_probes_text" class="checkboxText"></p></div>
+              <div> <p class="checkboxText">False positive</p></div>
               </div>
             </label>
 
         </div>
-        <!-- END searchinputarea -->
-
       </div>
-      <!-- END searchbubble -->
 
       <div id="sidetextbubble" class="sidegroup">
 
-        <!-- This is the area under search-->
         <div id="sidetext" class="sideelement">
           <h3>Client mac:</h3>
           <p id="mac_field"></p><br>
@@ -71,23 +65,12 @@
           <h3>Probing:</h3>
           <p id="probing_field"></p><br>
 
-
-
         </div>
-        <!-- END sidetext -->
-
       </div>
-      <!-- END sidetextbubble -->
-
     </div>
-    <!-- END sidetab -->
 
     <div id="sidetab-background"></div>
     <!-- background for sidetab, to make opacity work -->
-
   </div>
-  <!-- END pagecontent -->
-
 </body>
-
 </html>

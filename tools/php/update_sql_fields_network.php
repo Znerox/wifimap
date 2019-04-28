@@ -88,6 +88,9 @@ if ($networksWithNullDate > 0) {
 $mysqli->query("DELETE FROM `network` WHERE frequency LIKE ''");
 $mysqli->query("DELETE FROM `network` WHERE capabilities LIKE '2___' OR capabilities LIKE '5___'");
 
+//delete bluetooth data from list of wifi networks
+$mysqli->query("DELETE FROM `network` WHERE type NOT LIKE 'W'");
+
 //let user know script is completed
 echo "script completed";
 
