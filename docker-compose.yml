@@ -1,0 +1,37 @@
+version: "2"
+
+services:
+  wifimap:
+    image: znerox/wifimap
+    hostname: wifimap
+    container_name: wifimap
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+        - wifimap-mysql
+
+  wifimap-phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    hostname: wifimap-phpmyadmin
+    container_name: wifimap-phpmyadmin
+    restart: always
+    ports:
+        - 8080:80
+    environment:
+        PMA_HOST: wifimap-mysql
+    depends_on:
+        - wifimap-mysql
+
+  wifimap-mysql:
+    image: mysql
+    hostname: wifimap-mysql
+    container_name: wifimap-mysql
+    restart: always
+    volumes:
+        - db_data:/var/lib/mysql
+    environment:
+        MYSQL_ROOT_PASSWORD: password
+
+volumes:
+  db_data:
