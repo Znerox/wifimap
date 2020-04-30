@@ -30,7 +30,7 @@ if ($uploadOk == 0) {
 require "dbinfo.php";
 
 // Opens a connection to a MySQL server
-$mysqli = new mysqli("localhost", $username, $password, $database);
+$mysqli = new mysqli($server, $username, $password, $database);
 
 // Change character set to utf8
 mysqli_set_charset($mysqli,"utf8");
@@ -66,18 +66,18 @@ if ($handle) {
       } else {
         //BSSID found in database
         //check if uploaded data is newer than database
-        if ($router_lasttime > $bssid_query_result_array[lasttime]) {
+        if ($router_lasttime > $bssid_query_result_array['lasttime']) {
           //uploaded data is newer than existing data in db
 
           //if bssid is  found in database, and uploaded data is newer than database, this updates ssid, frequency, capabilities, lasttime, lastlat, lastlon
           $mysqli->query("UPDATE network SET ssid='$router_ssid', frequency='$router_frequency', capabilities='$router_capabilities', lasttime='$router_lasttime', lastlat='$router_lastlat', lastlon='$router_lastlon' WHERE bssid LIKE '$router_bssid'");
 
           //check if uploaded SSID matches SSID from db. if changed, overwrite bestlevel/bestlat/bestlon. SSID is changed, so it should be treated like a new network.
-          if ($router_ssid == $bssid_query_result_array[ssid]) {
+          if ($router_ssid == $bssid_query_result_array['ssid']) {
             //SSID has not changed for this network, do nothing more
           } else {
             //check if SSID from db is "[Hidden network]". If it is, and uploaded SSID is blank, it has not changed.
-            if ($router_ssid == "" && $bssid_query_result_array[ssid] == "[Hidden network]") {
+            if ($router_ssid == "" && $bssid_query_result_array['ssid'] == "[Hidden network]") {
               //SSID have not changed, do nothing more
             }
             else {
@@ -98,11 +98,11 @@ if ($handle) {
           //db data is newer than data being uploaded, do not make any changes to this network. (bestlevel/bestlat/bestlon is checked next, doesn't matter what is newest
         }
         //this is in "BSSID found in database". checks if uploaded SSID matches SSID from db. if it doesn't match, best* should not be overwritten
-        if ($router_ssid == $bssid_query_result_array[ssid]) {
+        if ($router_ssid == $bssid_query_result_array['ssid']) {
           //uploaded SSID matches
 
           //checks bestlevel, if uploaded value is higher than in database, update bestlevel, bestlat, bestlon.
-          if ($router_bestlevel > $bssid_query_result_array[bestlevel]) {
+          if ($router_bestlevel > $bssid_query_result_array['bestlevel']) {
             //uploaded bestlevel higher than existing bestlevel in db
             $mysqli->query("UPDATE network SET bestlevel='$router_bestlevel', bestlat='$router_bestlat', bestlon='$router_bestlon' WHERE bssid LIKE '$router_bssid'");
           }

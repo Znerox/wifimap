@@ -3,7 +3,7 @@
 require("dbinfo.php");
 
 // Opens a connection to a MySQL server
-$mysqli = new mysqli("localhost", $username, $password, $database);
+$mysqli = new mysqli($server, $username, $password, $database);
 if (!$mysqli) {  die('Not connected : ' . $mysqli->connect_error);}
 
 // Change character set to utf8
@@ -31,7 +31,7 @@ if ($networksWithNullDate > 0) {
     // Convert from epoch time to human readable date
     $dt = new DateTime("@$epochtime");
     $humantime = $dt->format('d-m-Y');
-    $mysqli->query("UPDATE bluetooth SET lastseen='" . $humantime . "' WHERE bssid LIKE '" . $row[bssid] . "'");
+    $mysqli->query("UPDATE bluetooth SET lastseen='" . $humantime . "' WHERE bssid LIKE '" . $row['bssid'] . "'");
   }
 
 }

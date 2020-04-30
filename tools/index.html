@@ -6,14 +6,11 @@
 
   <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32">
   <link type="text/css" rel="stylesheet" href="css/index.css" />
-  <!--<script src="js/index.js"></script>-->
 
 </head>
 
 <body>
   <div id="pagecontent">
-    <h1>WiFi Tools</h1>
-
     <h2 class="headline_text">Upload data</h2>
 
     <div id="import" class="main">
@@ -45,7 +42,7 @@
       </div>
     </div>
 
-    <h2 class="headline_text">Database scripts</h2>
+    <h2 class="headline_text">Update additional info</h2>
 
     <div id="update_sql" class="main">
       <div id="sql" class="specific">
@@ -133,6 +130,14 @@
         </form>
         <p>aircrack-ng version 1.2-rc1. Replaced 10 April 2015</p>
       </div>
+    </div>
+    <p>Some of these scripts can take a very long time to finish. After pressing a button, wait until you see a status message.</p>
+    <p>Create database first if this is the first time running.</p>
+
+    <div class="database_script_button">
+      <form action="php/dbsetup.php" method="get">
+        <input type="submit" value="Create Database" class="uploadButton">
+      </form>
     </div>
 
   </div>

@@ -6,8 +6,10 @@
 
   <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32">
   <link type="text/css" rel="stylesheet" href="css/index.css" />
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+  <script src="js/API_key.js"></script>
+  <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbTpA74dKAUDGhqDZzQANsr5GGbWIp1GI" async defer></script>-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>jQuery.getScript("https://maps.googleapis.com/maps/api/js?key=" + googleMapsJavascriptAPIKey);</script>
   <script src="js/markerclusterer.js"></script>
   <script src="js/oms.min.js"></script>
   <script src="js/mapthemes.js"></script>
@@ -160,7 +162,7 @@
             </div>
           </div>
           <div class="searchinfotext">
-            <p id="wpatext">Secure encryption <br> (WPA without WPS)</p>
+            <p id="wpatext">Most secure <br> (WPA without WPS)</p>
           </div>
         </div>
 

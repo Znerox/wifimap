@@ -8,36 +8,36 @@ $node = $dom->createElement("markers");
 $parnode = $dom->appendChild($node);
 
 // Opens a connection to a MySQL server
-$mysqli = new mysqli("localhost", $username, $password, $database);
+$mysqli = new mysqli($server, $username, $password, $database);
 
 // Change character set to utf8
 mysqli_set_charset($mysqli,"utf8");
 
 // Convert selected_fromtime to epoch time
-if ($_POST[selected_fromtime] == "") {
+if ($_POST['selected_fromtime'] == "") {
 	$selected_fromtime_epoch = "0000000000000";
 } else {
 	// Take the date provided by html date input (YYYY-MM-DD)
 	// Output a format DateTime understands (MM/DD/YYYY)
-	$sorted_fromtime_humandate = substr($_POST[selected_fromtime], 5, 2) . "/" . substr($_POST[selected_fromtime], 8, 2) . "/" . substr($_POST[selected_fromtime], 0, 4);
+	$sorted_fromtime_humandate = substr($_POST['selected_fromtime'], 5, 2) . "/" . substr($_POST['selected_fromtime'], 8, 2) . "/" . substr($_POST['selected_fromtime'], 0, 4);
 	$dt_from = new DateTime($sorted_fromtime_humandate);
 	$selected_fromtime_epoch = 1000 * $dt_from->format('U');
 }
 
 // Convert selected_totime to epoch time
-if ($_POST[selected_totime] == "") {
+if ($_POST['selected_totime'] == "") {
 	$selected_totime_epoch = "32503679995000";
 } else {
 	// Take the date provided by html date input (YYYY-MM-DD)
 	// Output a format DateTime understands (MM/DD/YYYY)
-	$sorted_totime_humandate = substr($_POST[selected_totime], 5, 2) . "/" . substr($_POST[selected_totime], 8, 2) . "/" . substr($_POST[selected_totime], 0, 4);
+	$sorted_totime_humandate = substr($_POST['selected_totime'], 5, 2) . "/" . substr($_POST['selected_totime'], 8, 2) . "/" . substr($_POST['selected_totime'], 0, 4);
 	$dt_to = new DateTime($sorted_totime_humandate);
 	$selected_totime_epoch = 1000 * ($dt_to->format('U') + 86400); //Add 86400 seconds (24h), so the query result will include data from the date we choose as "to date"
 }
 
 // Select rows in network table
 //ONLY OPEN
-if ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "no") {
+if ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "no" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "no") {
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
@@ -50,7 +50,7 @@ if ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[wpa_w
 }
 
 //EVERYTHING EXCEPT OPEN
-elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "yes" && $_POST[wpa_no_wps_network] == "yes") {
+elseif ($_POST['open_network'] == "no" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "yes" && $_POST['wpa_no_wps_network'] == "yes") {
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
@@ -63,7 +63,7 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[w
 }
 
 //ONLY WEP
-elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "no") {
+elseif ($_POST['open_network'] == "no" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "no") {
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
@@ -76,7 +76,7 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[w
 }
 
 //EVERYTHING EXCEPT WEP
-elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[wpa_wps_network] == "yes" && $_POST[wpa_no_wps_network] == "yes") {
+elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "no" && $_POST['wpa_wps_network'] == "yes" && $_POST['wpa_no_wps_network'] == "yes") {
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
@@ -89,7 +89,7 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[w
 }
 
 //ONLY WPA WITH WPS
-elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "no" && $_POST[wpa_wps_network] == "yes" && $_POST[wpa_no_wps_network] == "no") {
+elseif ($_POST['open_network'] == "no" && $_POST['wep_network'] == "no" && $_POST['wpa_wps_network'] == "yes" && $_POST['wpa_no_wps_network'] == "no") {
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
@@ -102,7 +102,7 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "no" && $_POST[wp
 }
 
 //EVERYTHING EXCEPT WPA WITH WPS
-elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "yes") {
+elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "yes") {
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
@@ -115,7 +115,7 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[
 }
 
 //ONLY WPA WITHOUT WPS
-elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "no" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "yes") {
+elseif ($_POST['open_network'] == "no" && $_POST['wep_network'] == "no" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "yes") {
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
@@ -128,7 +128,7 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "no" && $_POST[wp
 }
 
 //EVERYTHING EXCEPT WPA WITHOUT WPS
-elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "yes" && $_POST[wpa_no_wps_network] == "no") {
+elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "yes" && $_POST['wpa_no_wps_network'] == "no") {
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
@@ -141,7 +141,7 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[
 }
 
 //ONLY OPEN + WEP
-elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "no") {
+elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "no") {
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
@@ -154,7 +154,7 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[
 }
 
 //ONLY OPEN + WPA WITH WPS
-elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[wpa_wps_network] == "yes" && $_POST[wpa_no_wps_network] == "no") {
+elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "no" && $_POST['wpa_wps_network'] == "yes" && $_POST['wpa_no_wps_network'] == "no") {
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
@@ -167,7 +167,7 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[w
 }
 
 //ONLY OPEN + WPA WITHOUT WPS
-elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "yes")	{
+elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "no" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "yes")	{
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
@@ -180,7 +180,7 @@ elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "no" && $_POST[w
 }
 
 //ONLY WEP + WPA WITH WPS
-elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "yes" && $_POST[wpa_no_wps_network] == "no")	{
+elseif ($_POST['open_network'] == "no" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "yes" && $_POST['wpa_no_wps_network'] == "no")	{
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
@@ -193,7 +193,7 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[w
 }
 
 //ONLY WEP + WPA WITHOUT WPS
-elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "yes")	{
+elseif ($_POST['open_network'] == "no" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "yes")	{
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
@@ -206,7 +206,7 @@ elseif ($_POST[open_network] == "no" && $_POST[wep_network] == "yes" && $_POST[w
 }
 
 //ONLY WPA (BOTH TYPES)
-elseif ($_POST[open_network] == "yes" && $_POST[wep_network] == "yes" && $_POST[wpa_wps_network] == "no" && $_POST[wpa_no_wps_network] == "no")	{
+elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "no")	{
 	$query = "SELECT * FROM network WHERE
 	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')

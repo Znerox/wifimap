@@ -3,7 +3,7 @@
 require "dbinfo.php";
 
 // Opens a connection to the MySQL server
-$connection = new mysqli("localhost", $username, $password, $database);
+$connection = new mysqli($server, $username, $password, $database);
 
 if (!$connection) {  die('Not connected : ' . $mysqli->connect_error);}
 
@@ -21,6 +21,7 @@ if ($networksWithNullVendor > 0) {
   echo "All routers matching a particular OUI will be updated at once<br>";
   echo "Press F5 to run script again";
   echo "<br>----------------------------------------------------------------<br>";
+  echo "Found vendors:<br><br>";
 
   $stopLoop = 0;
 
@@ -40,23 +41,13 @@ if ($networksWithNullVendor > 0) {
 
     if($response !== "No vendor") {
 
-      echo $mac_from_db_trimmed . " - " . $response;
-      echo "<br><br>The following command has been run against database:<br><br>";
-      echo "UPDATE network";
-      echo "<br>SET vendor='$response'";
-      echo "<br>WHERE bssid LIKE '" . $mac_from_db_trimmed . ":__:__:__';";
-      echo "<br>----------------------------------------------------------------<br>";
+      echo $mac_from_db_trimmed . " - " . $response . "<br>";
 
       $query2 = 'UPDATE network SET vendor="' . $response . '" WHERE bssid LIKE "' . $mac_from_db_trimmed . ':__:__:__";';
       $result2 = $connection->query($query2);
 
     } else {
-      echo $mac_from_db_trimmed . " - UNKNOWN" ;
-      echo "<br><br>MAC vendor is unknown. The following command has been run against database:<br><br>";
-      echo "UPDATE network";
-      echo "<br>SET vendor='UNKNOWN'";
-      echo "<br>WHERE bssid LIKE '" . $mac_from_db_trimmed . ":__:__:__';";
-      echo "<br>----------------------------------------------------------------<br>";
+      echo $mac_from_db_trimmed . " - UNKNOWN<br>";
 
       $query3 = "UPDATE network SET vendor='UNKNOWN' WHERE bssid LIKE '" . $mac_from_db_trimmed . ":__:__:__';";
       $result3 = $connection->query($query3);
@@ -68,7 +59,7 @@ if ($networksWithNullVendor > 0) {
 
     if ($networksWithNullVendor == 0) {
       $stopLoop = 1;
-      echo "No more networks left with missing vendor! Stopping loop<br>";
+      echo "<br>No more networks left with missing vendor! Stopping loop<br>";
     }
 
     $loopCount++;

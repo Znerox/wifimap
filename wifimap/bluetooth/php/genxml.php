@@ -8,29 +8,29 @@ $node = $dom->createElement("markers");
 $parnode = $dom->appendChild($node);
 
 // Opens a connection to a MySQL server
-$mysqli = new mysqli("localhost", $username, $password, $database);
+$mysqli = new mysqli($server, $username, $password, $database);
 
 // Change character set to utf8
 mysqli_set_charset($mysqli,"utf8");
 
 // Convert selected_fromtime to epoch time
-if ($_POST[selected_fromtime] == "") {
+if ($_POST['selected_fromtime'] == "") {
 	$selected_fromtime_epoch = "0000000000000";
 } else {
 	// Take the date provided by html date input (YYYY-MM-DD)
 	// Output a format DateTime understands (MM/DD/YYYY)
-	$sorted_fromtime_humandate = substr($_POST[selected_fromtime], 5, 2) . "/" . substr($_POST[selected_fromtime], 8, 2) . "/" . substr($_POST[selected_fromtime], 0, 4);
+	$sorted_fromtime_humandate = substr($_POST['selected_fromtime'], 5, 2) . "/" . substr($_POST['selected_fromtime'], 8, 2) . "/" . substr($_POST['selected_fromtime'], 0, 4);
 	$dt_from = new DateTime($sorted_fromtime_humandate);
 	$selected_fromtime_epoch = 1000 * $dt_from->format('U');
 }
 
 // Convert selected_totime to epoch time
-if ($_POST[selected_totime] == "") {
+if ($_POST['selected_totime'] == "") {
 	$selected_totime_epoch = "32503679995000";
 } else {
 	// Take the date provided by html date input (YYYY-MM-DD)
 	// Output a format DateTime understands (MM/DD/YYYY)
-	$sorted_totime_humandate = substr($_POST[selected_totime], 5, 2) . "/" . substr($_POST[selected_totime], 8, 2) . "/" . substr($_POST[selected_totime], 0, 4);
+	$sorted_totime_humandate = substr($_POST['selected_totime'], 5, 2) . "/" . substr($_POST['selected_totime'], 8, 2) . "/" . substr($_POST['selected_totime'], 0, 4);
 	$dt_to = new DateTime($sorted_totime_humandate);
 	$selected_totime_epoch = 1000 * ($dt_to->format('U') + 86400); //Add 86400 seconds (24h), so the query result will include data from the date we choose as "to date"
 }

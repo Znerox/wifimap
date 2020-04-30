@@ -14,21 +14,21 @@ function loadSettings() {
 
   // Set map center coordinates. Go to maps.google.com and click
   // a location to get its coordinates.
-  mapCenterLatitude = 69.670;
-  mapCenterLongitude = 18.955;
+  mapCenterLatitude = 30;
+  mapCenterLongitude = 0;
 
 
   // Default zoom for the main network view
-  defaultZoomLevelNetwork = 12;
+  defaultZoomLevelNetwork = 3;
 
   // Default zoom for the location view
   defaultZoomLevelLocation = 18;
 
   // Default zoom for the clients view
-  defaultZoomLevelClients = 12;
+  defaultZoomLevelClients = 3;
 
   // Default zoom for the bluetooth view
-  defaultZoomLevelBluetooth = 12;
+  defaultZoomLevelBluetooth = 3;
 
 
   // Avialable maptypes are:
@@ -72,26 +72,11 @@ function loadSettings() {
   mapThemeBluetooth = blueWater;
 
 
-  // Where is the "location" webpage located?
-  // Example for site available on your local network: http://192.168.1.31/wifimap/location
-  // Example for site available on the public internet: http://wifimap.mydomain.net/location
-
-  locationPageAddress = "http://SERVER_IP/wifimap/location";
-
-
-  // Where is the "clients" webpage located?
-  // Example for site available on your local network: http://192.168.1.31/wifimap/clients
-  // Example for site available on the public internet: http://wifimap.mydomain.net/clients
-
-  clientsPageAddress = "http://SERVER_IP/wifimap/clients";
-
-
-  // Where is the "bluetooth" webpage located?
-  // Example for site available on your local network: http://192.168.1.31/wifimap/bluetooth
-  // Example for site available on the public internet: http://wifimap.mydomain.net/bluetooth
-
-  bluetoothPageAddress = "http://SERVER_IP/wifimap/bluetooth";
-
+  // At what IP/hostname is the web server running? This option is only included in case the default somehow doesn't work
+  // Valid examples are: http://192.168.1.31/wifimap/location OR http://wifimap.mydomain.net/location
+  locationPageAddress = "http://" + location.host +"/wifimap/location";
+  clientsPageAddress = "http://" + location.host + "/wifimap/clients";
+  bluetoothPageAddress = "http://" + location.host + "/wifimap/bluetooth";
 
 
   // If this is set, any location data with an accuracy higher than this (less accurate) doesn't display in the location view

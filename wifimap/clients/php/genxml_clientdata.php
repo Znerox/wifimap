@@ -8,7 +8,7 @@ $node = $dom->createElement("clients");
 $parnode = $dom->appendChild($node);
 
 // Opens a connection to a MySQL server
-$mysqli = new mysqli("localhost", $username, $password, $database);
+$mysqli = new mysqli($server, $username, $password, $database);
 
 // Change character set to utf8
 mysqli_set_charset($mysqli,"utf8");
