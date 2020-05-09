@@ -1,11 +1,9 @@
 function loadSettings() {
 
-
-  // In addition to these settings, you need to set an api key
-  // Find line 9 in \wifimap\index.html (and every index.html in the "wifimap" folder)
-  // In the URL, replace "YOUR_API_KEY" with your own Google Maps API key
+  // Changing these settings are optional, however you need to set a Google Maps API key
+  // Find the file \wifimap\js\API_key.js
+  // In the file, replace "YOUR_API_KEY" with your own Google Maps API key
   // https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key
-
 
   //------------------------------------------------
   // Change settings below here
@@ -91,9 +89,7 @@ function loadSettings() {
   //------------------------------------------------
 
 
-  // this runs on the "location" site
   if (activeSite == "location") {
-
     if (location_data_accuracy_cutoff == 0) {
       location_data_accuracy_cutoff = 10000;
     }

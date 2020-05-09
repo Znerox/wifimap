@@ -253,6 +253,10 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
+input[type="date"] {
+  cursor: pointer;
+}
+
 input[type="radio"] {
   cursor: pointer;
 }
