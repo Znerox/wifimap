@@ -20,5 +20,5 @@ If your Docker host is on 192.168.1.10, the various webpages will now be availab
 * Tools for uploading data:  192.168.1.10/tools
 * Bluetooth clients: 192.168.1.10/bluetooth
 * Database management: 192.168.1.10:8080 (login is root/password)  
-  
+
 For more details and screenshots, take a look at the [Wiki](https://github.com/Znerox/wifimap/wiki).
