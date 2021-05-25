@@ -10,6 +10,12 @@ services:
       - 80:80
     depends_on:
         - wifimap-mysql
+    environment:
+      - server=wifimap-mysql
+      - database=wifimap
+      - username=root
+      - password=password
+
 
   wifimap-phpmyadmin:
     image: phpmyadmin/phpmyadmin
