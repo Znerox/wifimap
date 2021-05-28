@@ -11,10 +11,10 @@ services:
     depends_on:
         - wifimap-mysql
     environment:
-      - server=wifimap-mysql
-      - database=wifimap
-      - username=root
-      - password=password
+        - server=wifimap-mysql
+        - database=wifimap
+        - username=root
+        - password=password
 
 
   wifimap-phpmyadmin:

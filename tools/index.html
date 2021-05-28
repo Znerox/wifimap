@@ -17,7 +17,7 @@
       <div id="network_import" class="specific">
         <h3>Upload network file</h3>
         <form action="php/network_import.php" method="post" enctype="multipart/form-data">
-          <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
+          <input type="file" name="fileToUpload" id="fileToUpload">
           <input type="submit" value="Upload file" name="submit">
         </form>
         <p>Upload the "network" file from wigle<br>WiFi networks and Bluetooth devices</p>
@@ -26,7 +26,7 @@
       <div id="location_import" class="specific">
         <h3>Upload location file</h3>
         <form action="php/location_import.php" method="post" enctype="multipart/form-data">
-          <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
+          <input type="file" name="fileToUpload" id="fileToUpload">
           <input type="submit" value="Upload file" name="submit">
         </form>
         <p>Upload the "location" file from wigle<br>WiFi networks and Bluetooth devices</p>
@@ -35,7 +35,7 @@
       <div id="client_import" class="specific">
         <h3>Upload WiFi client file</h3>
         <form action="php/client_import.php" method="post" enctype="multipart/form-data">
-          <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
+          <input type="file" name="fileToUpload" id="fileToUpload">
           <input type="submit" value="Upload file" name="submit">
         </form>
         <p>Upload .csv files from airodump-ng (NOT *.kismet.csv)<br>WiFi clients</p>
@@ -49,17 +49,17 @@
         <h3>Update database</h3>
         <div class="database_script_button">
           <form action="php/update_sql_fields_network.php" method="get">
-            <input type="submit" value="Network" class="uploadButton">
+            <input type="submit" value="Network">
           </form>
         </div>
         <div class="database_script_button">
           <form action="php/update_sql_fields_location.php" method="get">
-            <input type="submit" value="Location" class="uploadButton">
+            <input type="submit" value="Location">
           </form>
         </div>
         <div class="database_script_button">
           <form action="php/update_sql_fields_bluetooth.php" method="get">
-            <input type="submit" value="Bluetooth" class="uploadButton">
+            <input type="submit" value="Bluetooth">
           </form>
         </div>
         <p>Run this after uploading files</p>
@@ -68,77 +68,86 @@
       <div id="vendor" class="specific">
         <h3>Lookup MAC vendors</h3>
         <div class="database_script_button">
-          <form action="php/network_mac_lookup.php" method="get">
-            <input type="submit" value="Networks" class="uploadButton">
+          <form action="php/network_mac_lookup_from_file.php" method="get">
+            <input type="submit" value="Networks">
           </form>
         </div>
         <div class="database_script_button">
-          <form action="php/client_mac_lookup.php" method="get">
-            <input type="submit" value="Clients" class="uploadButton">
+          <form action="php/client_mac_lookup_from_file.php" method="get">
+            <input type="submit" value="Clients">
           </form>
         </div>
         <div class="database_script_button">
-          <form action="php/bluetooth_mac_lookup.php" method="get">
-            <input type="submit" value="Bluetooth" class="uploadButton">
+          <form action="php/bluetooth_mac_lookup_from_file.php" method="get">
+            <input type="submit" value="Bluetooth">
           </form>
         </div>
         <p>Run this after uploading files</p>
       </div>
 
       <div id="link_clients" class="specific">
-        <h3>Link clients to routers</h3>
+        <h3>Link clients to networks</h3>
         <div class="database_script_button">
           <form action="php/set_connected_clients_in_network.php" method="get">
-            <input type="submit" value="Connected clients" class="uploadButton">
+            <input type="submit" value="Connected clients">
           </form>
         </div>
         <div class="database_script_button">
           <form action="php/set_probing_clients_in_network.php" method="get">
-            <input type="submit" value="Probing clients" class="uploadButton">
+            <input type="submit" value="Probing clients">
           </form>
         </div>
         <p>Run this after uploading files</p>
       </div>
     </div>
 
-    <h2 class="headline_text">Upload data from older versions of wigle/aircrack-ng</h2>
+    <h2 class="headline_text">Various tools</h2>
 
-    <div id="import_old" class="main">
-      <div id="old_network_import" class="specific">
-        <h3>Upload old network file</h3>
-        <form action="php/old_network_import.php" method="post" enctype="multipart/form-data">
-          <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
-          <input type="submit" value="Upload file" name="submit">
-        </form>
-        <p>Upload the "network" file from older versions of wigle</p>
+    <div id="bottom_three" class="main">
+      <div id="create_database" class="specific">
+        <h3>Create database</h3>
+        <div class="database_script_button">
+          <form action="php/dbsetup.php" method="get">
+            <input type="submit" value="Create database">
+          </form>
+        </div>
+        <p>Run this once when setting up the system</p>
       </div>
 
-      <div id="old_location_import" class="specific">
-        <h3>Upload old location file</h3>
-        <form action="php/old_location_import.php" method="post" enctype="multipart/form-data">
-          <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
-          <input type="submit" value="Upload file" name="submit">
-        </form>
-        <p>Upload the "location" file from older versions of wigle</p>
+      <div id="download_oui_file" class="specific">
+        <h3>Download OUI file from IEEE</h3>
+        <div class="database_script_button">
+          <form action="php/download_oui.php" method="get">
+            <input type="submit" value="Update local file">
+          </form>
+        </div>
+        <p>Run this only occasionally</p>
+        <p>This file is used to find MAC vendors</p>
       </div>
 
-      <div id="client_import_1dot2-rc1" class="specific">
-        <h3>Upload old client file</h3>
-        <form action="php/client_import_1.2-rc1.php" method="post" enctype="multipart/form-data">
-          <input type="file" name="fileToUpload" id="fileToUpload" class="browseButton">
-          <input type="submit" value="Upload file" name="submit">
-        </form>
-        <p>aircrack-ng version 1.2-rc1. Replaced 10 April 2015</p>
+      <div id="clear_mac_vendors" class="specific">
+        <h3>Clear MAC vendors</h3>
+        <div class="database_script_button">
+          <form action="php/network_mac_clear.php" method="get">
+            <input type="submit" value="Networks">
+          </form>
+        </div>
+        <div class="database_script_button">
+          <form action="php/clients_mac_clear.php" method="get">
+            <input type="submit" value="Clients">
+          </form>
+        </div>
+        <div class="database_script_button">
+          <form action="php/bluetooth_mac_clear.php" method="get">
+            <input type="submit" value="Bluetooth">
+          </form>
+        </div>
+        <p>Run this only very rarely</p>
+        <p>This will remove all vendor information from database</p>
       </div>
     </div>
-    <p>Some of these scripts can take a very long time to finish. After pressing a button, wait until you see a status message.</p>
-    <p>Create database first if this is the first time running.</p>
-
-    <div class="database_script_button">
-      <form action="php/dbsetup.php" method="get">
-        <input type="submit" value="Create Database" class="uploadButton">
-      </form>
-    </div>
+    <b><p style="font-size:20px;">Some of these scripts can take a very long time to finish. After pressing a button, wait until you see a status message.</p>
+    <p style="font-size:20px;">Create database first if this is the first time running.</p></b>
 
   </div>
 </body>

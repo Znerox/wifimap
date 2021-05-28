@@ -179,11 +179,7 @@ input[type="button"] {
   cursor: pointer;
 }
 
-input[type="checkbox"] {
-  cursor: pointer;
-}
-
-input[type="radio"] {
+input[type="date"] {
   cursor: pointer;
 }
 
