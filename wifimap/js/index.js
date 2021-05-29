@@ -5,7 +5,7 @@
 // a predefined search when the page is opened.
 //------------------------------------------------
 function setVariables() {
-  searchinput = "";
+  search_input = "";
   open_network = "yes";
   wep_network = "yes";
   wpa_wps_network = "yes";
@@ -15,7 +15,7 @@ function setVariables() {
   band = "%";
   connected_clients = "%";
   probing_clients = "%";
-  vendorinput = "";
+  vendor_input = "";
   predefined_search = "%";
   activeSite = "overview";
   loadMapThemes();
@@ -57,10 +57,10 @@ function deleteMarkers() {
     wpa_no_wps_network = "no";
   }
 
-  searchinput = document.getElementById("searchinput").value;
+  search_input = document.getElementById("search_input").value;
   selected_fromtime = document.getElementById("selected_fromtime").value;
   selected_totime = document.getElementById("selected_totime").value;
-  vendorinput = document.getElementById("vendorinput").value;
+  vendor_input = document.getElementById("vendor_input").value;
   predefined_search = document.getElementById("predefined_search").value;
 
   if (document.getElementById("2.4ghz_band").checked) {
@@ -108,7 +108,14 @@ function loadMap() {
     maxZoom: 16
   };
 
-  var infoWindow = new google.maps.InfoWindow;
+  infoWindow = new google.maps.InfoWindow;
+
+  //Close info bubble when pressing escape
+  window.addEventListener("keydown", function (event) {
+    if (event.key == "Escape") {
+      infoWindow.close();
+    }
+  })
 
   downloadUrl("php/genxml.php", function(data) {
     var xml = data.responseXML;
@@ -191,7 +198,7 @@ function downloadUrl(url, callback) {
 
   request.open('POST', url, true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  request.send("open_network=" + open_network + "&wep_network=" + wep_network + "&wpa_wps_network=" + wpa_wps_network + "&wpa_no_wps_network=" + wpa_no_wps_network + "&searchinput=" + searchinput + "&selected_fromtime=" + selected_fromtime + "&selected_totime=" + selected_totime + "&band=" + band + "&connected_clients=" + connected_clients + "&probing_clients=" + probing_clients + "&vendorinput=" + vendorinput + "&predefined_search=" + predefined_search);
+  request.send("open_network=" + open_network + "&wep_network=" + wep_network + "&wpa_wps_network=" + wpa_wps_network + "&wpa_no_wps_network=" + wpa_no_wps_network + "&search_input=" + search_input + "&selected_fromtime=" + selected_fromtime + "&selected_totime=" + selected_totime + "&band=" + band + "&connected_clients=" + connected_clients + "&probing_clients=" + probing_clients + "&vendor_input=" + vendor_input + "&predefined_search=" + predefined_search);
 }
 
 //------------------------------------------------
@@ -208,7 +215,7 @@ function getLocation(BSSIDFunctionFriendly) {
 // opens a new tab, for client lookup
 //------------------------------------------------
 function openClientTab() {
-  alert("Copy client MAC, and paste in client searchbox");
+  alert("Copy client MAC, and paste in client search box");
   var clientsWindow = window.open(clientsPageAddress);
 }
 

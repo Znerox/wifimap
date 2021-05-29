@@ -8,7 +8,7 @@
   <link type="text/css" rel="stylesheet" href="css/index.css" />
   <script src="../js/API_key.js"></script>
   <!--<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY" async defer></script>-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>jQuery.getScript("https://maps.googleapis.com/maps/api/js?key=" + googleMapsJavascriptAPIKey);</script>
   <script src="../js/markerclusterer.js"></script>
   <script src="../js/oms.min.js"></script>
@@ -23,13 +23,13 @@
     <div id="map"></div>
     <div id="sidetab">
 
-      <div class="sidegroup">
+      <div id="search_group" class="sidegroup">
         <div class="sideelement">
-          <span><input type="text" class="textinput" id="searchinput" size="16" maxlength="25" placeholder="BD_ADDR / Name" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="searchbutton" onclick="deleteMarkers();" value="Search" class="searchbutton"></span>
+          <span><input type="text" class="textinput" id="search_input" size="16" maxlength="25" placeholder="BD_ADDR / Name" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="searchbutton" onclick="deleteMarkers();" value="Search" class="searchbutton"></span>
         </div>
       </div>
 
-      <div class="sidegroup">
+      <div id="lastseen_group" class="sidegroup">
         <div class="sideelement">
           <p id="last_seen_text">Last seen:</p><br>
 
@@ -42,9 +42,12 @@
         </div>
       </div>
 
-      <div id="vendorgroup" class="sidegroup">
-        <div id="vendorarea" class="sideelement">
-          <span><input type="text" class="textinput" id="vendorinput" size="16" maxlength="25" placeholder="Vendor"></span><span><input type="button" id="venderbutton" onclick="showVendors();" value="Show DB" class="searchbutton"></span>
+      <div id="vendor-capabilities_group" class="sidegroup">
+        <div id="vendor_area" class="sideelement">
+          <span><input type="text" class="textinput" id="vendor_input" size="16" maxlength="25" placeholder="Vendor" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="venderbutton" onclick="showVendors();" value="Show DB" class="searchbutton"></span>
+        </div>
+        <div id="capabilities_area" class="sideelement">
+          <span><input type="text" class="textinput" id="capabilities_input" size="16" maxlength="25" placeholder="Capabilities" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="capabilitiesbutton" onclick="showCapabilities();" value="Show DB" class="searchbutton"></span>
         </div>
       </div>
 

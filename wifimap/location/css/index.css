@@ -48,7 +48,7 @@ body {
 
 .sidegroup {
   margin: 16px 0 0 0;
-  padding: 0;
+  padding: 4px 0 0 0;
   border-radius: 32px;
   background: #0095cd; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(#00adee, #0078a5); /* For Safari 5.1 to 6.0 */

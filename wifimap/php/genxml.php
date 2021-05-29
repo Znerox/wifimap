@@ -39,194 +39,194 @@ if ($_POST['selected_totime'] == "") {
 //ONLY OPEN
 if ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "no" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "no") {
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
 	AND NOT	(CAPABILITIES LIKE '%WEP%' OR CAPABILITIES LIKE '%WPA%')
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //EVERYTHING EXCEPT OPEN
 elseif ($_POST['open_network'] == "no" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "yes" && $_POST['wpa_no_wps_network'] == "yes") {
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
 	AND	(CAPABILITIES LIKE '%WEP%' OR CAPABILITIES LIKE '%WPA%')
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //ONLY WEP
 elseif ($_POST['open_network'] == "no" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "no") {
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
 	AND	CAPABILITIES LIKE '%WEP%'
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //EVERYTHING EXCEPT WEP
 elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "no" && $_POST['wpa_wps_network'] == "yes" && $_POST['wpa_no_wps_network'] == "yes") {
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
 	AND NOT	CAPABILITIES LIKE '%WEP%'
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //ONLY WPA WITH WPS
 elseif ($_POST['open_network'] == "no" && $_POST['wep_network'] == "no" && $_POST['wpa_wps_network'] == "yes" && $_POST['wpa_no_wps_network'] == "no") {
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
 	AND	(CAPABILITIES LIKE '%WPA%' AND CAPABILITIES LIKE '%WPS%' AND CAPABILITIES NOT LIKE '%WEP%')
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //EVERYTHING EXCEPT WPA WITH WPS
 elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "yes") {
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
 	AND NOT	(CAPABILITIES LIKE '%WPA%' AND CAPABILITIES LIKE '%WPS%' AND CAPABILITIES NOT LIKE '%WEP%')
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //ONLY WPA WITHOUT WPS
 elseif ($_POST['open_network'] == "no" && $_POST['wep_network'] == "no" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "yes") {
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
 	AND	(CAPABILITIES LIKE '%WPA%' AND CAPABILITIES NOT LIKE '%WEP%' AND CAPABILITIES NOT LIKE '%WPS%')
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //EVERYTHING EXCEPT WPA WITHOUT WPS
 elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "yes" && $_POST['wpa_no_wps_network'] == "no") {
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch'	AND LASTTIME < '$selected_totime_epoch')
 	AND NOT	(CAPABILITIES LIKE '%WPA%' AND CAPABILITIES NOT LIKE '%WEP%' AND CAPABILITIES NOT LIKE '%WPS%')
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //ONLY OPEN + WEP
 elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "no") {
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
 	AND	((CAPABILITIES NOT LIKE '%WEP%'	AND CAPABILITIES NOT LIKE '%WPA%') OR (CAPABILITIES LIKE '%WEP%'))
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //ONLY OPEN + WPA WITH WPS
 elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "no" && $_POST['wpa_wps_network'] == "yes" && $_POST['wpa_no_wps_network'] == "no") {
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
 	AND	((CAPABILITIES NOT LIKE '%WEP%'	AND CAPABILITIES NOT LIKE '%WPA%') OR (CAPABILITIES LIKE '%WPA%' AND CAPABILITIES LIKE '%WPS%' AND CAPABILITIES NOT LIKE '%WEP%'))
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //ONLY OPEN + WPA WITHOUT WPS
 elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "no" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "yes")	{
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
 	AND	((CAPABILITIES NOT LIKE '%WEP%'	AND CAPABILITIES NOT LIKE '%WPA%') OR (CAPABILITIES LIKE '%WPA%' AND CAPABILITIES NOT LIKE '%WEP%' AND CAPABILITIES NOT LIKE '%WPS%'))
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //ONLY WEP + WPA WITH WPS
 elseif ($_POST['open_network'] == "no" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "yes" && $_POST['wpa_no_wps_network'] == "no")	{
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
 	AND NOT	((CAPABILITIES NOT LIKE '%WEP%'	AND CAPABILITIES NOT LIKE '%WPA%') OR (CAPABILITIES LIKE '%WPA%' AND CAPABILITIES NOT LIKE '%WEP%' AND CAPABILITIES NOT LIKE '%WPS%'))
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //ONLY WEP + WPA WITHOUT WPS
 elseif ($_POST['open_network'] == "no" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "yes")	{
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
 	AND NOT	((CAPABILITIES NOT LIKE '%WEP%'	AND CAPABILITIES NOT LIKE '%WPA%') OR (CAPABILITIES LIKE '%WPA%' AND CAPABILITIES LIKE '%WPS%' AND CAPABILITIES NOT LIKE '%WEP%'))
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //ONLY WPA (BOTH TYPES)
 elseif ($_POST['open_network'] == "yes" && $_POST['wep_network'] == "yes" && $_POST['wpa_wps_network'] == "no" && $_POST['wpa_no_wps_network'] == "no")	{
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
   AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
 	AND NOT	((CAPABILITIES NOT LIKE '%WEP%'	AND CAPABILITIES NOT LIKE '%WPA%') OR (CAPABILITIES LIKE '%WEP%'))
   AND BAND LIKE '$_POST[band]'
   AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
   AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
   AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 
 //IF NOTHING MATCHES/DEFAULT
 else {
 	$query = "SELECT * FROM network WHERE
-	(SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+	(SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
 	AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
 	AND BAND LIKE '$_POST[band]'
 	AND CONNECTED_CLIENTS LIKE '%$_POST[connected_clients]%'
 	AND PROBING_CLIENTS LIKE '%$_POST[probing_clients]%'
-	AND VENDOR LIKE '%$_POST[vendorinput]%'
+	AND VENDOR LIKE '%$_POST[vendor_input]%'
 	AND PREDEFINED_SEARCH LIKE '%$_POST[predefined_search]%'";
 }
 

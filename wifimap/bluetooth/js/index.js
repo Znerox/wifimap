@@ -5,10 +5,11 @@
 // a predefined search when the page is opened.
 //------------------------------------------------
 function setVariables() {
-  searchinput = "";
+  search_input = "";
   selected_fromtime = "";
   selected_totime = "";
-  vendorinput = "";
+  vendor_input = "";
+  capabilities_input = "";
   activeSite = "bluetooth";
   loadMapThemes();
 }
@@ -25,10 +26,11 @@ function deleteMarkers() {
     markersarray[i].setMap(null);
   }
 
-  searchinput = document.getElementById("searchinput").value;
+  search_input = document.getElementById("search_input").value;
   selected_fromtime = document.getElementById("selected_fromtime").value;
   selected_totime = document.getElementById("selected_totime").value;
-  vendorinput = document.getElementById("vendorinput").value;
+  vendor_input = document.getElementById("vendor_input").value;
+  capabilities_input = document.getElementById("capabilities_input").value;
 
   loadMap();
 }
@@ -55,7 +57,14 @@ function loadMap() {
     maxZoom: 16
   };
 
-  var infoWindow = new google.maps.InfoWindow;
+  infoWindow = new google.maps.InfoWindow;
+
+  //Close network info bubble when pressing escape
+  window.addEventListener("keydown", function (event) {
+    if (event.key == "Escape") {
+      infoWindow.close();
+    }
+  })
 
   downloadUrl("php/genxml.php", function(data) {
     var xml = data.responseXML;
@@ -136,7 +145,7 @@ function downloadUrl(url, callback) {
 
   request.open('POST', url, true);
   request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  request.send("searchinput=" + searchinput + "&selected_fromtime=" + selected_fromtime + "&selected_totime=" + selected_totime + "&vendorinput=" + vendorinput);
+  request.send("search_input=" + search_input + "&selected_fromtime=" + selected_fromtime + "&selected_totime=" + selected_totime + "&vendor_input=" + vendor_input + "&capabilities_input=" + capabilities_input);
 }
 
 //------------------------------------------------
@@ -160,6 +169,22 @@ function showVendors() {
     }
 
     alert('Unique vendors in database: ' + vendors.length + '\n\n' + vendorList.join('\n'));
+
+  });
+}
+
+function showCapabilities() {
+  capabilityList = [];
+  downloadUrl("php/getcapabilities.php", function(data) {
+    var xml = data.responseXML;
+    var capabilities = xml.documentElement.getElementsByTagName("capabilities");
+
+    for (var i = 0; i < capabilities.length; i++) {
+      var capability = capabilities[i].getAttribute("capabilities");
+      capabilityList.push(capability);
+    }
+
+    alert('Unique capabilities in database: ' + capabilities.length + '\n\n' + capabilityList.join('\n'));
 
   });
 }

@@ -27,9 +27,9 @@ $devicesWithNullVendor = $probeResult->num_rows;
 
 if ($devicesWithNullVendor > 0) {
 
-  echo $devicesWithNullVendor . " rows left without vendor (before the round just completed)<br>";
+  echo $devicesWithNullVendor . " devices left without vendor (before the round just completed)<br>";
   echo "Running through loop up to " . $targetLoopCount . " times, updating " . $targetLoopCount . " next 'OUI's<br>";
-  echo "All routers matching a particular OUI will be updated at once<br>";
+  echo "All devices matching a particular OUI will be updated at once<br>";
   echo "Press F5 to run script again";
   echo "<br>----------------------------------------------------------------<br>";
   echo "Found vendors:<br><br>";
@@ -60,7 +60,7 @@ if ($devicesWithNullVendor > 0) {
       // Find the length of the line. This varies based on the vendor name
       $length_of_found_vendor = strlen(implode ($match));
 
-      // Vendor name starts at position 18. There is a blank space at the end of the line, therefore the length is length-1
+      // Vendor name starts at position 18. There is a blank space at the end of the line, therefore the length is length-19
       $vendor_name = substr(implode ($match), 18, $length_of_found_vendor - 19);
 
       // Output found vendor information to webpage

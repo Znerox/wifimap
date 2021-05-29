@@ -36,9 +36,10 @@ if ($_POST['selected_totime'] == "") {
 }
 
 // Select rows in bluetooth table
-$query = "SELECT * FROM bluetooth WHERE (SSID LIKE '%$_POST[searchinput]%' OR BSSID LIKE '%$_POST[searchinput]%')
+$query = "SELECT * FROM bluetooth WHERE (SSID LIKE '%$_POST[search_input]%' OR BSSID LIKE '%$_POST[search_input]%')
 AND (LASTTIME > '$selected_fromtime_epoch' AND LASTTIME < '$selected_totime_epoch')
-AND VENDOR LIKE '%$_POST[vendorinput]%'";
+AND VENDOR LIKE '%$_POST[vendor_input]%'
+AND CAPABILITIES LIKE '%$_POST[capabilities_input]%'";
 $result = $mysqli->query($query);
 
 header("Content-type: text/xml;charset=UTF-8");
@@ -62,9 +63,6 @@ while ($row = $result->fetch_assoc()){
   $newnode->setAttribute("VENDOR", $row['vendor']);
   $newnode->setAttribute("LASTSEEN", $row['lastseen']);
   $newnode->setAttribute("ICON", $row['icon']);
-  $newnode->setAttribute("CONNECTED_CLIENTS", $row['connected_clients']);
-  $newnode->setAttribute("PROBING_CLIENTS", $row['probing_clients']);
-  $newnode->setAttribute("PREDEFINED_SEARCH", $row['predefined_search']);
 }
 
 echo $dom->saveXML();

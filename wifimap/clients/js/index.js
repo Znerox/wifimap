@@ -81,6 +81,13 @@ function loadMap() {
 
   infoWindow = new google.maps.InfoWindow;
 
+  //Close info bubble when pressing escape
+  window.addEventListener("keydown", function (event) {
+    if (event.key == "Escape") {
+      infoWindow.close();
+    }
+  })
+
   downloadUrl_clientdata("php/genxml_clientdata.php", function(data) {
     var xml_clientdata = data.responseXML;
     clients = xml_clientdata.documentElement.getElementsByTagName("client");

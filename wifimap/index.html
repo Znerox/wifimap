@@ -8,7 +8,7 @@
   <link type="text/css" rel="stylesheet" href="css/index.css" />
   <script src="js/API_key.js"></script>
   <!--<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY" async defer></script>-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>jQuery.getScript("https://maps.googleapis.com/maps/api/js?key=" + googleMapsJavascriptAPIKey);</script>
   <script src="js/markerclusterer.js"></script>
   <script src="js/oms.min.js"></script>
@@ -26,7 +26,7 @@
       <div id="search_security" class="sidegroup">
 
         <div id="searchinputarea" class="sideelement">
-          <span><input type="text" class="textinput" id="searchinput" size="16" maxlength="25" placeholder="Router SSID/MAC" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="searchbutton" onclick="deleteMarkers();" value="Search" class="searchbutton"></span>
+          <span><input type="text" class="textinput" id="search_input" size="16" maxlength="25" placeholder="Router SSID/MAC" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="searchbutton" onclick="deleteMarkers();" value="Search" class="searchbutton"></span>
         </div>
 
         <div id="securitycheckboxes" class="sideelement">
@@ -105,7 +105,7 @@
 
       <div id="vendorgroup" class="sidegroup">
         <div id="vendorarea" class="sideelement">
-          <span><input type="text" class="textinput" id="vendorinput" size="16" maxlength="25" placeholder="Vendor"></span><span><input type="button" id="venderbutton" onclick="showVendors();" value="Show DB" class="searchbutton"></span>
+          <span><input type="text" class="textinput" id="vendor_input" size="16" maxlength="25" placeholder="Vendor" onkeydown="if (event.keyCode == 13) document.getElementById('searchbutton').click()"></span><span><input type="button" id="venderbutton" onclick="showVendors();" value="Show DB" class="searchbutton"></span>
         </div>
       </div>
 

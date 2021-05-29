@@ -155,8 +155,16 @@ body {
   text-align: left;
 }
 
-#vendorarea {
-  padding: 8px 0 8px 0;
+#search_group {
+  padding: 4px 0 4px 0;
+}
+
+#lastseen_group {
+  padding: 0px 0 4px 0;
+}
+
+#vendor-capabilities_group {
+  padding: 4px 0 4px 0;
 }
 
 /*##############################

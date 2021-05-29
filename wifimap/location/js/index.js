@@ -3,8 +3,12 @@
 // Is called whenpage is first loaded
 //------------------------------------------------
 function setVariables() {
+  //Let user know that this page does not work when accessed directly
+  if (window.opener == null) {
+    alert("This page is not meant to be accessed directly");
+  }
   bssid = window.opener.bssid;
-  bestLevel = "-1000";
+  bestLevel = -1000;
   bestLat = window.opener.mapCenterLatitude;
   bestLon = window.opener.mapCenterLongitude;
   activeSite = "location";
@@ -42,7 +46,14 @@ function loadMap() {
   map.setOptions({
     styles: mapThemeLocation
   });
-  var infoWindow = new google.maps.InfoWindow;
+  infoWindow = new google.maps.InfoWindow;
+
+  //Close info bubble when pressing escape
+  window.addEventListener("keydown", function (event) {
+    if (event.key == "Escape") {
+      infoWindow.close();
+    }
+  })
 
   downloadUrl("php/genxml.php", function(data) {
     var xml = data.responseXML;
@@ -63,7 +74,7 @@ function loadMap() {
       var ACCURACY = markers[i].getAttribute("ACCURACY");
       var DATE = markers[i].getAttribute("DATE");
 
-      if (LEVEL > bestLevel) {
+      if (parseInt(LEVEL) > parseInt(bestLevel)) {
         bestLevel = LEVEL;
         bestLat = LAT;
         bestLon = LON;
