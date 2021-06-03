@@ -11,6 +11,24 @@ function setVariables() {
   show_probing = "yes";
   show_false_positives = "no";
   activeSite = "clients";
+
+  if (window.opener == null) {
+    connectedClientsList = "";
+    probingClientsList = "";
+  } else {
+    connectedClientsList = window.opener.connectedClientsList;
+    probingClientsList = window.opener.probingClientsList;
+  }
+
+  connectedClientsArray = [];
+  connectedClientsFormatedArray = [];
+  connectedList = "";
+  probingClientsArray = [];
+  probingClientsFormatedArray = [];
+  probingList = "";
+
+  selectedMACnumber = "";
+  selectedMAC = "";
   loadMapThemes();
 }
 
@@ -128,6 +146,65 @@ function loadMap() {
     getNetworkData();
 
   }); //END downloadUrl
+
+  //This code is run when page is loaded
+  probingClientsArray = window.opener.probingClientsList.split("<br>");
+  connectedClientsArray = window.opener.connectedClientsList.split("<br>");
+
+  //Black magic to make a prompt for selecting client
+  for (var i = 0; i < probingClientsArray.length-2; i++) {
+    var num = i+1;
+    probingClientsFormatedArray[i] = "P" + num + ": " + probingClientsArray[i+1];
+  }
+  //Make a long string (list) based on the array of probing clients
+  probingList = probingClientsFormatedArray.join("\n");
+
+  for (var i = 0; i < connectedClientsArray.length-2; i++) {
+    var num = i+1;
+    connectedClientsFormatedArray[i] = "C" + num + ": " + connectedClientsArray[i+1];
+  }
+  //Make a long string (list) based on the array of connected clients
+  connectedList = connectedClientsFormatedArray.join("\n");
+
+  //Only display prompt when the page is first loaded
+  if (document.getElementById("searchinput").value == "") {
+
+    //Only display relevant headlines in prompt. length will be 1 if there is no data (3 if there is 1 item in array, 4 if there is 2 etc.)
+    //First, check if there is a total of 1 client MAC sent from "network" page
+    if ((probingClientsArray.length == 3 && connectedClientsArray.length == 1) || (probingClientsArray.length == 1 && connectedClientsArray.length == 3)) {
+      //If there was only one MAC sent, check if it was a probing client, or a connected client
+      if (probingClientsArray.length == 3 && connectedClientsArray.length == 1) {
+        selectedMAC = probingClientsArray[1];
+        selectedMACnumber = "thisCannotBeEmpty";
+      } else if (probingClientsArray.length == 1 && connectedClientsArray.length == 3) {
+        selectedMAC = connectedClientsArray[1];
+        selectedMACnumber = "thisCannotBeEmpty";
+      }
+    //Check for other combinations of probing clients and connected clients
+    } else if (probingClientsArray.length > 1 && connectedClientsArray.length > 1) {
+      selectedMACnumber = prompt("Select which client you want to see data for (write P1, C1 etc.)\n\nProbing clients of selected network:\n" + probingList + "\n\nConnected clients of selected network:\n" + connectedList);
+    } else if (probingClientsArray.length > 3 && connectedClientsArray.length == 1) {
+      selectedMACnumber = prompt("Select which client you want to see data for (write P1, C1 etc.)\n\nProbing clients of selected network:\n" + probingList);
+    } else if (probingClientsArray.length == 1 && connectedClientsArray.length > 3) {
+      selectedMACnumber = prompt("Select which client you want to see data for (write P1, C1 etc.)\n\nConnected clients of selected network:\n" + connectedList);
+    } else {
+      selectedMACnumber = "";
+    }
+  }
+  //Don't search for client data if selected network did not have any data
+  if (selectedMACnumber != "") {
+
+    //Store user-selected MAC address to variable
+    if (selectedMACnumber.charAt(0) == "P" || selectedMACnumber.charAt(0) == "p") {
+      selectedMAC = probingClientsArray[selectedMACnumber.charAt(1)];
+    } else if (selectedMACnumber.charAt(0) == "C" || selectedMACnumber.charAt(0) == "c") {
+      selectedMAC = connectedClientsArray[selectedMACnumber.charAt(1)];
+    }
+
+    //Write selectedMAC to search box, then click the button
+    document.getElementById("searchinput").value = selectedMAC;
+    document.getElementById('searchbutton').click()
+  }
 
 } //END loadMap
 

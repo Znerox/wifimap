@@ -18,6 +18,8 @@ function setVariables() {
   vendor_input = "";
   predefined_search = "%";
   activeSite = "overview";
+  connectedClientsList = "";
+  probingClientsList = "";
   loadMapThemes();
 }
 
@@ -150,11 +152,15 @@ function loadMap() {
         parseFloat(BESTLAT),
         parseFloat(BESTLON));
 
+
+      //This makes it so the buttons inside the pop-up windows will pass information about the network to their respective functions
+      //In turn, that makes it possible to pass this data to the "location" and "clients" pages
       var BSSIDFunctionFriendly = '"' + BSSID + '"';
-      var SSIDFunctionFriendly = '"' + SSID + '"';
+      var connectedClientsFunctionFriendly = '"' + CONNECTED_CLIENTS + '"';
+      var probingClientsFunctionFriendly = '"' + PROBING_CLIENTS + '"';
 
       //This is the pop-up window that appears when clicking on a network
-      var html = "<b>SSID: </b>" + SSID + "<br><b>MAC: </b>" + BSSID + "<br><b>Vendor: </b>" + VENDOR + "<br><br><b>Capabilities: </b>" + CAPABILITIES + "<br><b>Channel: </b>" + CHANNEL + " (" + FREQUENCY + " MHz)<br><b>Signal: </b>" + BESTLEVEL + " dBm<br><b>Last seen: </b>" + LASTSEEN + "<br><br><b>Connected clients: </b>" + CONNECTED_CLIENTS + "<br><b>Probing clients: </b>" + PROBING_CLIENTS + "<br><input type='button' onclick='getLocation(" + BSSIDFunctionFriendly + ");' value='Precise location' class='infoWindowSearchButton'>   <input type='button' id='showclients' onclick='openClientTab();' value='Client info' class='infoWindowSearchButton'>";
+      var html = "<b>SSID: </b>" + SSID + "<br><b>MAC: </b>" + BSSID + "<br><b>Vendor: </b>" + VENDOR + "<br><br><b>Capabilities: </b>" + CAPABILITIES + "<br><b>Channel: </b>" + CHANNEL + " (" + FREQUENCY + " MHz)<br><b>Signal: </b>" + BESTLEVEL + " dBm<br><b>Last seen: </b>" + LASTSEEN + "<br><br><b>Connected clients: </b>" + CONNECTED_CLIENTS + "<br><b>Probing clients: </b>" + PROBING_CLIENTS + "<br><input type='button' onclick='getLocation(" + BSSIDFunctionFriendly + ");' value='Precise location' class='infoWindowSearchButton'>   <input type='button' id='showclients' onclick='openClientTab(" + connectedClientsFunctionFriendly + "," + probingClientsFunctionFriendly + ");' value='Client info' class='infoWindowSearchButton'>";
 
       var marker = new google.maps.Marker({
         map: map,
@@ -214,8 +220,11 @@ function getLocation(BSSIDFunctionFriendly) {
 // openClientTab
 // opens a new tab, for client lookup
 //------------------------------------------------
-function openClientTab() {
-  alert("Copy client MAC, and paste in client search box");
+function openClientTab(connectedClients,probingClients) {
+  //Read the data passed to this function, and write it to global variables
+  //Those variables will be read by the "clients" page
+  connectedClientsList = connectedClients;
+  probingClientsList = probingClients;
   var clientsWindow = window.open(clientsPageAddress);
 }
 
