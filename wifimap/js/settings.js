@@ -72,9 +72,9 @@ function loadSettings() {
 
   // At what IP/hostname is the web server running? This option is only included in case the default somehow doesn't work
   // Valid examples are: http://192.168.1.31/wifimap/location OR http://wifimap.mydomain.net/location
-  locationPageAddress = "http://" + location.host +"/wifimap/location";
-  clientsPageAddress = "http://" + location.host + "/wifimap/clients";
-  bluetoothPageAddress = "http://" + location.host + "/wifimap/bluetooth";
+  locationPageAddress = "http://" + location.host +"/location";
+  clientsPageAddress = "http://" + location.host + "/clients";
+  bluetoothPageAddress = "http://" + location.host + "/bluetooth";
 
 
   // If this is set, any location data with an accuracy higher than this (less accurate) doesn't display in the location view

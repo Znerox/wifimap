@@ -27,7 +27,7 @@ if ($networksWithNullDate > 0) {
 
     // Convert from epoch time to human readable date
     $dt = new DateTime("@$epochtime");
-    $humantime = $dt->format('d-m-Y');
+    $humantime = $dt->format('Y-m-d');
     $mysqli->query("UPDATE location SET date='" . $humantime . "' WHERE time LIKE '" . $row['time'] . "'");
   }
 

@@ -59,7 +59,7 @@ function loadMap() {
 
   infoWindow = new google.maps.InfoWindow;
 
-  //Close network info bubble when pressing escape
+  //Close info bubble when pressing escape
   window.addEventListener("keydown", function (event) {
     if (event.key == "Escape") {
       infoWindow.close();

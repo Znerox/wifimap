@@ -7,9 +7,48 @@
   <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32">
   <link type="text/css" rel="stylesheet" href="css/index.css" />
 
+  <script type="text/javascript">
+
+function doNothing() {}
+
+//------------------------------------------------
+// downloadUrl
+// sends form data to server and receives xml file
+// with network data in return
+//------------------------------------------------
+function downloadUrl(url, callback) {
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function() {
+    if (request.readyState == 4) {
+      request.onreadystatechange = doNothing;
+      callback(request, request.status);
+    }
+  };
+
+  request.open('POST', url, true);
+  request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  request.send();
+}
+
+  window.onload = function() {
+    downloadUrl("php/check_version.php", function(data) {
+      var xml = data.responseXML;
+      var versionElement = xml.documentElement.getElementsByTagName("version");
+      var version = versionElement[0].getAttribute("version");
+
+      if(version != "2022-10-06"){
+        alert("Your database is version " + version + "\nThe newest version should be 2022-10-06\n\nYou should:\n1: Delete the database in phpMyAdmin\n2: Press 'Create database' on this page\n3: Upload data again (network/location files)\n4: 'Update additional info'");
+      }       
+  });
+    }
+    </script>
+
 </head>
 
 <body>
+  <form action="php/check_version.php" method="post" enctype="multipart/form-data" name="checkVersion">
+  </form>
+
   <div id="pagecontent">
     <h2 class="headline_text">Upload data</h2>
 
@@ -63,10 +102,11 @@
           </form>
         </div>
         <p>Run this after uploading files</p>
+        <p>This will fill in missing information in database</p>
       </div>
 
       <div id="vendor" class="specific">
-        <h3>Lookup MAC vendors</h3>
+        <h3>Find equipment manufacturer</h3>
         <div class="database_script_button">
           <form action="php/network_mac_lookup_from_file.php" method="get">
             <input type="submit" value="Networks">
@@ -83,6 +123,7 @@
           </form>
         </div>
         <p>Run this after uploading files</p>
+        <p>This will find manufacturer based on MAC address</p>
       </div>
 
       <div id="link_clients" class="specific">
@@ -98,6 +139,7 @@
           </form>
         </div>
         <p>Run this after uploading files</p>
+        <p>This will find connections between networks and clients</p>
       </div>
     </div>
 
@@ -112,6 +154,7 @@
           </form>
         </div>
         <p>Run this once when setting up the system</p>
+        <p>Needs SQL privileges. (Limit to database afterward)</p>
       </div>
 
       <div id="download_oui_file" class="specific">
@@ -122,7 +165,7 @@
           </form>
         </div>
         <p>Run this only occasionally</p>
-        <p>This file is used to find MAC vendors</p>
+        <p>This file is used to find equipment manufacturer</p>
       </div>
 
       <div id="clear_mac_vendors" class="specific">
@@ -142,7 +185,7 @@
             <input type="submit" value="Bluetooth">
           </form>
         </div>
-        <p>Run this only very rarely</p>
+        <p>This can be used to rematch MAC address to vendor</p>
         <p>This will remove all vendor information from database</p>
       </div>
     </div>

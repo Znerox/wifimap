@@ -64,13 +64,19 @@ if ($handle) {
         //check if the bssid lookup returned any results
         if (!$bssid_query_result_array) {
           //BSSID not found in database, proceeding to add it
-          $mysqli->query("INSERT INTO `network`(bssid, ssid, frequency, capabilities, lasttime, lastlat, lastlon, type, bestlevel, bestlat, bestlon) VALUES ('$router_bssid', '$router_ssid', '$router_frequency', '$router_capabilities', '$router_lasttime', '$router_lastlat', '$router_lastlon', '$router_type', '$router_bestlevel', '$router_bestlat', '$router_bestlon')");
+          //escape special characters first
+          $query = sprintf("INSERT INTO `network`(bssid, ssid, frequency, capabilities, lasttime, lastlat, lastlon, type, bestlevel, bestlat, bestlon) VALUES ('$router_bssid', '%s', '$router_frequency', '$router_capabilities', '$router_lasttime', '$router_lastlat', '$router_lastlon', '$router_type', '$router_bestlevel', '$router_bestlat', '$router_bestlon')", $mysqli->real_escape_string($router_ssid));
+          $mysqli->query($query);
         } else {
           //BSSID found in database. check if uploaded data is newer than database
           if ($router_lasttime > $bssid_query_result_array['lasttime']) {
             //uploaded data is newer than existing data in db
+            //set a flag in database that will be used by the "update database" button in the tools page
+            $mysqli->query("UPDATE network SET needs_update='1' WHERE bssid LIKE '$router_bssid'");
             //if bssid is  found in database, and uploaded data is newer than database, this updates ssid, frequency, capabilities, lasttime, lastlat, lastlon, type
-            $mysqli->query("UPDATE network SET ssid='$router_ssid', frequency='$router_frequency', capabilities='$router_capabilities', lasttime='$router_lasttime', lastlat='$router_lastlat', lastlon='$router_lastlon', type='$router_type' WHERE bssid LIKE '$router_bssid'");
+            //escape special characters first
+            $query = sprintf("UPDATE network SET ssid='%s', frequency='$router_frequency', capabilities='$router_capabilities', lasttime='$router_lasttime', lastlat='$router_lastlat', lastlon='$router_lastlon', type='$router_type' WHERE bssid LIKE '$router_bssid'", $mysqli->real_escape_string($router_ssid));
+            $mysqli->query($query);
 
             //check if uploaded SSID matches SSID from db. if changed, overwrite bestlevel/bestlat/bestlon. SSID is changed, so it should be treated like a new network.
             if ($router_ssid == $bssid_query_result_array['ssid']) {
@@ -113,12 +119,17 @@ if ($handle) {
         //check if the bssid lookup returned any results
         if (!$bssid_query_result_array) {
           //BSSID not found in database, proceeding to add it
-          $mysqli->query("INSERT INTO `bluetooth`(bssid, ssid, frequency, capabilities, lasttime, lastlat, lastlon, type, bestlevel, bestlat, bestlon) VALUES ('$router_bssid', '$router_ssid', '$router_frequency', '$router_capabilities', '$router_lasttime', '$router_lastlat', '$router_lastlon', '$router_type', '$router_bestlevel', '$router_bestlat', '$router_bestlon')");
+          //escape special characters first
+          $query = sprintf("INSERT INTO `bluetooth`(bssid, ssid, frequency, capabilities, lasttime, lastlat, lastlon, type, bestlevel, bestlat, bestlon) VALUES ('$router_bssid', '%s', '$router_frequency', '$router_capabilities', '$router_lasttime', '$router_lastlat', '$router_lastlon', '$router_type', '$router_bestlevel', '$router_bestlat', '$router_bestlon')", $mysqli->real_escape_string($router_ssid));
+          $mysqli->query($query);
+
         } else {
           //BSSID found in database. check if uploaded data is newer than database
           if ($router_lasttime > $bssid_query_result_array['lasttime']) {
             //uploaded data is newer than existing data in db
-            //if bssid is  found in database, and uploaded data is newer than database, frequency, capabilities, lasttime, lastlat, lastlon, type
+            //set a flag in database that will be used by the "update database" button in the tools page
+            $mysqli->query("UPDATE bluetooth SET needs_update='1' WHERE bssid LIKE '$router_bssid'");
+            //if bssid is  found in database, and uploaded data is newer than database, this updates frequency, capabilities, lasttime, lastlat, lastlon, type
             $mysqli->query("UPDATE bluetooth SET frequency='$router_frequency', capabilities='$router_capabilities', lasttime='$router_lasttime', lastlat='$router_lastlat', lastlon='$router_lastlon' , type='$router_type' WHERE bssid LIKE '$router_bssid'");
 
             //this is in "uploaded date is newer than db data". checks if uploaded name matches name from db
@@ -126,7 +137,9 @@ if ($handle) {
             //uploaded name does not match name stored in db
             if ($bssid_query_result_array['ssid'] == "") {
               //the device is already stored in db with empty name. add a name to it
-              $mysqli->query("UPDATE bluetooth SET ssid='$router_ssid' WHERE bssid LIKE '$router_bssid'");
+              //escape special characters first
+              $query = sprintf("UPDATE bluetooth SET ssid='%s' WHERE bssid LIKE '$router_bssid'", $mysqli->real_escape_string($router_ssid));
+              $mysqli->query($query);
               echo "Name for device: $router_bssid have changed since the device was last seen<br>old name: $bssid_query_result_array[ssid], new name: $router_ssid<br><br>";
             }
           }
