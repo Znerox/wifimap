@@ -33,6 +33,12 @@ function downloadUrl(url, callback) {
   window.onload = function() {
     downloadUrl("php/check_version.php", function(data) {
       var xml = data.responseXML;
+
+      //workaround to alert user if database structure is out of date
+      if(xml==null){
+        alert("NOT ABLE TO CHECK DATABASE VERSION\n\nIF THIS IS THE FIRST TIME RUNNING:\n1: Press 'Create database' on this page\n\nIF YOU HAVE CREATED THE DATABASE PREVIOUSLY,\nAND ARE SEEING THIS AFTER UPDATING WIFIMAP:\n1: Delete the database in phpMyAdmin\n2: Press 'Create database' on this page\n3: Upload data again (network/location files)\n4: 'Update additional info'");
+      }
+
       var versionElement = xml.documentElement.getElementsByTagName("version");
       var version = versionElement[0].getAttribute("version");
 
