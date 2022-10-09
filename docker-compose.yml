@@ -15,6 +15,7 @@ services:
         - database=wifimap
         - username=root
         - password=password
+        - environment=release
 
 
   wifimap-phpmyadmin:
@@ -35,9 +36,6 @@ services:
     container_name: wifimap-mysql
     restart: always
     volumes:
-        - db_data:/var/lib/mysql
+        - ./wifimap_db_data:/var/lib/mysql
     environment:
         MYSQL_ROOT_PASSWORD: password
-
-volumes:
-  db_data:
