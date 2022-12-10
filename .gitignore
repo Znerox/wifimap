@@ -1,5 +1,4 @@
 **/Thumbs.db
 /wifimap/tools/php/uploads
 **/.dockerignore
-**/Dockerfile
 *.csv
