@@ -1,0 +1,61 @@
+version: "3.2"
+
+services:
+  wifimap:
+    image: nulldevil/wifimap:aarch64
+    hostname: wifimap
+    depends_on:
+        - wifimap-mysql
+    networks:
+        - traefik_public
+        - internal
+    deploy:
+      resources:
+        limits:
+          cpus: '1.75' # one cpu
+          memory: 380M
+      placement:
+        constraints: [node.labels.name == node3]
+      labels:
+        # traefik common
+        - traefik.enable=true
+        - traefik.docker.network=traefik_public
+
+        # traefikv1
+        - traefik.frontend.rule=Host:wifi.yourdomain.com
+        - traefik.port=80
+
+        # traefikv2
+        - "traefik.http.routers.wifi.rule=Host(`wifi.yourdomain.com`)"
+        - "traefik.http.services.wifi.loadbalancer.server.port=80"
+    environment:
+        api_key: "api key from google"
+        server: "wifimap-mysql"
+        database: "wifimap"
+        username: "root"
+        password: "password"
+        environment: "release"
+  wifimap-mysql:
+    image: mysql
+    hostname: wifimap-mysql
+    networks:
+        - internal
+    volumes:
+        - ./wifimap_db_data:/var/lib/mysql
+    environment:
+        MYSQL_ROOT_PASSWORD: "password"
+    deploy:
+      resources:
+        limits:
+          cpus: '1.75' # one cpu
+          memory: 380M
+      placement:
+        constraints: [node.labels.name == node3]
+networks:
+  traefik_public:
+    external: true
+  internal:
+    driver: overlay
+    ipam:
+      config:
+        - subnet: 172.16.20.0/24

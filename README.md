@@ -14,6 +14,14 @@ $ docker-compose up -d
 ````
 Docker setup is explained in more [detail here](https://github.com/Znerox/wifimap/wiki/Running-in-Docker-(recommended)).  
 If you want to run the system in a more traditional way, by install a web server and database yourself, that's [no problem](https://github.com/Znerox/wifimap/wiki/Installation-without-Docker).
+
+### Docker swarm support on ARM64 (aarch64) architecture
+
+```
+make up_aarch64
+```
+
+
 ### How to use  
 If your Docker host is on 192.168.1.10, the various webpages will now be available on these ports/addresses:  
 * Map of WiFi networks: 192.168.1.10
