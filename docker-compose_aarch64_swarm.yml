@@ -29,6 +29,7 @@ services:
         - "traefik.http.routers.wifi.rule=Host(`wifi.yourdomain.com`)"
         - "traefik.http.services.wifi.loadbalancer.server.port=80"
     environment:
+        api_key: "api key from google"
         server: "wifimap-mysql"
         database: "wifimap"
         username: "root"

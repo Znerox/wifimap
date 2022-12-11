@@ -1,6 +1,6 @@
 <?php
-$username=getenv('username');
-$password=getenv('password');
-$server=getenv('server');
-$database=getenv('database');
+$username=getenv('username') ?? "MYSQL_USERNAME";
+$password=getenv('password') ?? "MYSQL_PASSWORD";
+$server=getenv('server') ?? "localhost";
+$database=getenv('database') ?? "wifimap";
 ?>
