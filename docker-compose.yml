@@ -15,7 +15,8 @@ services:
         - password=password
         - environment=release
         - google_maps_api_key=YOUR_API_KEY
-
+        # https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key
+        # "Maps Demo Key" probably works fine 
 
   wifimap-phpmyadmin:
     image: phpmyadmin/phpmyadmin
