@@ -1,13 +1,11 @@
-version: "2"
-
 services:
   wifimap:
-    image: znerox/wifimap
+    image: ghcr.io/znerox/wifimap:latest
     hostname: wifimap
     container_name: wifimap
-    restart: always
+    restart: unless-stopped
     ports:
-      - 80:80
+        - 80:80
     depends_on:
         - wifimap-mysql
     environment:
@@ -16,13 +14,14 @@ services:
         - username=root
         - password=password
         - environment=release
+        - google_maps_api_key=YOUR_API_KEY
 
 
   wifimap-phpmyadmin:
     image: phpmyadmin/phpmyadmin
     hostname: wifimap-phpmyadmin
     container_name: wifimap-phpmyadmin
-    restart: always
+    restart: unless-stopped
     ports:
         - 8080:80
     environment:
@@ -31,10 +30,10 @@ services:
         - wifimap-mysql
 
   wifimap-mysql:
-    image: mysql
+    image: mysql:8.4
     hostname: wifimap-mysql
     container_name: wifimap-mysql
-    restart: always
+    restart: unless-stopped
     volumes:
         - ./wifimap_db_data:/var/lib/mysql
     environment:
