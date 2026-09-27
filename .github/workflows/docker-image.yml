@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build wifimap . --file Dockerfile --tag ghcr.io/znerox/wifimap:latest
+      run: docker build wifimap --tag ghcr.io/znerox/wifimap:latest
